@@ -25,4 +25,12 @@ RSpec.describe 'Candidate completion boundary', type: :request do
     expect(Portfolio.where(session_id: session.id).count).to eq(1)
     expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
   end
+  it 'A07 candidate recovery info preserves the persisted failure reason' do
+    session = session_for(organization('failed-info'),status:'ended')
+    session.update!(end_reason:'error')
+    get "/api/v1/sessions/#{session.invite_token}/candidate"
+    expect(response).to have_http_status(:ok)
+    expect(JSON.parse(response.body).fetch('end_reason')).to eq('error')
+  end
+
 end

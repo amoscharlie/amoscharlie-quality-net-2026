@@ -1,0 +1,32 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 63624
+
+Candidate completion boundary
+  A07 candidate recovery info preserves the persisted failure reason (FAILED - 1)
+2026-10-10T17:01:26.531Z pid=14639 tid=3or INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  ends covered sessions once, preserving duration and a single portfolio
+  A02 rejects completion before the interview started
+  A02 rejects an active session with uncovered skills
+
+Failures:
+
+  1) Candidate completion boundary A07 candidate recovery info preserves the persisted failure reason
+     Failure/Error: expect(JSON.parse(response.body).fetch('end_reason')).to eq('error')
+
+     KeyError:
+       key not found: "end_reason"
+     # ./spec/requests/session_completion_spec.rb:33:in `fetch'
+     # ./spec/requests/session_completion_spec.rb:33:in `block (2 levels) in <top (required)>'
+
+Finished in 0.27296 seconds (files took 0.71153 seconds to load)
+4 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/requests/session_completion_spec.rb:28 # Candidate completion boundary A07 candidate recovery info preserves the persisted failure reason
+
+Randomized with seed 63624
+

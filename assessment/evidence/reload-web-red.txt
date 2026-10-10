@@ -1,0 +1,36 @@
+
+> skill-review-web@0.0.0 test
+> vitest run
+
+
+ RUN  v5.0.3 <workspace>/web
+
+ ❯ src/test/risk-paths.test.tsx (6 tests | 1 failed) 199ms
+   × A07 reloaded failed termination does not claim successful recording 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/risk-paths.test.tsx > A07 reloaded failed termination does not claim successful recording
+Error: expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <h2
+  class="text-xl font-semibold"
+>
+  Interview Complete
+</h2> instead
+ ❯ src/test/risk-paths.test.tsx:56:55
+     54|  page(<InterviewPage/>,'/interview/failed-session');
+     55|  await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTh…
+     56|  expect(screen.queryByText('Interview Complete')).not.toBeInTheDocumen…
+       |                                                       ^
+     57|  expect(screen.getByRole('alert')).toBeInTheDocument();
+     58| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 9 passed (10)
+   Start at  00:01:23
+   Duration  1.42s (environment 58%, tests 12%, transform 11%, setup 11%, import 8%)
+

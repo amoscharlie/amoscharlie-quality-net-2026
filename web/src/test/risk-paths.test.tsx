@@ -48,3 +48,11 @@ it('A08 shows the API expected level in the Required column',async()=>{
  const view=render(<ComparisonTable comparisons={[{skill_label:'Frontend',expected_level:3,candidate_level:2,result:'gap',delta:-1} as any]}/>);
  expect(view.container.querySelectorAll('tbody td')[1]).toHaveTextContent('L3');
 });
+
+it('A07 reloaded failed termination does not claim successful recording',async()=>{
+ mocks.candidate.mockResolvedValue({data:{session_id:1,role_title:'Engineer',time_limit_min:10,session_status:'ended',end_reason:'error'}});
+ page(<InterviewPage/>,'/interview/failed-session');
+ await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTheDocument());
+ expect(screen.queryByText('Interview Complete')).not.toBeInTheDocument();
+ expect(screen.getByRole('alert')).toBeInTheDocument();
+});
