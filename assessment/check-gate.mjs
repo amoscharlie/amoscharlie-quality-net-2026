@@ -11,8 +11,8 @@ export function checkInputs(body) {
  }
 }
 export function checkChangedFiles(files) {
- const production=files.some(f=> /^(api\/app\/|web\/src\/)/.test(f) && !/(spec|test)\//.test(f) && !/\.test\./.test(f));
- const test=files.some(f=> /api\/spec\/.*_spec\.rb$|web\/src\/.*\.test\.tsx?$/.test(f));
+ const production=files.some(f=> /^(api\/app\/|web\/src\/|api\/db\/migrate\/|\.github\/workflows\/|assessment\/check-(gate|release)\.mjs$)/.test(f) && !/(spec|test)\//.test(f) && !/\.test\./.test(f));
+ const test=files.some(f=> /api\/spec\/.*_spec\.rb$|web\/src\/.*\.test\.tsx?$|assessment\/check-.*\.test\.mjs$/.test(f));
  if(production && !test) throw Error('Production change requires a changed regression check');
 }
 if(process.argv[1]?.endsWith('check-gate.mjs')) {

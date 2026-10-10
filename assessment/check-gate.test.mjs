@@ -10,3 +10,5 @@ test('nonexistent evidence blocks',()=>assert.throws(()=>checkInputs(body.replac
 test('production change without regression blocks',()=>assert.throws(()=>checkChangedFiles(['api/app/services/example.rb'])));
 test('production change with regression passes',()=>assert.doesNotThrow(()=>checkChangedFiles(['api/app/services/example.rb','api/spec/requests/result_isolation_spec.rb'])));
 test('documentation change may use existing net',()=>assert.doesNotThrow(()=>checkChangedFiles(['assessment/02-quality-system.md'])));
+test('quality infrastructure change requires regression evidence',()=>assert.throws(()=>checkChangedFiles(['.github/workflows/quality.yml'])));
+test('quality infrastructure may provide gate regression evidence',()=>assert.doesNotThrow(()=>checkChangedFiles(['assessment/check-gate.mjs','assessment/check-gate.test.mjs'])));
