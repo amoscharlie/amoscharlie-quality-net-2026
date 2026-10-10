@@ -2,45 +2,49 @@ WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
 WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
 WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
 
-Randomized with seed 627
-
-Login organization authority
-  allows bound admin login using only the server-owned organization
-  rejects even a bound admin when the requested organization differs
-  A15 cannot mint an organization credential from a client supplied scheme without membership
+Randomized with seed 24939
 
 Candidate completion boundary
   A07 candidate recovery info preserves the persisted failure reason
-  A02 rejects completion before the interview started
-2026-10-10T17:06:00.733Z pid=15107 tid=3ir INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+2026-10-10T17:09:06.469Z pid=16501 tid=l99 INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
   ends covered sessions once, preserving duration and a single portfolio
+  A02 rejects completion before the interview started
   A02 rejects an active session with uncovered skills
 
 Lifecycle competing callers
-  recovers persisted pending work without another candidate request
-  A10 a stale session object cannot queue termination twice
-  A10 old disconnect timer cannot end a reconnected interview
-  A10 preserves distinct turns arriving with the same connection-local counter
   A10 retries a durable pending portfolio after queue delivery fails
   A10 duplicate delivery does not regenerate an already complete result
+  A10 old disconnect timer cannot end a reconnected interview
+  A10 a stale session object cannot queue termination twice
+  recovers persisted pending work without another candidate request
+  A10 preserves distinct turns arriving with the same connection-local counter
 
 Persisted evidence boundaries
-  A05 rejects out-of-range levels instead of silently clamping
   A05 preserves prior skills if a replacement response is invalid
-  publishes a valid grounded rating without changing its level or evidence
   A06 does not turn absent analysis into evidence of coverage
+  publishes a valid grounded rating without changing its level or evidence
+  A05 rejects out-of-range levels instead of silently clamping
   A05 rejects invented evidence quotes
   A05 rejects an empty AI response instead of publishing an empty complete portfolio
 
 Result ownership boundary
+  allows owner export and preserves the stored level
+  A01 denies cross-tenant JSON export
+  A09 denies a non-assessor coverage subscriber
   A01 denies cross-tenant fit/gap creation
   A01 denies cross-tenant mutation without changing stored override
-  A09 denies a non-assessor coverage subscriber
-  A01 denies cross-tenant JSON export
-  allows owner export and preserves the stored level
 
-Finished in 0.72672 seconds (files took 1.08 seconds to load)
-24 examples, 0 failures
+Login organization authority
+  rejects even a bound admin when the requested organization differs
+  A15 cannot mint an organization credential from a client supplied scheme without membership
+  allows bound admin login using only the server-owned organization
 
-Randomized with seed 627
+Coverage::StateEngine
+  cannot erase persisted coverage with a regressive or unknown model update
+  requires two probes before a proposed covered skill can advance past initiated
+
+Finished in 0.8084 seconds (files took 0.83785 seconds to load)
+26 examples, 0 failures
+
+Randomized with seed 24939
 

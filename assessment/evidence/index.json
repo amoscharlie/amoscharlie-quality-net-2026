@@ -1,0 +1,12 @@
+{
+  "behavioral_red": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069186590",
+  "first_fix_green": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069450263",
+  "login_delivery_red": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069559731",
+  "login_delivery_green": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069792683",
+  "reload_red": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070106333",
+  "final_main_green": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070450860",
+  "blocked_pr": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/1",
+  "pass_pr": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/2",
+  "candidate_tag": "v1.0.0-rc.1",
+  "production_decision": "BLOCKED until live provider acceptance passes"
+}
