@@ -1,0 +1,352 @@
+web	Run npm test	﻿2026-10-10T16:47:11.7321252Z ##[group]Run npm test
+web	Run npm test	2026-10-10T16:47:11.7321533Z ^[[36;1mnpm test^[[0m
+web	Run npm test	2026-10-10T16:47:11.7381471Z shell: /usr/bin/bash -e {0}
+web	Run npm test	2026-10-10T16:47:11.7381741Z ##[endgroup]
+web	Run npm test	2026-10-10T16:47:11.8310111Z 
+web	Run npm test	2026-10-10T16:47:11.8310736Z > skill-review-web@0.0.0 test
+web	Run npm test	2026-10-10T16:47:11.8311057Z > vitest run
+web	Run npm test	2026-10-10T16:47:11.8311174Z 
+web	Run npm test	2026-10-10T16:47:12.0890208Z 
+web	Run npm test	2026-10-10T16:47:12.0892370Z ^[[1m^[[46m RUN ^[[49m^[[22m ^[[36mv3.2.7 ^[[39m^[[90m/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/web^[[39m
+web	Run npm test	2026-10-10T16:47:12.0893311Z 
+web	Run npm test	2026-10-10T16:47:13.7991279Z  ^[[31m❯^[[39m src/test/risk-paths.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m | ^[[22m^[[31m4 failed^[[39m^[[2m)^[[22m^[[33m 358^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.7992682Z ^[[31m   ^[[31m×^[[31m A04 preserves canonical taxonomy identity and excluded scope^[[39m^[[32m 190^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.7993700Z ^[[31m     → expected "spy" to be called with arguments: [ ObjectContaining{…} ]^[[90m
+web	Run npm test	2026-10-10T16:47:13.7994080Z 
+web	Run npm test	2026-10-10T16:47:13.7994300Z Received: 
+web	Run npm test	2026-10-10T16:47:13.7994456Z 
+web	Run npm test	2026-10-10T16:47:13.7994664Z ^[[1m  1st spy call:
+web	Run npm test	2026-10-10T16:47:13.7994804Z 
+web	Run npm test	2026-10-10T16:47:13.7994956Z ^[[22m^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:47:13.7995587Z ^[[32m-   ObjectContaining {^[[90m
+web	Run npm test	2026-10-10T16:47:13.7995931Z ^[[32m-     "scope_exclude": "Backend",^[[90m
+web	Run npm test	2026-10-10T16:47:13.7996269Z ^[[32m-     "skill_id": "SK-ENG-001",^[[90m
+web	Run npm test	2026-10-10T16:47:13.7996515Z ^[[31m+   {^[[90m
+web	Run npm test	2026-10-10T16:47:13.7996749Z ^[[31m+     "expected_level": 3,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7997031Z ^[[31m+     "is_custom": false,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7997384Z ^[[31m+     "l1_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7997676Z ^[[31m+     "l2_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7997954Z ^[[31m+     "l3_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7998231Z ^[[31m+     "l4_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7998966Z ^[[31m+     "l5_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7999255Z ^[[31m+     "scope_include": "UI",^[[90m
+web	Run npm test	2026-10-10T16:47:13.7999535Z ^[[31m+     "skill_id": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.7999835Z ^[[31m+     "skill_label": "Frontend",^[[90m
+web	Run npm test	2026-10-10T16:47:13.8000070Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:47:13.8000250Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:47:13.8000444Z ^[[31m^[[90m
+web	Run npm test	2026-10-10T16:47:13.8000541Z 
+web	Run npm test	2026-10-10T16:47:13.8000669Z Number of calls: ^[[1m1^[[22m
+web	Run npm test	2026-10-10T16:47:13.8000878Z ^[[31m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8001398Z ^[[31m   ^[[31m×^[[31m A03 sends an assessment deletion and retains the other database identity^[[39m^[[32m 108^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8002008Z ^[[31m     → expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:47:13.8002521Z ^[[31m   ^[[31m×^[[31m A03 sends a vacancy deletion to the API^[[39m^[[32m 52^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8003050Z ^[[31m     → expected [] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:47:13.8003612Z ^[[31m   ^[[31m×^[[31m A07 does not claim an invalid invite has a recorded interview^[[39m^[[32m 7^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8004190Z ^[[31m     → ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T16:47:13.8004436Z 
+web	Run npm test	2026-10-10T16:47:13.8004638Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T16:47:13.8004937Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T16:47:13.8005142Z >
+web	Run npm test	2026-10-10T16:47:13.8005480Z   Interview Complete
+web	Run npm test	2026-10-10T16:47:13.8005735Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8172432Z 
+web	Run npm test	2026-10-10T16:47:13.8173391Z ^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Failed Tests 4 ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m
+web	Run npm test	2026-10-10T16:47:13.8173798Z 
+web	Run npm test	2026-10-10T16:47:13.8178649Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA04 preserves canonical taxonomy identity and excluded scope
+web	Run npm test	2026-10-10T16:47:13.8190325Z ^[[31m^[[1mAssertionError^[[22m: expected "spy" to be called with arguments: [ ObjectContaining{…} ]^[[90m
+web	Run npm test	2026-10-10T16:47:13.8190884Z 
+web	Run npm test	2026-10-10T16:47:13.8191060Z Received: 
+web	Run npm test	2026-10-10T16:47:13.8191206Z 
+web	Run npm test	2026-10-10T16:47:13.8191614Z ^[[1m  1st spy call:
+web	Run npm test	2026-10-10T16:47:13.8191801Z 
+web	Run npm test	2026-10-10T16:47:13.8191965Z ^[[22m^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:47:13.8192710Z ^[[32m-   ObjectContaining {^[[90m
+web	Run npm test	2026-10-10T16:47:13.8193205Z ^[[32m-     "scope_exclude": "Backend",^[[90m
+web	Run npm test	2026-10-10T16:47:13.8193786Z ^[[32m-     "skill_id": "SK-ENG-001",^[[90m
+web	Run npm test	2026-10-10T16:47:13.8194213Z ^[[31m+   {^[[90m
+web	Run npm test	2026-10-10T16:47:13.8194574Z ^[[31m+     "expected_level": 3,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8194999Z ^[[31m+     "is_custom": false,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8195612Z ^[[31m+     "l1_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8196072Z ^[[31m+     "l2_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8196503Z ^[[31m+     "l3_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8196900Z ^[[31m+     "l4_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8197302Z ^[[31m+     "l5_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8197717Z ^[[31m+     "scope_include": "UI",^[[90m
+web	Run npm test	2026-10-10T16:47:13.8198147Z ^[[31m+     "skill_id": undefined,^[[90m
+web	Run npm test	2026-10-10T16:47:13.8198614Z ^[[31m+     "skill_label": "Frontend",^[[90m
+web	Run npm test	2026-10-10T16:47:13.8198981Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:47:13.8199251Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:47:13.8199513Z ^[[31m^[[90m
+web	Run npm test	2026-10-10T16:47:13.8199642Z 
+web	Run npm test	2026-10-10T16:47:13.8199831Z Number of calls: ^[[1m1^[[22m
+web	Run npm test	2026-10-10T16:47:13.8200124Z ^[[31m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8200628Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m24:17^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8219235Z     ^[[90m 22| ^[[39m const select=vi.fn();render(<SkillPicker open onOpenChange={vi.fn()} …
+web	Run npm test	2026-10-10T16:47:13.8220595Z     ^[[90m 23| ^[[39m fireEvent^[[33m.^[[39m^[[34mclick^[[39m(^[[35mawait^[[39m screen^[[33m.^[[39m^[[34mfindByRole^[[39m(^[[32m'button'^[[39m^[[33m,^[[39m{name^[[33m:^[[39m^[[32m'Frontend'^[[39m}))^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8221825Z     ^[[90m 24| ^[[39m expect(select).toHaveBeenCalledWith(expect.objectContaining({skill_id…
+web	Run npm test	2026-10-10T16:47:13.8222533Z     ^[[90m   | ^[[39m                ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:47:13.8223082Z     ^[[90m 25| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8223937Z     ^[[90m 26| ^[[39mit('A03 sends an assessment deletion and retains the other database id…
+web	Run npm test	2026-10-10T16:47:13.8224356Z 
+web	Run npm test	2026-10-10T16:47:13.8224691Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8224970Z 
+web	Run npm test	2026-10-10T16:47:13.8226013Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA03 sends an assessment deletion and retains the other database identity
+web	Run npm test	2026-10-10T16:47:13.8227277Z ^[[31m^[[1mAssertionError^[[22m: expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:47:13.8227762Z 
+web	Run npm test	2026-10-10T16:47:13.8227927Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:47:13.8228260Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:47:13.8228435Z 
+web	Run npm test	2026-10-10T16:47:13.8228638Z ^[[32m- ArrayContaining [^[[39m
+web	Run npm test	2026-10-10T16:47:13.8229073Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:47:13.8229515Z ^[[32m-     "_destroy": true,^[[39m
+web	Run npm test	2026-10-10T16:47:13.8229894Z ^[[32m-     "id": 11,^[[39m
+web	Run npm test	2026-10-10T16:47:13.8230205Z ^[[32m-   },^[[39m
+web	Run npm test	2026-10-10T16:47:13.8230589Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:47:13.8230936Z ^[[31m+ [^[[39m
+web	Run npm test	2026-10-10T16:47:13.8231231Z ^[[31m+   {^[[39m
+web	Run npm test	2026-10-10T16:47:13.8231611Z ^[[31m+     "display_order": 0,^[[39m
+web	Run npm test	2026-10-10T16:47:13.8232015Z ^[[2m      "id": 12,^[[22m
+web	Run npm test	2026-10-10T16:47:13.8232441Z ^[[31m+     "skill_label": "Backend",^[[39m
+web	Run npm test	2026-10-10T16:47:13.8232828Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:47:13.8233165Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:47:13.8233319Z 
+web	Run npm test	2026-10-10T16:47:13.8233716Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m30:69^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8234535Z     ^[[90m 28| ^[[39m page(<AssessmentEditPage/>,'/assessments/1/edit');fireEvent.click(awa…
+web	Run npm test	2026-10-10T16:47:13.8236166Z     ^[[90m 29| ^[[39m ^[[35mawait^[[39m ^[[34mwaitFor^[[39m(()^[[33m=>^[[39m^[[34mexpect^[[39m(mocks^[[33m.^[[39mupdate)^[[33m.^[[39m^[[34mtoHaveBeenCalled^[[39m())^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8237258Z     ^[[90m 30| ^[[39m expect(mocks.update.mock.calls[0][1].assessment_skills_attributes).to…
+web	Run npm test	2026-10-10T16:47:13.8238057Z     ^[[90m   | ^[[39m                                                                    ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:47:13.8238583Z     ^[[90m 31| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8239385Z     ^[[90m 32| ^[[39m^[[34mit^[[39m(^[[32m'A03 sends a vacancy deletion to the API'^[[39m^[[33m,^[[39m^[[35masync^[[39m()^[[33m=>^[[39m{
+web	Run npm test	2026-10-10T16:47:13.8240088Z 
+web	Run npm test	2026-10-10T16:47:13.8240398Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8240659Z 
+web	Run npm test	2026-10-10T16:47:13.8241268Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA03 sends a vacancy deletion to the API
+web	Run npm test	2026-10-10T16:47:13.8242289Z ^[[31m^[[1mAssertionError^[[22m: expected [] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:47:13.8242697Z 
+web	Run npm test	2026-10-10T16:47:13.8242858Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:47:13.8243187Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:47:13.8243353Z 
+web	Run npm test	2026-10-10T16:47:13.8243541Z ^[[32m- ArrayContaining [^[[39m
+web	Run npm test	2026-10-10T16:47:13.8243970Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:47:13.8244391Z ^[[32m-     "_destroy": true,^[[39m
+web	Run npm test	2026-10-10T16:47:13.8244779Z ^[[32m-     "id": 21,^[[39m
+web	Run npm test	2026-10-10T16:47:13.8245092Z ^[[32m-   },^[[39m
+web	Run npm test	2026-10-10T16:47:13.8245828Z ^[[32m- ]^[[39m
+web	Run npm test	2026-10-10T16:47:13.8246101Z ^[[31m+ []^[[39m
+web	Run npm test	2026-10-10T16:47:13.8246264Z 
+web	Run npm test	2026-10-10T16:47:13.8246645Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m37:73^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8247426Z     ^[[90m 35| ^[[39m const remove=view.container.querySelector('form button[type="button"]…
+web	Run npm test	2026-10-10T16:47:13.8248677Z     ^[[90m 36| ^[[39m ^[[35mawait^[[39m ^[[34mwaitFor^[[39m(()^[[33m=>^[[39m^[[34mexpect^[[39m(mocks^[[33m.^[[39mvacancyUpdate)^[[33m.^[[39m^[[34mtoHaveBeenCalled^[[39m())^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8249815Z     ^[[90m 37| ^[[39m expect(mocks.vacancyUpdate.mock.calls[0][1].vacancy_skills_attributes…
+web	Run npm test	2026-10-10T16:47:13.8250654Z     ^[[90m   | ^[[39m                                                                        ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:47:13.8251168Z     ^[[90m 38| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8251797Z     ^[[90m 39| ^[[39mit('A07 does not claim an invalid invite has a recorded interview',asy…
+web	Run npm test	2026-10-10T16:47:13.8252435Z 
+web	Run npm test	2026-10-10T16:47:13.8252749Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8253013Z 
+web	Run npm test	2026-10-10T16:47:13.8253779Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA07 does not claim an invalid invite has a recorded interview
+web	Run npm test	2026-10-10T16:47:13.8254875Z ^[[31m^[[1mError^[[22m: ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T16:47:13.8255446Z 
+web	Run npm test	2026-10-10T16:47:13.8255815Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T16:47:13.8256265Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T16:47:13.8256585Z >
+web	Run npm test	2026-10-10T16:47:13.8256833Z   Interview Complete
+web	Run npm test	2026-10-10T16:47:13.8257188Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8257753Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m42:55^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8258544Z     ^[[90m 40| ^[[39m mocks.candidate.mockRejectedValue(new Error('404'));page(<InterviewPa…
+web	Run npm test	2026-10-10T16:47:13.8259415Z     ^[[90m 41| ^[[39m await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTh…
+web	Run npm test	2026-10-10T16:47:13.8260292Z     ^[[90m 42| ^[[39m expect(screen.queryByText('Interview Complete')).not.toBeInTheDocumen…
+web	Run npm test	2026-10-10T16:47:13.8261055Z     ^[[90m   | ^[[39m                                                      ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:47:13.8261804Z     ^[[90m 43| ^[[39m expect(screen.getByRole('alert')).toHaveTextContent(/unable|failed|un…
+web	Run npm test	2026-10-10T16:47:13.8262406Z     ^[[90m 44| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:47:13.8262618Z 
+web	Run npm test	2026-10-10T16:47:13.8262921Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:47:13.8263184Z 
+web	Run npm test	2026-10-10T16:47:13.8263229Z 
+web	Run npm test	2026-10-10T16:47:13.8263609Z ^[[2m Test Files ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[90m (1)^[[39m
+web	Run npm test	2026-10-10T16:47:13.8264259Z ^[[2m      Tests ^[[22m ^[[1m^[[31m4 failed^[[39m^[[22m^[[90m (4)^[[39m
+web	Run npm test	2026-10-10T16:47:13.8264780Z ^[[2m   Start at ^[[22m 16:47:12
+web	Run npm test	2026-10-10T16:47:13.8265906Z ^[[2m   Duration ^[[22m 1.73s^[[2m (transform 161ms, setup 101ms, collect 359ms, tests 358ms, environment 500ms, prepare 157ms)^[[22m
+web	Run npm test	2026-10-10T16:47:13.8266480Z 
+web	Run npm test	2026-10-10T16:47:13.8266539Z 
+web	Run npm test	2026-10-10T16:47:13.8292921Z ##[error]AssertionError: expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+web	Run npm test	
+web	Run npm test	Received: 
+web	Run npm test	
+web	Run npm test	  1st spy call:
+web	Run npm test	
+web	Run npm test	  [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "scope_exclude": "Backend",
+web	Run npm test	-     "skill_id": "SK-ENG-001",
+web	Run npm test	+   {
+web	Run npm test	+     "expected_level": 3,
+web	Run npm test	+     "is_custom": false,
+web	Run npm test	+     "l1_anchor": undefined,
+web	Run npm test	+     "l2_anchor": undefined,
+web	Run npm test	+     "l3_anchor": undefined,
+web	Run npm test	+     "l4_anchor": undefined,
+web	Run npm test	+     "l5_anchor": undefined,
+web	Run npm test	+     "scope_include": "UI",
+web	Run npm test	+     "skill_id": undefined,
+web	Run npm test	+     "skill_label": "Frontend",
+web	Run npm test	    },
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	Number of calls: 1
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:24:17
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:47:13.8303305Z 
+web	Run npm test	2026-10-10T16:47:13.8326919Z ##[error]AssertionError: expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	- ArrayContaining [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "_destroy": true,
+web	Run npm test	-     "id": 11,
+web	Run npm test	-   },
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	+ [
+web	Run npm test	+   {
+web	Run npm test	+     "display_order": 0,
+web	Run npm test	      "id": 12,
+web	Run npm test	+     "skill_label": "Backend",
+web	Run npm test	    },
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:30:69
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:47:13.8328319Z 
+web	Run npm test	2026-10-10T16:47:13.8330106Z ##[error]AssertionError: expected [] to deeply equal ArrayContaining{…}
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	- ArrayContaining [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "_destroy": true,
+web	Run npm test	-     "id": 21,
+web	Run npm test	-   },
+web	Run npm test	- ]
+web	Run npm test	+ []
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:37:73
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:47:13.8331071Z 
+web	Run npm test	2026-10-10T16:47:13.8332538Z ##[error]Error: expect(element).not.toBeInTheDocument()
+web	Run npm test	
+web	Run npm test	expected document not to contain element, found <h2
+web	Run npm test	  class="text-xl font-semibold"
+web	Run npm test	>
+web	Run npm test	  Interview Complete
+web	Run npm test	</h2> instead
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:42:55
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:47:13.9229227Z ##[error]Process completed with exit code 1.
+api	Run bundle exec rspec --format documentation	﻿2026-10-10T16:48:07.6135366Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6135814Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6201476Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6201754Z env:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6201959Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6202180Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6202425Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6202652Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6202980Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6203384Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6203719Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6204032Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:07.6204309Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7714645Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7715492Z An error occurred while loading ./spec/requests/result_isolation_spec.rb.
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7716663Z Failure/Error: require File.expand_path('../config/environment', __dir__)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7717206Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7717314Z NameError:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7717623Z   uninitialized constant AudioWebsocketMiddleware
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7718233Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/cref.rb:62:in `const_get'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7718932Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/cref.rb:62:in `get'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7719784Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:171:in `block in actual_eager_load_dir'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7721115Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/file_system.rb:32:in `block in ls'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7721910Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/file_system.rb:26:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7722666Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/file_system.rb:26:in `ls'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7723487Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:166:in `actual_eager_load_dir'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7724431Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:17:in `block (2 levels) in eager_load'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7725297Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:16:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7726103Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:16:in `block in eager_load'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7726939Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:10:in `synchronize'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7727730Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader/eager_load.rb:10:in `eager_load'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7728528Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader.rb:442:in `block in eager_load_all'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7729297Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/registry/loaders.rb:10:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7730025Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/registry/loaders.rb:10:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7731030Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/loader.rb:440:in `eager_load_all'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7732006Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/application/finisher.rb:74:in `block in <module:Finisher>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7732702Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `instance_exec'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7733309Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `run'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7733981Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:61:in `block in run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7734664Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:60:in `run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7735292Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/application.rb:375:in `initialize!'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7735801Z # ./config/environment.rb:7:in `<top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7736329Z # ./spec/rails_helper.rb:5:in `<top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7736711Z # ./spec/requests/result_isolation_spec.rb:1:in `<top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7753234Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7753652Z An error occurred while loading ./spec/requests/session_completion_spec.rb.
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7754580Z Failure/Error: require File.expand_path('../config/environment', __dir__)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7754888Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7754980Z FrozenError:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7759010Z   can't modify frozen Array: ["/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/auth", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/lib", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/middlewares", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/services", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/channels", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/clients", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/workers", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/controllers", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/controllers/concerns", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/models", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/models/concerns"]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7763762Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/engine.rb:575:in `unshift'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7764379Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/engine.rb:575:in `block in <class:Engine>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7765014Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `instance_exec'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7765603Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `run'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7766248Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:61:in `block in run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7766884Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7767486Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `tsort_each_child'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7768093Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7768679Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `tsort_each_child'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7769301Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:60:in `run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7769919Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/application.rb:375:in `initialize!'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7770692Z # ./config/environment.rb:7:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7771244Z # ./vendor/bundle/ruby/3.3.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7772152Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7772612Z # ./spec/rails_helper.rb:5:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7773137Z # ./vendor/bundle/ruby/3.3.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7773816Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7774313Z # ./spec/requests/session_completion_spec.rb:1:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7822562Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7823144Z An error occurred while loading ./spec/services/evidence_integrity_spec.rb.
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7824046Z Failure/Error: require File.expand_path('../config/environment', __dir__)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7824362Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7824728Z FrozenError:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7830672Z   can't modify frozen Array: ["/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/auth", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/lib", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/middlewares", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/services", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/channels", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/clients", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/workers", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/controllers", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/controllers/concerns", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/models", "/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/api/app/models/concerns"]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7835322Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/engine.rb:575:in `unshift'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7835931Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/engine.rb:575:in `block in <class:Engine>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7836561Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `instance_exec'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7837147Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:32:in `run'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7837780Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:61:in `block in run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7838428Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7839028Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `tsort_each_child'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7839625Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `each'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7840585Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:50:in `tsort_each_child'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7841264Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/initializable.rb:60:in `run_initializers'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7841897Z # ./vendor/bundle/ruby/3.3.0/gems/railties-7.0.10/lib/rails/application.rb:375:in `initialize!'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7842350Z # ./config/environment.rb:7:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7842881Z # ./vendor/bundle/ruby/3.3.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7843572Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7844035Z # ./spec/rails_helper.rb:5:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7844549Z # ./vendor/bundle/ruby/3.3.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7845235Z # ./vendor/bundle/ruby/3.3.0/gems/zeitwerk-2.7.5/lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7845948Z # ./spec/services/evidence_integrity_spec.rb:1:in `<main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7846287Z No examples found.
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7846415Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7846585Z Finished in 0.00008 seconds (files took 0.86859 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7847000Z 0 examples, 0 failures, 3 errors occurred outside of examples
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.7847262Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:48:08.8051064Z ##[error]Process completed with exit code 1.

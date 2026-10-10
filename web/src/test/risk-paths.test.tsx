@@ -42,3 +42,9 @@ it('A07 does not claim an invalid invite has a recorded interview',async()=>{
  expect(screen.queryByText('Interview Complete')).not.toBeInTheDocument();
  expect(screen.getByRole('alert')).toHaveTextContent(/unable|failed|unavailable/i);
 });
+
+it('A08 shows the API expected level in the Required column',async()=>{
+ const {default:ComparisonTable}=await import('@/components/fitgap/ComparisonTable');
+ const view=render(<ComparisonTable comparisons={[{skill_label:'Frontend',expected_level:3,candidate_level:2,result:'gap',delta:-1} as any]}/>);
+ expect(view.container.querySelectorAll('tbody td')[1]).toHaveTextContent('L3');
+});
