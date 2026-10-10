@@ -26,4 +26,4 @@ Tenant result ownership and coverage roles; server-owned login membership; verif
 4. Update the acceptance record with evidence and actual owner review in a checked PR; resolve any newly discovered P0/P1 first.
 5. Create a new immutable candidate tag and rerun all gates. Do not move rc.1 or rewrite its decision.
 
-Release notes live in `assessment/releases/v1.0.0-rc.1.md`. Exact tag commit and CI URL are recorded in the final evidence index after tagging. This is a reviewable release candidate with a deliberate blocked decision, not a claim of production readiness.
+Release notes live in `assessment/releases/v1.0.0-rc.1.md`. The immutable tag points to `58eb125645b96e580aeba786c1acbefc1cec9758`. [Tag CI](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070843981) passed inputs/API/web and failed release with `decision: BLOCKED`, no open finding blockers, and `unverified: [live_provider_interview]`. Later documentation updates on main do not change the tagged candidate. This is a reviewable release candidate with a deliberate blocked decision, not a claim of production readiness.

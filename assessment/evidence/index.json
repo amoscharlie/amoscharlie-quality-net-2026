@@ -8,5 +8,11 @@
   "blocked_pr": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/1",
   "pass_pr": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/2",
   "candidate_tag": "v1.0.0-rc.1",
-  "production_decision": "BLOCKED until live provider acceptance passes"
+  "production_decision": "BLOCKED until live provider acceptance passes",
+  "candidate_commit": "58eb125645b96e580aeba786c1acbefc1cec9758",
+  "post_merge_green": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070837663",
+  "candidate_ci": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070843981",
+  "candidate_quality_jobs": "inputs/api/web passed",
+  "candidate_release_job": "failed: live_provider_interview unverified",
+  "pass_pr_state": "MERGED"
 }
