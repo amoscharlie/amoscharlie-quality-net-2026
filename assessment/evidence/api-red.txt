@@ -1,0 +1,113 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 32617
+
+Result ownership boundary
+2026-10-10T16:44:22.910Z pid=9546 tid=2xy INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  A01 denies cross-tenant fit/gap creation (FAILED - 1)
+  allows owner export and preserves the stored level
+  A09 denies a non-assessor coverage subscriber (FAILED - 2)
+  A01 denies cross-tenant JSON export (FAILED - 3)
+  A01 denies cross-tenant mutation without changing stored override (FAILED - 4)
+
+Candidate completion boundary
+  A02 rejects an active session with uncovered skills (FAILED - 5)
+  A02 rejects completion before the interview started (FAILED - 6)
+  ends covered sessions once, preserving duration and a single portfolio
+
+Persisted evidence boundaries
+  A05 rejects invented evidence quotes (FAILED - 7)
+  publishes a valid grounded rating without changing its level or evidence
+  A05 preserves prior skills if a replacement response is invalid (FAILED - 8)
+  A05 rejects out-of-range levels instead of silently clamping (FAILED - 9)
+  A05 rejects an empty AI response instead of publishing an empty complete portfolio (FAILED - 10)
+  A06 does not turn absent analysis into evidence of coverage (FAILED - 11)
+
+Failures:
+
+  1) Result ownership boundary A01 denies cross-tenant fit/gap creation
+     Failure/Error: expect(response).to have_http_status(:not_found)
+       expected the response to have a not_found status code (404) but it was 202
+     # ./spec/requests/result_isolation_spec.rb:26:in `block (2 levels) in <top (required)>'
+
+  2) Result ownership boundary A09 denies a non-assessor coverage subscriber
+     Failure/Error: expect(found).to be_nil
+
+       expected: nil
+            got: #<Session id: 17, tenant_id: 24, assessment_id: 17, candidate_id: nil, invite_token: "bdcea3b2177ed84...emini_resumption_token: nil, created_at: "2026-10-10 16:44:23.031093000 +0000", candidate_name: nil>
+     # ./spec/requests/result_isolation_spec.rb:32:in `block (2 levels) in <top (required)>'
+
+  3) Result ownership boundary A01 denies cross-tenant JSON export
+     Failure/Error: expect(response).to have_http_status(:not_found)
+       expected the response to have a not_found status code (404) but it was 200
+     # ./spec/requests/result_isolation_spec.rb:10:in `block (2 levels) in <top (required)>'
+
+  4) Result ownership boundary A01 denies cross-tenant mutation without changing stored override
+     Failure/Error: expect(response).to have_http_status(:not_found)
+       expected the response to have a not_found status code (404) but it was 201
+     # ./spec/requests/result_isolation_spec.rb:15:in `block (2 levels) in <top (required)>'
+
+  5) Candidate completion boundary A02 rejects an active session with uncovered skills
+     Failure/Error: expect(response).to have_http_status(:unprocessable_entity)
+       expected the response to have status code :unprocessable_entity (422) but it was :ok (200)
+     # ./spec/requests/session_completion_spec.rb:15:in `block (2 levels) in <main>'
+
+  6) Candidate completion boundary A02 rejects completion before the interview started
+     Failure/Error: expect(response).to have_http_status(:unprocessable_entity)
+       expected the response to have status code :unprocessable_entity (422) but it was :ok (200)
+     # ./spec/requests/session_completion_spec.rb:7:in `block (2 levels) in <main>'
+
+  7) Persisted evidence boundaries A05 rejects invented evidence quotes
+     Failure/Error: expect { generate({'configured_skills'=>[valid_skill.merge('evidence'=>['I led a team of fifty.'])],'discovered_skills'=>[]}) }.to raise_error(StandardError)
+       expected StandardError but nothing was raised
+     # ./spec/services/evidence_integrity_spec.rb:24:in `block (2 levels) in <main>'
+
+  8) Persisted evidence boundaries A05 preserves prior skills if a replacement response is invalid
+     Failure/Error: expect(portfolio.reload.portfolio_skills.pluck(:id)).to eq([previous.id])
+
+       expected: [18]
+            got: [19]
+
+       (compared using ==)
+     # ./spec/services/evidence_integrity_spec.rb:30:in `block (2 levels) in <main>'
+
+  9) Persisted evidence boundaries A05 rejects out-of-range levels instead of silently clamping
+     Failure/Error: expect { generate({'configured_skills'=>[valid_skill.merge('level'=>9)],'discovered_skills'=>[]}) }.to raise_error(StandardError)
+       expected StandardError but nothing was raised
+     # ./spec/services/evidence_integrity_spec.rb:20:in `block (2 levels) in <main>'
+
+  10) Persisted evidence boundaries A05 rejects an empty AI response instead of publishing an empty complete portfolio
+      Failure/Error: expect { generate({}) }.to raise_error(StandardError)
+        expected StandardError but nothing was raised
+      # ./spec/services/evidence_integrity_spec.rb:16:in `block (2 levels) in <main>'
+
+  11) Persisted evidence boundaries A06 does not turn absent analysis into evidence of coverage
+      Failure/Error: expect(map.reload.state).to eq('partial')
+
+        expected: "partial"
+             got: "covered"
+
+        (compared using ==)
+      # ./spec/services/evidence_integrity_spec.rb:43:in `block (2 levels) in <main>'
+
+Finished in 0.9713 seconds (files took 1.27 seconds to load)
+14 examples, 11 failures
+
+Failed examples:
+
+rspec ./spec/requests/result_isolation_spec.rb:23 # Result ownership boundary A01 denies cross-tenant fit/gap creation
+rspec ./spec/requests/result_isolation_spec.rb:29 # Result ownership boundary A09 denies a non-assessor coverage subscriber
+rspec ./spec/requests/result_isolation_spec.rb:8 # Result ownership boundary A01 denies cross-tenant JSON export
+rspec ./spec/requests/result_isolation_spec.rb:13 # Result ownership boundary A01 denies cross-tenant mutation without changing stored override
+rspec ./spec/requests/session_completion_spec.rb:11 # Candidate completion boundary A02 rejects an active session with uncovered skills
+rspec ./spec/requests/session_completion_spec.rb:4 # Candidate completion boundary A02 rejects completion before the interview started
+rspec ./spec/services/evidence_integrity_spec.rb:23 # Persisted evidence boundaries A05 rejects invented evidence quotes
+rspec ./spec/services/evidence_integrity_spec.rb:26 # Persisted evidence boundaries A05 preserves prior skills if a replacement response is invalid
+rspec ./spec/services/evidence_integrity_spec.rb:19 # Persisted evidence boundaries A05 rejects out-of-range levels instead of silently clamping
+rspec ./spec/services/evidence_integrity_spec.rb:15 # Persisted evidence boundaries A05 rejects an empty AI response instead of publishing an empty complete portfolio
+rspec ./spec/services/evidence_integrity_spec.rb:38 # Persisted evidence boundaries A06 does not turn absent analysis into evidence of coverage
+
+Randomized with seed 32617
+

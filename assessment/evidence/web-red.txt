@@ -1,0 +1,166 @@
+
+> skill-review-web@0.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v3.2.7 <workspace>/web
+
+ × src/test/risk-paths.test.tsx > A04 preserves canonical taxonomy identity and excluded scope 114ms
+   → expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   ObjectContaining {
+-     "scope_exclude": "Backend",
+-     "skill_id": "SK-ENG-001",
++   {
++     "expected_level": 3,
++     "is_custom": false,
++     "l1_anchor": undefined,
++     "l2_anchor": undefined,
++     "l3_anchor": undefined,
++     "l4_anchor": undefined,
++     "l5_anchor": undefined,
++     "scope_include": "UI",
++     "skill_id": undefined,
++     "skill_label": "Frontend",
+    },
+  ]
+
+
+Number of calls: 1
+
+ × src/test/risk-paths.test.tsx > A03 sends an assessment deletion and retains the other database identity 51ms
+   → expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}
+ × src/test/risk-paths.test.tsx > A03 sends a vacancy deletion to the API 28ms
+   → expected [] to deeply equal ArrayContaining{…}
+ × src/test/risk-paths.test.tsx > A07 does not claim an invalid invite has a recorded interview 5ms
+   → expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <h2
+  class="text-xl font-semibold"
+>
+  Interview Complete
+</h2> instead
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/risk-paths.test.tsx > A04 preserves canonical taxonomy identity and excluded scope
+AssertionError: expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   ObjectContaining {
+-     "scope_exclude": "Backend",
+-     "skill_id": "SK-ENG-001",
++   {
++     "expected_level": 3,
++     "is_custom": false,
++     "l1_anchor": undefined,
++     "l2_anchor": undefined,
++     "l3_anchor": undefined,
++     "l4_anchor": undefined,
++     "l5_anchor": undefined,
++     "scope_include": "UI",
++     "skill_id": undefined,
++     "skill_label": "Frontend",
+    },
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/test/risk-paths.test.tsx:24:17
+     22|  const select=vi.fn();render(<SkillPicker open onOpenChange={vi.fn()} …
+     23|  fireEvent.click(await screen.findByRole('button',{name:'Frontend'}));
+     24|  expect(select).toHaveBeenCalledWith(expect.objectContaining({skill_id…
+       |                 ^
+     25| });
+     26| it('A03 sends an assessment deletion and retains the other database id…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/test/risk-paths.test.tsx > A03 sends an assessment deletion and retains the other database identity
+AssertionError: expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   ObjectContaining {
+-     "_destroy": true,
+-     "id": 11,
+-   },
+-   ObjectContaining {
++ [
++   {
++     "display_order": 0,
+      "id": 12,
++     "skill_label": "Backend",
+    },
+  ]
+
+ ❯ src/test/risk-paths.test.tsx:30:69
+     28|  page(<AssessmentEditPage/>,'/assessments/1/edit');fireEvent.click(awa…
+     29|  await waitFor(()=>expect(mocks.update).toHaveBeenCalled());
+     30|  expect(mocks.update.mock.calls[0][1].assessment_skills_attributes).to…
+       |                                                                     ^
+     31| });
+     32| it('A03 sends a vacancy deletion to the API',async()=>{
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/test/risk-paths.test.tsx > A03 sends a vacancy deletion to the API
+AssertionError: expected [] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   ObjectContaining {
+-     "_destroy": true,
+-     "id": 21,
+-   },
+- ]
++ []
+
+ ❯ src/test/risk-paths.test.tsx:37:73
+     35|  const remove=view.container.querySelector('form button[type="button"]…
+     36|  await waitFor(()=>expect(mocks.vacancyUpdate).toHaveBeenCalled());
+     37|  expect(mocks.vacancyUpdate.mock.calls[0][1].vacancy_skills_attributes…
+       |                                                                         ^
+     38| });
+     39| it('A07 does not claim an invalid invite has a recorded interview',asy…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/test/risk-paths.test.tsx > A07 does not claim an invalid invite has a recorded interview
+Error: expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <h2
+  class="text-xl font-semibold"
+>
+  Interview Complete
+</h2> instead
+ ❯ src/test/risk-paths.test.tsx:42:55
+     40|  mocks.candidate.mockRejectedValue(new Error('404'));page(<InterviewPa…
+     41|  await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTh…
+     42|  expect(screen.queryByText('Interview Complete')).not.toBeInTheDocumen…
+       |                                                       ^
+     43|  expect(screen.getByRole('alert')).toHaveTextContent(/unable|failed|un…
+     44| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  23:45:16
+   Duration  1.24s (transform 122ms, setup 93ms, collect 254ms, tests 198ms, environment 410ms, prepare 44ms)
+

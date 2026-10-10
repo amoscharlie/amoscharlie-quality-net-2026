@@ -1,0 +1,3 @@
+{
+  "body": "Spec: assessment/specs/quality-contract.md\nAcceptance: assessment/specs/quality-contract.md\nDesign: assessment/specs/quality-contract.md\nTests: api/spec/requests/result_isolation_spec.rb"
+}
