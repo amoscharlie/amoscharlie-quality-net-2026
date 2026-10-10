@@ -41,4 +41,12 @@ RSpec.describe 'Lifecycle competing callers' do
   expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
  end
 
+ it 'A10 duplicate delivery does not regenerate an already complete result' do
+  portfolio=session.create_portfolio!(generation_status:'complete')
+  original=skill_for(portfolio)
+  allow(Portfolios::Generator).to receive(:new).and_raise('Already complete result must not regenerate')
+  expect { PortfolioGeneratorWorker.new.perform(session.id) }.not_to raise_error
+  expect(portfolio.portfolio_skills.pluck(:id)).to eq([original.id])
+ end
+
 end

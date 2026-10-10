@@ -2,14 +2,15 @@ WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
 WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
 WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
 
-Randomized with seed 3819
+Randomized with seed 39277
 
 Lifecycle competing callers
-  A10 old disconnect timer cannot end a reconnected interview
   A10 retries a durable pending portfolio after queue delivery fails (FAILED - 1)
-  A10 preserves distinct turns arriving with the same connection-local counter
-2026-10-10T16:53:53.781Z pid=12717 tid=561 INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  A10 duplicate delivery does not regenerate an already complete result (FAILED - 2)
+2026-10-10T16:54:57.577Z pid=13031 tid=50j INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
   A10 a stale session object cannot queue termination twice
+  A10 preserves distinct turns arriving with the same connection-local counter
+  A10 old disconnect timer cannot end a reconnected interview
 
 Failures:
 
@@ -22,12 +23,22 @@ Failures:
        (compared using ==)
      # ./spec/services/lifecycle_races_spec.rb:41:in `block (2 levels) in <top (required)>'
 
-Finished in 0.25522 seconds (files took 0.75276 seconds to load)
-4 examples, 1 failure
+  2) Lifecycle competing callers A10 duplicate delivery does not regenerate an already complete result
+     Failure/Error: expect { PortfolioGeneratorWorker.new.perform(session.id) }.not_to raise_error
+
+       expected no Exception, got #<RuntimeError: Already complete result must not regenerate> with backtrace:
+         # ./app/workers/portfolio_generator_worker.rb:20:in `perform'
+         # ./spec/services/lifecycle_races_spec.rb:48:in `block (3 levels) in <top (required)>'
+         # ./spec/services/lifecycle_races_spec.rb:48:in `block (2 levels) in <top (required)>'
+     # ./spec/services/lifecycle_races_spec.rb:48:in `block (2 levels) in <top (required)>'
+
+Finished in 0.29492 seconds (files took 0.75485 seconds to load)
+5 examples, 2 failures
 
 Failed examples:
 
 rspec ./spec/services/lifecycle_races_spec.rb:34 # Lifecycle competing callers A10 retries a durable pending portfolio after queue delivery fails
+rspec ./spec/services/lifecycle_races_spec.rb:44 # Lifecycle competing callers A10 duplicate delivery does not regenerate an already complete result
 
-Randomized with seed 3819
+Randomized with seed 39277
 
