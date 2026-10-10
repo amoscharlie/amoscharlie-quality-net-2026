@@ -49,4 +49,12 @@ RSpec.describe 'Lifecycle competing callers' do
   expect(portfolio.portfolio_skills.pluck(:id)).to eq([original.id])
  end
 
+ it 'recovers persisted pending work without another candidate request' do
+  portfolio=session.create_portfolio!(generation_status:'pending')
+  Portfolios::Dispatcher.recover
+  Portfolios::Dispatcher.recover
+  expect(PortfolioGeneratorWorker.jobs.map { |job| job['args'] }).to eq([[session.id]])
+  expect(portfolio.reload.generation_status).to eq('generating')
+ end
+
 end

@@ -14,7 +14,10 @@ module Sessions
     def call(reason: 'manual_assessor', connection_id: nil)
       reason = 'manual_assessor' unless VALID_REASONS.include?(reason.to_s)
       @session.with_lock do
-        return @session if @session.ended?
+        if @session.ended?
+          enqueue_portfolio_generation
+          return @session
+        end
         return @session if connection_id && @session.audio_connection_id != connection_id
         if reason.to_s == 'all_covered' && !(@session.active? && Coverage::MapInjector.new(@session).all_covered?)
           raise ArgumentError, 'Verified active coverage required'
@@ -54,8 +57,7 @@ module Sessions
       portfolio = @session.reload.portfolio
       return unless portfolio
 
-      PortfolioGeneratorWorker.perform_async(@session.id)
-      Rails.logger.info("[N9/EndHandler] Enqueued N10 for session #{@session.id}")
+      Portfolios::Dispatcher.new(portfolio).call
     end
   end
 end

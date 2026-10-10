@@ -17,8 +17,15 @@ class PortfolioGeneratorWorker
 
   def perform(session_id)
     session = Session.find(session_id)
-    Portfolios::Generator.new(session: session).call
+    portfolio = session.portfolio || session.create_portfolio!(generation_status: 'pending')
+    portfolio.with_lock do
+      return if portfolio.complete?
+      Portfolios::Generator.new(session: session).call
+    end
   rescue ActiveRecord::RecordNotFound
     Rails.logger.warn("[N10] Session #{session_id} not found — skipping")
+  rescue StandardError => error
+    portfolio&.reload&.update!(generation_status: 'failed', generation_error: error.message)
+    raise
   end
 end

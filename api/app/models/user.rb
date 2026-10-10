@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  belongs_to :organization, foreign_key: :tenant_id, optional: true
+
   has_secure_password
 
   ROLES = %w[admin user].freeze

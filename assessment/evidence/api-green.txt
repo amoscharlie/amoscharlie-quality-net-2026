@@ -1,0 +1,45 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 44234
+
+Persisted evidence boundaries
+  A05 preserves prior skills if a replacement response is invalid
+  A05 rejects invented evidence quotes
+  publishes a valid grounded rating without changing its level or evidence
+  A05 rejects an empty AI response instead of publishing an empty complete portfolio
+2026-10-10T16:57:26.146Z pid=13731 tid=67n INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  A06 does not turn absent analysis into evidence of coverage
+  A05 rejects out-of-range levels instead of silently clamping
+
+Lifecycle competing callers
+  A10 retries a durable pending portfolio after queue delivery fails
+  A10 a stale session object cannot queue termination twice
+  A10 old disconnect timer cannot end a reconnected interview
+  A10 duplicate delivery does not regenerate an already complete result
+  A10 preserves distinct turns arriving with the same connection-local counter
+  recovers persisted pending work without another candidate request
+
+Candidate completion boundary
+  A02 rejects completion before the interview started
+  ends covered sessions once, preserving duration and a single portfolio
+  A02 rejects an active session with uncovered skills
+
+Result ownership boundary
+  A01 denies cross-tenant fit/gap creation
+  allows owner export and preserves the stored level
+  A09 denies a non-assessor coverage subscriber
+  A01 denies cross-tenant mutation without changing stored override
+  A01 denies cross-tenant JSON export
+
+Login organization authority
+  A15 cannot mint an organization credential from a client supplied scheme without membership
+  rejects even a bound admin when the requested organization differs
+  allows bound admin login using only the server-owned organization
+
+Finished in 0.55755 seconds (files took 1.13 seconds to load)
+23 examples, 0 failures
+
+Randomized with seed 44234
+

@@ -1,0 +1,15 @@
+
+> skill-review-web@0.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 <workspace>/web
+
+ ✓ src/test/audio-outcome.test.tsx (4 tests) 14ms
+ ✓ src/test/risk-paths.test.tsx (5 tests) 198ms
+
+ Test Files  2 passed (2)
+      Tests  9 passed (9)
+   Start at  23:56:34
+   Duration  1.53s (transform 141ms, setup 238ms, collect 288ms, tests 212ms, environment 1.07s, prepare 418ms)
+

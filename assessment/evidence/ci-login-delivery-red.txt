@@ -1,0 +1,73 @@
+api	Run bundle exec rspec --format documentation	﻿2026-10-10T16:55:07.9426702Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9427151Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9491420Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9491674Z env:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9491860Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9492077Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9492307Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9492526Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9492834Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9493231Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9493566Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9494037Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:07.9494309Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.1005762Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.1006478Z Randomized with seed 1784
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.1007548Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.1007786Z Lifecycle competing callers
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.1908521Z   A10 retries a durable pending portfolio after queue delivery fails (FAILED - 1)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2102797Z   A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2239058Z   A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2376417Z 2026-10-10T16:55:10.237Z pid=2920 tid=6ns INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2416213Z   A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2416704Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2416887Z Candidate completion boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2810992Z   ends covered sessions once, preserving duration and a single portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.2913642Z   A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3035720Z   A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3036156Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3036279Z Result ownership boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3327012Z   A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3573984Z   allows owner export and preserves the stored level
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.3830037Z   A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4027678Z   A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4166476Z   A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4167680Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4168110Z Login organization authority
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4396008Z   A15 cannot mint an organization credential from a client supplied scheme without membership (FAILED - 2)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4396566Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4396690Z Persisted evidence boundaries
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4591918Z   A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4813075Z   A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.4982590Z   A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5380038Z   A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5571910Z   A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5794819Z   publishes a valid grounded rating without changing its level or evidence
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5936296Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5936691Z Failures:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5936979Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5937621Z   1) Lifecycle competing callers A10 retries a durable pending portfolio after queue delivery fails
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5938614Z      Failure/Error: expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5939275Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5939466Z        expected: 1
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5939755Z             got: 0
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5939905Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5940027Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5940495Z      # ./spec/services/lifecycle_races_spec.rb:41:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5941646Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5942487Z   2) Login organization authority A15 cannot mint an organization credential from a client supplied scheme without membership
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5944121Z      Failure/Error: expect(response).to have_http_status(:unauthorized)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5944793Z        expected the response to have status code :unauthorized (401) but it was :ok (200)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5945490Z      # ./spec/requests/login_membership_spec.rb:7:in `block (2 levels) in <top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5945933Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5946128Z Finished in 0.47978 seconds (files took 1.88 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5946530Z 19 examples, 2 failures
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5946696Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5946797Z Failed examples:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5946945Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5947476Z rspec ./spec/services/lifecycle_races_spec.rb:34 # Lifecycle competing callers A10 retries a durable pending portfolio after queue delivery fails
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5948793Z rspec ./spec/requests/login_membership_spec.rb:3 # Login organization authority A15 cannot mint an organization credential from a client supplied scheme without membership
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5949562Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5949678Z Randomized with seed 1784
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.5949857Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:55:10.6189427Z ##[error]Process completed with exit code 1.

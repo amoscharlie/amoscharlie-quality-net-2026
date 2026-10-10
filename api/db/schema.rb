@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_10_10_000000) do
+ActiveRecord::Schema[7.0].define(version: 2026_10_10_000002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_10_10_000000) do
     t.enum "generation_status", default: "pending", null: false, enum_type: "generation_status"
     t.datetime "generated_at"
     t.text "generation_error"
+    t.datetime "generation_enqueued_at"
     t.index ["candidate_id"], name: "index_portfolios_on_candidate_id"
     t.index ["session_id"], name: "index_portfolios_on_session_id", unique: true
   end
@@ -183,7 +184,9 @@ ActiveRecord::Schema[7.0].define(version: 2026_10_10_000000) do
     t.string "role", limit: 20, default: "user", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
     t.index ["email"], name: "idx_skill_review_users_email", unique: true
+    t.index ["tenant_id"], name: "index_users_on_tenant_id"
   end
 
   create_table "vacancies", force: :cascade do |t|
@@ -215,5 +218,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_10_10_000000) do
   add_foreign_key "portfolios", "sessions"
   add_foreign_key "sessions", "assessments"
   add_foreign_key "transcript_turns", "sessions"
+  add_foreign_key "users", "organizations", column: "tenant_id"
   add_foreign_key "vacancy_skills", "vacancies"
 end
