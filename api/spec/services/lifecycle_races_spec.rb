@@ -31,4 +31,14 @@ RSpec.describe 'Lifecycle competing callers' do
   expect(session.reload.status).to eq('active')
   expect(PortfolioGeneratorWorker.jobs).to be_empty
  end
+ it 'A10 retries a durable pending portfolio after queue delivery fails' do
+  allow(PortfolioGeneratorWorker).to receive(:perform_async).and_raise(Redis::CannotConnectError)
+  expect { Sessions::EndHandler.new(session).call(reason:'manual_candidate') }.to raise_error(Redis::CannotConnectError)
+  expect(session.reload.status).to eq('ended')
+  expect(session.portfolio.generation_status).to eq('pending')
+  allow(PortfolioGeneratorWorker).to receive(:perform_async).and_call_original
+  Sessions::EndHandler.new(Session.find(session.id)).call(reason:'manual_candidate')
+  expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
+ end
+
 end

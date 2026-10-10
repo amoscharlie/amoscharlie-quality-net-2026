@@ -1,0 +1,25 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 44308
+
+Login organization authority
+  A15 cannot mint an organization credential from a client supplied scheme without membership (FAILED - 1)
+
+Failures:
+
+  1) Login organization authority A15 cannot mint an organization credential from a client supplied scheme without membership
+     Failure/Error: expect(response).to have_http_status(:unauthorized)
+       expected the response to have status code :unauthorized (401) but it was :ok (200)
+     # ./spec/requests/login_membership_spec.rb:7:in `block (2 levels) in <top (required)>'
+
+Finished in 0.15965 seconds (files took 0.68557 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/requests/login_membership_spec.rb:3 # Login organization authority A15 cannot mint an organization credential from a client supplied scheme without membership
+
+Randomized with seed 44308
+

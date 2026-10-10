@@ -18,6 +18,9 @@ Signed assessor credentials authorize their own organization only. Candidate inv
 - A08: Given a comparison with expected level three, then Required displays L3 and override provenance is explicit.
 - A09: Given a non-assessor token, when subscribing to coverage, then it is denied even within the same organization.
 
+- A10: Stale termination callers and old disconnect timers do not end/queue a refreshed session twice; distinct transcript turns are preserved. Pending portfolio delivery survives a queue outage and is retried automatically.
+- A15: Login derives organization from server-owned user membership. Unbound users and mismatched requested organizations cannot mint credentials.
+
 ## Design
 
 Use explicit joins through the session tenant at result boundaries, keeping background access independent of HTTP request context. Validate completion inside a locked session transaction. Validate full AI response identity, type/range, confidence and candidate-quote grounding before replacing rows inside a transaction. Remove count-only coverage promotion. Track persisted removal tombstones in edit forms and preserve string IDs. Separate failure from completion in frontend state. Add regression checks at request, DB service and UI payload boundaries. Tests use controlled provider output for repeatability; live audio/provider suitability requires separate verification.

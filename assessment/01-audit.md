@@ -39,6 +39,7 @@ Severity is applied top to bottom: P0 objective impossible, no workaround; P1 da
 | A11 | P2 | Missing workflow inputs/enforcement | No CI, runnable test suites, change-input gate, release gate or repository-local traceability. RSpec dependencies alone do not form a quality net. Inputs must become enforceable at PR and release boundaries. | Inventory confirmed |
 | A12 | P2 | Missing/ambiguous specification | Invite expiry/revocation, tenant membership, active-assessment editing, reconnect ownership, deadline enforcement while silent, and failed-job recovery lack a complete acceptance/design contract. | Remaining; document assumptions/owners |
 | A13 | P2 | Setup/reproducibility | README/sample ports differ, invite base targets backend, local seed has no admin, database names are hardcoded, frontend has no initial lockfile, console helper queries a missing column. | Confirmed; local workarounds documented |
+| A15 | P1 | Built wrong / credential minting | Local admin login accepts a client-selected X-Tenant-Scheme without membership. Valid passwords can mint another organization credential. Runtime: login returns 200 where unauthorized is required. | RED reproduced |
 | A14 | P2 | Dependency/operational risk | Initial npm resolution reports 7 advisories in build tooling (5 high, 2 moderate); no public untrusted-pattern build input is established. Production configuration has placeholder/inherited hosting settings and no demonstrated provider credential. | Remaining; assess exposure before upgrade |
 
 ## Systemic patterns
