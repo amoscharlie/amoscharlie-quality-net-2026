@@ -48,7 +48,7 @@ export default function InterviewPage() {
         setSessionId(res.data.session_id);
         if (res.data.session_status === "ended") setInterviewState("complete");
       })
-      .catch(() => setInterviewState("complete"));
+      .catch(() => setInterviewState("failed"));
   }, [token]);
 
   const muteRef = useRef<(() => void) | null>(null);
@@ -176,8 +176,7 @@ export default function InterviewPage() {
     stopCapture();
     stopPlayback();
     sendJson({ type: "end_session" });
-    disconnect();
-    setInterviewState("complete");
+    // Wait for the server acknowledgement before showing completion.
   }, [stopCapture, stopPlayback, sendJson, disconnect]);
 
   const wsConnectionStatus =
@@ -224,6 +223,10 @@ export default function InterviewPage() {
         )}
       </div>
     );
+  }
+
+  if (interviewState === "failed") {
+    return <div role="alert" className="max-w-xl mx-auto p-8">Unable to complete the interview. Please retry or contact your interviewer. Completion has not been confirmed.</div>;
   }
 
   // ── State F: Complete ───────────────────────────────────────────────────

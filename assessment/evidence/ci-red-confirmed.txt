@@ -1,0 +1,560 @@
+api	Run bundle exec rspec --format documentation	﻿2026-10-10T16:49:48.6439511Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6439949Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6504993Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6505249Z env:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6505466Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6505684Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6505909Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6506126Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6506433Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6506822Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6507132Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6507624Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:48.6507891Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.7299908Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.7300397Z Randomized with seed 16901
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.7302158Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.7302387Z Result ownership boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.8259309Z   A01 denies cross-tenant JSON export (FAILED - 1)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.8518416Z   A01 denies cross-tenant mutation without changing stored override (FAILED - 2)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.8658923Z   A09 denies a non-assessor coverage subscriber (FAILED - 3)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.8819985Z   allows owner export and preserves the stored level
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9033890Z 2026-10-10T16:49:50.903Z pid=2986 tid=6m2 INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9044019Z   A01 denies cross-tenant fit/gap creation (FAILED - 4)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9044734Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9044868Z Persisted evidence boundaries
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9415635Z   A05 preserves prior skills if a replacement response is invalid (FAILED - 5)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9606396Z   A05 rejects out-of-range levels instead of silently clamping (FAILED - 6)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9769390Z   A05 rejects an empty AI response instead of publishing an empty complete portfolio (FAILED - 7)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:50.9950285Z   publishes a valid grounded rating without changing its level or evidence
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0217968Z   A06 does not turn absent analysis into evidence of coverage (FAILED - 8)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0395847Z   A05 rejects invented evidence quotes (FAILED - 9)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0396277Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0396447Z Candidate completion boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0601164Z   A02 rejects completion before the interview started (FAILED - 10)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0808406Z   ends covered sessions once, preserving duration and a single portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0979220Z   A02 rejects an active session with uncovered skills (FAILED - 11)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0979917Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.0980131Z Lifecycle competing callers
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1296168Z   A10 old disconnect timer cannot end a reconnected interview (FAILED - 12)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1417321Z   A10 preserves distinct turns arriving with the same connection-local counter (FAILED - 13)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1609262Z   A10 a stale session object cannot queue termination twice (FAILED - 14)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1980099Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1980443Z Failures:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1980660Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1980950Z   1) Result ownership boundary A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1981737Z      Failure/Error: expect(response).to have_http_status(:not_found)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1982598Z        expected the response to have a not_found status code (404) but it was 200
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1983546Z      # ./spec/requests/result_isolation_spec.rb:10:in `block (2 levels) in <top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1984381Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1984882Z   2) Result ownership boundary A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1985822Z      Failure/Error: expect(response).to have_http_status(:not_found)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1986330Z        expected the response to have a not_found status code (404) but it was 201
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1986882Z      # ./spec/requests/result_isolation_spec.rb:15:in `block (2 levels) in <top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1987899Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1988227Z   3) Result ownership boundary A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1988891Z      Failure/Error: expect(found).to be_nil
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1989205Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1989338Z        expected: nil
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1990645Z             got: #<Session id: 3, tenant_id: 5, assessment_id: 3, candidate_id: nil, invite_token: "dc5accfe428f4ab68a...emini_resumption_token: nil, created_at: "2026-10-10 16:49:50.858641000 +0000", candidate_name: nil>
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1992326Z      # ./spec/requests/result_isolation_spec.rb:32:in `block (2 levels) in <top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1993135Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1993464Z   4) Result ownership boundary A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1994498Z      Failure/Error: expect(response).to have_http_status(:not_found)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1995305Z        expected the response to have a not_found status code (404) but it was 202
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1996251Z      # ./spec/requests/result_isolation_spec.rb:26:in `block (2 levels) in <top (required)>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1996853Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1997331Z   5) Persisted evidence boundaries A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1998428Z      Failure/Error: expect(portfolio.reload.portfolio_skills.pluck(:id)).to eq([previous.id])
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1999050Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1999183Z        expected: [6]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1999516Z             got: [7]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1999729Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.1999872Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2000479Z      # ./spec/services/evidence_integrity_spec.rb:30:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2001057Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2001520Z   6) Persisted evidence boundaries A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2002840Z      Failure/Error: expect { generate({'configured_skills'=>[valid_skill.merge('level'=>9)],'discovered_skills'=>[]}) }.to raise_error(StandardError)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2003971Z        expected StandardError but nothing was raised
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2004864Z      # ./spec/services/evidence_integrity_spec.rb:20:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2005386Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2005941Z   7) Persisted evidence boundaries A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2007009Z      Failure/Error: expect { generate({}) }.to raise_error(StandardError)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2007704Z        expected StandardError but nothing was raised
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2008418Z      # ./spec/services/evidence_integrity_spec.rb:16:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2008966Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2009395Z   8) Persisted evidence boundaries A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2010271Z      Failure/Error: expect(map.reload.state).to eq('partial')
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2010699Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2010855Z        expected: "partial"
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2011238Z             got: "covered"
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2011472Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2011620Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2012200Z      # ./spec/services/evidence_integrity_spec.rb:43:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2012734Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2013055Z   9) Persisted evidence boundaries A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2014986Z      Failure/Error: expect { generate({'configured_skills'=>[valid_skill.merge('evidence'=>['I led a team of fifty.'])],'discovered_skills'=>[]}) }.to raise_error(StandardError)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2016222Z        expected StandardError but nothing was raised
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2016913Z      # ./spec/services/evidence_integrity_spec.rb:24:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2017440Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2017839Z   10) Candidate completion boundary A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2018790Z       Failure/Error: expect(response).to have_http_status(:unprocessable_entity)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2020033Z         expected the response to have status code :unprocessable_entity (422) but it was :ok (200)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2020993Z       # ./spec/requests/session_completion_spec.rb:7:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2021536Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2021932Z   11) Candidate completion boundary A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2023048Z       Failure/Error: expect(response).to have_http_status(:unprocessable_entity)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2024011Z         expected the response to have status code :unprocessable_entity (422) but it was :ok (200)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2025354Z       # ./spec/requests/session_completion_spec.rb:15:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2025893Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2026316Z   12) Lifecycle competing callers A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2027178Z       Failure/Error: expect(session.reload.status).to eq('active')
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2027587Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2027725Z         expected: "active"
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2028062Z              got: "ended"
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2028275Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2028408Z         (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2028949Z       # ./spec/services/lifecycle_races_spec.rb:31:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2029427Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2029934Z   13) Lifecycle competing callers A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2031136Z       Failure/Error: expect(session.transcript_turns.ordered.pluck(:text)).to eq(['First answer','Follow up question'])
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2031852Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2032059Z         expected: ["First answer", "Follow up question"]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2032541Z              got: ["First answer"]
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2032802Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2032934Z         (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2033491Z       # ./spec/services/lifecycle_races_spec.rb:15:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2034192Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2034600Z   14) Lifecycle competing callers A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2035483Z       Failure/Error: expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2035973Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2036099Z         expected: 1
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2036415Z              got: 2
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2036600Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2036749Z         (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2037332Z       # ./spec/services/lifecycle_races_spec.rb:9:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2037859Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2038111Z Finished in 0.43172 seconds (files took 1.82 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2038672Z 17 examples, 14 failures
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2038887Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2039019Z Failed examples:
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2039222Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2039764Z rspec ./spec/requests/result_isolation_spec.rb:8 # Result ownership boundary A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2041224Z rspec ./spec/requests/result_isolation_spec.rb:13 # Result ownership boundary A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2042739Z rspec ./spec/requests/result_isolation_spec.rb:29 # Result ownership boundary A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2044279Z rspec ./spec/requests/result_isolation_spec.rb:23 # Result ownership boundary A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2045804Z rspec ./spec/services/evidence_integrity_spec.rb:26 # Persisted evidence boundaries A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2047546Z rspec ./spec/services/evidence_integrity_spec.rb:19 # Persisted evidence boundaries A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2049348Z rspec ./spec/services/evidence_integrity_spec.rb:15 # Persisted evidence boundaries A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2051224Z rspec ./spec/services/evidence_integrity_spec.rb:38 # Persisted evidence boundaries A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2052296Z rspec ./spec/services/evidence_integrity_spec.rb:23 # Persisted evidence boundaries A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2053176Z rspec ./spec/requests/session_completion_spec.rb:4 # Candidate completion boundary A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2055120Z rspec ./spec/requests/session_completion_spec.rb:11 # Candidate completion boundary A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2057052Z rspec ./spec/services/lifecycle_races_spec.rb:18 # Lifecycle competing callers A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2058821Z rspec ./spec/services/lifecycle_races_spec.rb:11 # Lifecycle competing callers A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2060542Z rspec ./spec/services/lifecycle_races_spec.rb:4 # Lifecycle competing callers A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2061743Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2061991Z Randomized with seed 16901
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2062329Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T16:49:51.2249523Z ##[error]Process completed with exit code 1.
+web	Run npm test	﻿2026-10-10T16:49:35.9117353Z ##[group]Run npm test
+web	Run npm test	2026-10-10T16:49:35.9117716Z ^[[36;1mnpm test^[[0m
+web	Run npm test	2026-10-10T16:49:35.9186260Z shell: /usr/bin/bash -e {0}
+web	Run npm test	2026-10-10T16:49:35.9186825Z ##[endgroup]
+web	Run npm test	2026-10-10T16:49:36.0233652Z 
+web	Run npm test	2026-10-10T16:49:36.0234216Z > skill-review-web@0.0.0 test
+web	Run npm test	2026-10-10T16:49:36.0234805Z > vitest run
+web	Run npm test	2026-10-10T16:49:36.0235081Z 
+web	Run npm test	2026-10-10T16:49:36.3574571Z 
+web	Run npm test	2026-10-10T16:49:36.3577295Z ^[[1m^[[46m RUN ^[[49m^[[22m ^[[36mv3.2.7 ^[[39m^[[90m/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/web^[[39m
+web	Run npm test	2026-10-10T16:49:36.3578959Z 
+web	Run npm test	2026-10-10T16:49:37.9473843Z  ^[[31m❯^[[39m src/test/audio-outcome.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m | ^[[22m^[[31m3 failed^[[39m^[[2m)^[[22m^[[32m 48^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:37.9476416Z ^[[31m   ^[[31m×^[[31m A07 terminal provider error remains failed after socket closes^[[39m^[[32m 32^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:37.9477539Z ^[[31m     → expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:37.9478447Z ^[[31m   ^[[31m×^[[31m A07 error end reason is not successful completion^[[39m^[[32m 5^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:37.9479235Z ^[[31m     → expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:37.9480078Z ^[[31m   ^[[31m×^[[31m A07 exhausted reconnect attempts fail without claiming a recording^[[39m^[[32m 8^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:37.9480855Z ^[[31m     → expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:37.9481513Z    ^[[32m✓^[[39m acknowledged clean termination is complete^[[32m 2^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8562043Z  ^[[31m❯^[[39m src/test/risk-paths.test.tsx ^[[2m(^[[22m^[[2m5 tests^[[22m^[[2m | ^[[22m^[[31m5 failed^[[39m^[[2m)^[[22m^[[33m 491^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8563965Z ^[[31m   ^[[31m×^[[31m A04 preserves canonical taxonomy identity and excluded scope^[[39m^[[32m 253^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8566103Z ^[[31m     → expected "spy" to be called with arguments: [ ObjectContaining{…} ]^[[90m
+web	Run npm test	2026-10-10T16:49:38.8566464Z 
+web	Run npm test	2026-10-10T16:49:38.8566916Z Received: 
+web	Run npm test	2026-10-10T16:49:38.8567121Z 
+web	Run npm test	2026-10-10T16:49:38.8567322Z ^[[1m  1st spy call:
+web	Run npm test	2026-10-10T16:49:38.8567466Z 
+web	Run npm test	2026-10-10T16:49:38.8567599Z ^[[22m^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:49:38.8567917Z ^[[32m-   ObjectContaining {^[[90m
+web	Run npm test	2026-10-10T16:49:38.8568340Z ^[[32m-     "scope_exclude": "Backend",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8568743Z ^[[32m-     "skill_id": "SK-ENG-001",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8569044Z ^[[31m+   {^[[90m
+web	Run npm test	2026-10-10T16:49:38.8569340Z ^[[31m+     "expected_level": 3,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8569685Z ^[[31m+     "is_custom": false,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8570040Z ^[[31m+     "l1_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8570400Z ^[[31m+     "l2_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8570754Z ^[[31m+     "l3_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8571138Z ^[[31m+     "l4_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8571501Z ^[[31m+     "l5_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8571855Z ^[[31m+     "scope_include": "UI",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8572244Z ^[[31m+     "skill_id": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8572624Z ^[[31m+     "skill_label": "Frontend",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8572968Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:49:38.8573205Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8573425Z ^[[31m^[[90m
+web	Run npm test	2026-10-10T16:49:38.8573535Z 
+web	Run npm test	2026-10-10T16:49:38.8573695Z Number of calls: ^[[1m1^[[22m
+web	Run npm test	2026-10-10T16:49:38.8573951Z ^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8574627Z ^[[31m   ^[[31m×^[[31m A03 sends an assessment deletion and retains the other database identity^[[39m^[[32m 140^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8575428Z ^[[31m     → expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:49:38.8576441Z ^[[31m   ^[[31m×^[[31m A03 sends a vacancy deletion to the API^[[39m^[[32m 69^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8577940Z ^[[31m     → expected [] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:49:38.8579419Z ^[[31m   ^[[31m×^[[31m A07 does not claim an invalid invite has a recorded interview^[[39m^[[32m 11^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8580929Z ^[[31m     → ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T16:49:38.8581832Z 
+web	Run npm test	2026-10-10T16:49:38.8582367Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T16:49:38.8583080Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T16:49:38.8583528Z >
+web	Run npm test	2026-10-10T16:49:38.8583885Z   Interview Complete
+web	Run npm test	2026-10-10T16:49:38.8584440Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8585500Z ^[[31m   ^[[31m×^[[31m A08 shows the API expected level in the Required column^[[39m^[[32m 16^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8586276Z ^[[31m     → ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).toHaveTextContent()^[[22m
+web	Run npm test	2026-10-10T16:49:38.8586906Z 
+web	Run npm test	2026-10-10T16:49:38.8587117Z Expected element to have text content:
+web	Run npm test	2026-10-10T16:49:38.8587602Z ^[[32m  L3^[[31m
+web	Run npm test	2026-10-10T16:49:38.8587997Z Received:
+web	Run npm test	2026-10-10T16:49:38.8588408Z ^[[31m^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8774440Z 
+web	Run npm test	2026-10-10T16:49:38.8775839Z ^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Failed Tests 8 ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m
+web	Run npm test	2026-10-10T16:49:38.8776382Z 
+web	Run npm test	2026-10-10T16:49:38.8780252Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/audio-outcome.test.tsx^[[2m > ^[[22mA07 terminal provider error remains failed after socket closes
+web	Run npm test	2026-10-10T16:49:38.8802665Z ^[[31m^[[1mAssertionError^[[22m: expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:38.8803645Z 
+web	Run npm test	2026-10-10T16:49:38.8804223Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:49:38.8804797Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:49:38.8805048Z 
+web	Run npm test	2026-10-10T16:49:38.8805260Z ^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:49:38.8805727Z ^[[32m-   "failed",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8806279Z ^[[31m+   "complete",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8807155Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8807386Z 
+web	Run npm test	2026-10-10T16:49:38.8808131Z ^[[36m ^[[2m❯^[[22m src/test/audio-outcome.test.tsx:^[[2m14:16^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8833701Z     ^[[90m 12| ^[[39mit('A07 terminal provider error remains failed after socket closes',()…
+web	Run npm test	2026-10-10T16:49:38.8835534Z     ^[[90m 13| ^[[39m const {state}=setup();act(()=>Socket.latest.onmessage({data:JSON.stri…
+web	Run npm test	2026-10-10T16:49:38.8837440Z     ^[[90m 14| ^[[39m ^[[34mexpect^[[39m(state)^[[33m.^[[39m^[[34mtoHaveBeenLastCalledWith^[[39m(^[[32m'failed'^[[39m)^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8838657Z     ^[[90m   | ^[[39m               ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.8839779Z     ^[[90m 15| ^[[39m act(()=>Socket.latest.onclose());expect(state).toHaveBeenLastCalledWi…
+web	Run npm test	2026-10-10T16:49:38.8840771Z     ^[[90m 16| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8841350Z 
+web	Run npm test	2026-10-10T16:49:38.8842111Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8842520Z 
+web	Run npm test	2026-10-10T16:49:38.8843542Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/audio-outcome.test.tsx^[[2m > ^[[22mA07 error end reason is not successful completion
+web	Run npm test	2026-10-10T16:49:38.8845183Z ^[[31m^[[1mAssertionError^[[22m: expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:38.8845910Z 
+web	Run npm test	2026-10-10T16:49:38.8846237Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:49:38.8847708Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:49:38.8848038Z 
+web	Run npm test	2026-10-10T16:49:38.8848318Z ^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:49:38.8848835Z ^[[32m-   "failed",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8849458Z ^[[31m+   "complete",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8850166Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8850404Z 
+web	Run npm test	2026-10-10T16:49:38.8851144Z ^[[36m ^[[2m❯^[[22m src/test/audio-outcome.test.tsx:^[[2m18:133^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8851987Z     ^[[90m 16| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8853168Z     ^[[90m 17| ^[[39m^[[34mit^[[39m(^[[32m'A07 error end reason is not successful completion'^[[39m^[[33m,^[[39m()^[[33m=>^[[39m{
+web	Run npm test	2026-10-10T16:49:38.8854632Z     ^[[90m 18| ^[[39m const {state}=setup();act(()=>Socket.latest.onmessage({data:JSON.stri…
+web	Run npm test	2026-10-10T16:49:38.8856195Z     ^[[90m   | ^[[39m                                                                                                                                    ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.8857506Z     ^[[90m 19| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8858573Z     ^[[90m 20| ^[[39mit('A07 exhausted reconnect attempts fail without claiming a recording…
+web	Run npm test	2026-10-10T16:49:38.8859218Z 
+web	Run npm test	2026-10-10T16:49:38.8859680Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8860376Z 
+web	Run npm test	2026-10-10T16:49:38.8861564Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/audio-outcome.test.tsx^[[2m > ^[[22mA07 exhausted reconnect attempts fail without claiming a recording
+web	Run npm test	2026-10-10T16:49:38.8863304Z ^[[31m^[[1mAssertionError^[[22m: expected last "spy" call to have been called with [ 'failed' ]^[[39m
+web	Run npm test	2026-10-10T16:49:38.8864039Z 
+web	Run npm test	2026-10-10T16:49:38.8864379Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:49:38.8864938Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:49:38.8865300Z 
+web	Run npm test	2026-10-10T16:49:38.8865562Z ^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:49:38.8866043Z ^[[32m-   "failed",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8866548Z ^[[31m+   "complete",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8867325Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8867540Z 
+web	Run npm test	2026-10-10T16:49:38.8868147Z ^[[36m ^[[2m❯^[[22m src/test/audio-outcome.test.tsx:^[[2m23:16^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8869572Z     ^[[90m 21| ^[[39m vi^[[33m.^[[39m^[[34museFakeTimers^[[39m()^[[33m;^[[39m^[[35mconst^[[39m {state}^[[33m=^[[39m^[[34msetup^[[39m()^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8871021Z     ^[[90m 22| ^[[39m for(let i=0;i<4;i++){act(()=>Socket.latest.onclose());act(()=>vi.adva…
+web	Run npm test	2026-10-10T16:49:38.8872493Z     ^[[90m 23| ^[[39m ^[[34mexpect^[[39m(state)^[[33m.^[[39m^[[34mtoHaveBeenLastCalledWith^[[39m(^[[32m'failed'^[[39m)^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8873584Z     ^[[90m   | ^[[39m               ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.8874185Z     ^[[90m 24| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8875358Z     ^[[90m 25| ^[[39m^[[34mit^[[39m(^[[32m'acknowledged clean termination is complete'^[[39m^[[33m,^[[39m()^[[33m=>^[[39m{
+web	Run npm test	2026-10-10T16:49:38.8876093Z 
+web	Run npm test	2026-10-10T16:49:38.8876545Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8877188Z 
+web	Run npm test	2026-10-10T16:49:38.8878310Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA04 preserves canonical taxonomy identity and excluded scope
+web	Run npm test	2026-10-10T16:49:38.8880087Z ^[[31m^[[1mAssertionError^[[22m: expected "spy" to be called with arguments: [ ObjectContaining{…} ]^[[90m
+web	Run npm test	2026-10-10T16:49:38.8881160Z 
+web	Run npm test	2026-10-10T16:49:38.8881356Z Received: 
+web	Run npm test	2026-10-10T16:49:38.8881574Z 
+web	Run npm test	2026-10-10T16:49:38.8881865Z ^[[1m  1st spy call:
+web	Run npm test	2026-10-10T16:49:38.8882091Z 
+web	Run npm test	2026-10-10T16:49:38.8882295Z ^[[22m^[[2m  [^[[22m
+web	Run npm test	2026-10-10T16:49:38.8882779Z ^[[32m-   ObjectContaining {^[[90m
+web	Run npm test	2026-10-10T16:49:38.8883435Z ^[[32m-     "scope_exclude": "Backend",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8884161Z ^[[32m-     "skill_id": "SK-ENG-001",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8884776Z ^[[31m+   {^[[90m
+web	Run npm test	2026-10-10T16:49:38.8885379Z ^[[31m+     "expected_level": 3,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8886049Z ^[[31m+     "is_custom": false,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8887076Z ^[[31m+     "l1_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8887870Z ^[[31m+     "l2_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8888632Z ^[[31m+     "l3_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8889309Z ^[[31m+     "l4_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8889967Z ^[[31m+     "l5_anchor": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8890732Z ^[[31m+     "scope_include": "UI",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8891461Z ^[[31m+     "skill_id": undefined,^[[90m
+web	Run npm test	2026-10-10T16:49:38.8892181Z ^[[31m+     "skill_label": "Frontend",^[[90m
+web	Run npm test	2026-10-10T16:49:38.8892819Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:49:38.8893231Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8893609Z ^[[31m^[[90m
+web	Run npm test	2026-10-10T16:49:38.8893807Z 
+web	Run npm test	2026-10-10T16:49:38.8894077Z Number of calls: ^[[1m1^[[22m
+web	Run npm test	2026-10-10T16:49:38.8894572Z ^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8895361Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m24:17^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8896937Z     ^[[90m 22| ^[[39m const select=vi.fn();render(<SkillPicker open onOpenChange={vi.fn()} …
+web	Run npm test	2026-10-10T16:49:38.8898949Z     ^[[90m 23| ^[[39m fireEvent^[[33m.^[[39m^[[34mclick^[[39m(^[[35mawait^[[39m screen^[[33m.^[[39m^[[34mfindByRole^[[39m(^[[32m'button'^[[39m^[[33m,^[[39m{name^[[33m:^[[39m^[[32m'Frontend'^[[39m}))^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8900821Z     ^[[90m 24| ^[[39m expect(select).toHaveBeenCalledWith(expect.objectContaining({skill_id…
+web	Run npm test	2026-10-10T16:49:38.8901909Z     ^[[90m   | ^[[39m                ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.8902623Z     ^[[90m 25| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8903580Z     ^[[90m 26| ^[[39mit('A03 sends an assessment deletion and retains the other database id…
+web	Run npm test	2026-10-10T16:49:38.8904571Z 
+web	Run npm test	2026-10-10T16:49:38.8905094Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8905515Z 
+web	Run npm test	2026-10-10T16:49:38.8907112Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA03 sends an assessment deletion and retains the other database identity
+web	Run npm test	2026-10-10T16:49:38.8910659Z ^[[31m^[[1mAssertionError^[[22m: expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:49:38.8911664Z 
+web	Run npm test	2026-10-10T16:49:38.8912456Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:49:38.8913008Z 
+web	Run npm test	2026-10-10T16:49:38.8913530Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:49:38.8914079Z 
+web	Run npm test	2026-10-10T16:49:38.8914635Z ^[[32m- ArrayContaining [^[[39m
+web	Run npm test	2026-10-10T16:49:38.8915627Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:49:38.8917006Z ^[[32m-     "_destroy": true,^[[39m
+web	Run npm test	2026-10-10T16:49:38.8918123Z ^[[32m-     "id": 11,^[[39m
+web	Run npm test	2026-10-10T16:49:38.8919266Z ^[[2m Test Files ^[[22m ^[[1m^[[31m2 failed^[[39m^[[22m^[[90m (2)^[[39m
+web	Run npm test	2026-10-10T16:49:38.8920937Z ^[[2m      Tests ^[[22m ^[[1m^[[31m8 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m1 passed^[[39m^[[22m^[[90m (9)^[[39m
+web	Run npm test	2026-10-10T16:49:38.8922297Z ^[[2m   Start at ^[[22m 16:49:36
+web	Run npm test	2026-10-10T16:49:38.8923940Z ^[[2m   Duration ^[[22m 2.52s^[[2m (transform 297ms, setup 276ms, collect 616ms, tests 538ms, environment 1.51s, prepare 614ms)^[[22m
+web	Run npm test	2026-10-10T16:49:38.8925051Z 
+web	Run npm test	2026-10-10T16:49:38.8925854Z ^[[32m-   },^[[39m
+web	Run npm test	2026-10-10T16:49:38.8927070Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:49:38.8928005Z ^[[31m+ [^[[39m
+web	Run npm test	2026-10-10T16:49:38.8928908Z ^[[31m+   {^[[39m
+web	Run npm test	2026-10-10T16:49:38.8929862Z ^[[31m+     "display_order": 0,^[[39m
+web	Run npm test	2026-10-10T16:49:38.8930845Z ^[[2m      "id": 12,^[[22m
+web	Run npm test	2026-10-10T16:49:38.8931922Z ^[[31m+     "skill_label": "Backend",^[[39m
+web	Run npm test	2026-10-10T16:49:38.8932889Z ^[[2m    },^[[22m
+web	Run npm test	2026-10-10T16:49:38.8933695Z ^[[2m  ]^[[22m
+web	Run npm test	2026-10-10T16:49:38.8934594Z 
+web	Run npm test	2026-10-10T16:49:38.8935535Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m30:69^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8937407Z     ^[[90m 28| ^[[39m page(<AssessmentEditPage/>,'/assessments/1/edit');fireEvent.click(awa…
+web	Run npm test	2026-10-10T16:49:38.8939516Z     ^[[90m 29| ^[[39m ^[[35mawait^[[39m ^[[34mwaitFor^[[39m(()^[[33m=>^[[39m^[[34mexpect^[[39m(mocks^[[33m.^[[39mupdate)^[[33m.^[[39m^[[34mtoHaveBeenCalled^[[39m())^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8941589Z     ^[[90m 30| ^[[39m expect(mocks.update.mock.calls[0][1].assessment_skills_attributes).to…
+web	Run npm test	2026-10-10T16:49:38.8942465Z 
+web	Run npm test	2026-10-10T16:49:38.8978899Z ##[error]AssertionError: expected last "spy" call to have been called with [ 'failed' ]
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	  [
+web	Run npm test	-   "failed",
+web	Run npm test	+   "complete",
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	 ❯ src/test/audio-outcome.test.tsx:14:16
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.8993775Z     ^[[90m   | ^[[39m                                                                    ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.8994768Z     ^[[90m 31| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.8996096Z     ^[[90m 32| ^[[39m^[[34mit^[[39m(^[[32m'A03 sends a vacancy deletion to the API'^[[39m^[[33m,^[[39m^[[35masync^[[39m()^[[33m=>^[[39m{
+web	Run npm test	2026-10-10T16:49:38.8997262Z 
+web	Run npm test	2026-10-10T16:49:38.8997866Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.8998283Z 
+web	Run npm test	2026-10-10T16:49:38.8999282Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA03 sends a vacancy deletion to the API
+web	Run npm test	2026-10-10T16:49:38.9000731Z ^[[31m^[[1mAssertionError^[[22m: expected [] to deeply equal ArrayContaining{…}^[[39m
+web	Run npm test	2026-10-10T16:49:38.9001318Z 
+web	Run npm test	2026-10-10T16:49:38.9001883Z ^[[32m- Expected^[[39m
+web	Run npm test	2026-10-10T16:49:38.9002462Z ^[[31m+ Received^[[39m
+web	Run npm test	2026-10-10T16:49:38.9002741Z 
+web	Run npm test	2026-10-10T16:49:38.9003076Z ^[[32m- ArrayContaining [^[[39m
+web	Run npm test	2026-10-10T16:49:38.9003760Z ^[[32m-   ObjectContaining {^[[39m
+web	Run npm test	2026-10-10T16:49:38.9004523Z ^[[32m-     "_destroy": true,^[[39m
+web	Run npm test	2026-10-10T16:49:38.9005142Z ^[[32m-     "id": 21,^[[39m
+web	Run npm test	2026-10-10T16:49:38.9005678Z ^[[32m-   },^[[39m
+web	Run npm test	2026-10-10T16:49:38.9006109Z ^[[32m- ]^[[39m
+web	Run npm test	2026-10-10T16:49:38.9006863Z ^[[31m+ []^[[39m
+web	Run npm test	2026-10-10T16:49:38.9007111Z 
+web	Run npm test	2026-10-10T16:49:38.9007765Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m37:73^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9008989Z     ^[[90m 35| ^[[39m const remove=view.container.querySelector('form button[type="button"]…
+web	Run npm test	2026-10-10T16:49:38.9011318Z     ^[[90m 36| ^[[39m ^[[35mawait^[[39m ^[[34mwaitFor^[[39m(()^[[33m=>^[[39m^[[34mexpect^[[39m(mocks^[[33m.^[[39mvacancyUpdate)^[[33m.^[[39m^[[34mtoHaveBeenCalled^[[39m())^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.9013199Z     ^[[90m 37| ^[[39m expect(mocks.vacancyUpdate.mock.calls[0][1].vacancy_skills_attributes…
+web	Run npm test	2026-10-10T16:49:38.9014394Z     ^[[90m   | ^[[39m                                                                        ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.9015114Z     ^[[90m 38| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.9015969Z     ^[[90m 39| ^[[39mit('A07 does not claim an invalid invite has a recorded interview',asy…
+web	Run npm test	2026-10-10T16:49:38.9016519Z 
+web	Run npm test	2026-10-10T16:49:38.9017281Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9017666Z 
+web	Run npm test	2026-10-10T16:49:38.9018688Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA07 does not claim an invalid invite has a recorded interview
+web	Run npm test	2026-10-10T16:49:38.9020168Z ^[[31m^[[1mError^[[22m: ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T16:49:38.9020726Z 
+web	Run npm test	2026-10-10T16:49:38.9021188Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T16:49:38.9021785Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T16:49:38.9022196Z >
+web	Run npm test	2026-10-10T16:49:38.9022515Z   Interview Complete
+web	Run npm test	2026-10-10T16:49:38.9022979Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9023729Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m42:55^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9024897Z     ^[[90m 40| ^[[39m mocks.candidate.mockRejectedValue(new Error('404'));page(<InterviewPa…
+web	Run npm test	2026-10-10T16:49:38.9026201Z     ^[[90m 41| ^[[39m await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTh…
+web	Run npm test	2026-10-10T16:49:38.9028284Z     ^[[90m 42| ^[[39m expect(screen.queryByText('Interview Complete')).not.toBeInTheDocumen…
+web	Run npm test	2026-10-10T16:49:38.9029578Z     ^[[90m   | ^[[39m                                                      ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.9030580Z     ^[[90m 43| ^[[39m expect(screen.getByRole('alert')).toHaveTextContent(/unable|failed|un…
+web	Run npm test	2026-10-10T16:49:38.9031389Z     ^[[90m 44| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.9031657Z 
+web	Run npm test	2026-10-10T16:49:38.9032044Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9032382Z 
+web	Run npm test	2026-10-10T16:49:38.9033306Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA08 shows the API expected level in the Required column
+web	Run npm test	2026-10-10T16:49:38.9034645Z ^[[31m^[[1mError^[[22m: ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).toHaveTextContent()^[[22m
+web	Run npm test	2026-10-10T16:49:38.9035191Z 
+web	Run npm test	2026-10-10T16:49:38.9035488Z Expected element to have text content:
+web	Run npm test	2026-10-10T16:49:38.9036042Z ^[[32m  L3^[[31m
+web	Run npm test	2026-10-10T16:49:38.9036465Z Received:
+web	Run npm test	2026-10-10T16:49:38.9037184Z ^[[31m^[[31m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9037971Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m49:57^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9039241Z     ^[[90m 47| ^[[39m const {default:ComparisonTable}=await import('@/components/fitgap/Com…
+web	Run npm test	2026-10-10T16:49:38.9040676Z     ^[[90m 48| ^[[39m const view=render(<ComparisonTable comparisons={[{skill_label:'Fronte…
+web	Run npm test	2026-10-10T16:49:38.9042070Z     ^[[90m 49| ^[[39m expect(view.container.querySelectorAll('tbody td')[1]).toHaveTextCont…
+web	Run npm test	2026-10-10T16:49:38.9043260Z     ^[[90m   | ^[[39m                                                        ^[[31m^^[[39m
+web	Run npm test	2026-10-10T16:49:38.9044077Z     ^[[90m 50| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T16:49:38.9044638Z     ^[[90m 51| ^[[39m
+web	Run npm test	2026-10-10T16:49:38.9044891Z 
+web	Run npm test	2026-10-10T16:49:38.9045358Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T16:49:38.9045734Z 
+web	Run npm test	2026-10-10T16:49:38.9045782Z 
+web	Run npm test	2026-10-10T16:49:38.9049670Z ##[error]AssertionError: expected last "spy" call to have been called with [ 'failed' ]
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	  [
+web	Run npm test	-   "failed",
+web	Run npm test	+   "complete",
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	 ❯ src/test/audio-outcome.test.tsx:18:133
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9051884Z 
+web	Run npm test	2026-10-10T16:49:38.9054799Z ##[error]AssertionError: expected last "spy" call to have been called with [ 'failed' ]
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	  [
+web	Run npm test	-   "failed",
+web	Run npm test	+   "complete",
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	 ❯ src/test/audio-outcome.test.tsx:23:16
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9057331Z 
+web	Run npm test	2026-10-10T16:49:38.9064128Z ##[error]AssertionError: expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+web	Run npm test	
+web	Run npm test	Received: 
+web	Run npm test	
+web	Run npm test	  1st spy call:
+web	Run npm test	
+web	Run npm test	  [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "scope_exclude": "Backend",
+web	Run npm test	-     "skill_id": "SK-ENG-001",
+web	Run npm test	+   {
+web	Run npm test	+     "expected_level": 3,
+web	Run npm test	+     "is_custom": false,
+web	Run npm test	+     "l1_anchor": undefined,
+web	Run npm test	+     "l2_anchor": undefined,
+web	Run npm test	+     "l3_anchor": undefined,
+web	Run npm test	+     "l4_anchor": undefined,
+web	Run npm test	+     "l5_anchor": undefined,
+web	Run npm test	+     "scope_include": "UI",
+web	Run npm test	+     "skill_id": undefined,
+web	Run npm test	+     "skill_label": "Frontend",
+web	Run npm test	    },
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	Number of calls: 1
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:24:17
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9068129Z 
+web	Run npm test	2026-10-10T16:49:38.9072658Z ##[error]AssertionError: expected [ { id: 12, …(2) } ] to deeply equal ArrayContaining{…}
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	- ArrayContaining [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "_destroy": true,
+web	Run npm test	-     "id": 11,
+web	Run npm test	-   },
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	+ [
+web	Run npm test	+   {
+web	Run npm test	+     "display_order": 0,
+web	Run npm test	      "id": 12,
+web	Run npm test	+     "skill_label": "Backend",
+web	Run npm test	    },
+web	Run npm test	  ]
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:30:69
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9075683Z 
+web	Run npm test	2026-10-10T16:49:38.9079947Z ##[error]AssertionError: expected [] to deeply equal ArrayContaining{…}
+web	Run npm test	
+web	Run npm test	- Expected
+web	Run npm test	+ Received
+web	Run npm test	
+web	Run npm test	- ArrayContaining [
+web	Run npm test	-   ObjectContaining {
+web	Run npm test	-     "_destroy": true,
+web	Run npm test	-     "id": 21,
+web	Run npm test	-   },
+web	Run npm test	- ]
+web	Run npm test	+ []
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:37:73
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9081961Z 
+web	Run npm test	2026-10-10T16:49:38.9084067Z ##[error]Error: expect(element).not.toBeInTheDocument()
+web	Run npm test	
+web	Run npm test	expected document not to contain element, found <h2
+web	Run npm test	  class="text-xl font-semibold"
+web	Run npm test	>
+web	Run npm test	  Interview Complete
+web	Run npm test	</h2> instead
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:42:55
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:38.9085303Z 
+web	Run npm test	2026-10-10T16:49:38.9087091Z ##[error]Error: expect(element).toHaveTextContent()
+web	Run npm test	
+web	Run npm test	Expected element to have text content:
+web	Run npm test	  L3
+web	Run npm test	Received:
+web	Run npm test	
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:49:57
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T16:49:39.0130333Z ##[error]Process completed with exit code 1.

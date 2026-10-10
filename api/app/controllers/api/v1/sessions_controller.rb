@@ -121,9 +121,9 @@ module Api
 
         return json_response(ended: true, message: "Session already ended") if session.ended?
 
-        # No coverage re-check here. The backend WS already verified all_covered
-        # before sending preparing_to_end. Re-checking here caused false negatives
-        # (timing gap between WS detection and HTTP call) that stalled auto-end.
+        unless session.active? && Coverage::MapInjector.new(session).all_covered?
+          return json_error("Active session with verified coverage required", :unprocessable_entity)
+        end
         Sessions::EndHandler.new(session).call(reason: 'all_covered')
         json_response(ended: true, message: "Session ended")
       end

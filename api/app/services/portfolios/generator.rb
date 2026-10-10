@@ -25,8 +25,10 @@ module Portfolios
       prompt   = build_prompt
       response = @gemini_client.generate_content(prompt, temperature: 0.2)
 
-      save_skills(portfolio, response)
-      portfolio.update!(generation_status: 'complete', generated_at: Time.current)
+      Portfolio.transaction do
+        save_skills(portfolio, response)
+        portfolio.update!(generation_status: 'complete', generation_error: nil, generated_at: Time.current)
+      end
 
       Rails.logger.info("[N10] Portfolio generated for session #{@session.id}")
       portfolio
@@ -150,31 +152,50 @@ module Portfolios
     def save_skills(portfolio, response)
       data = response.is_a?(Hash) ? response : JSON.parse(response)
 
-      # Destroy existing skills (idempotent regeneration)
-      portfolio.portfolio_skills.destroy_all
-
-      (data['configured_skills'] || []).each do |skill_data|
-        portfolio.portfolio_skills.create!(
-          skill_id:           skill_data['skill_id'],
-          skill_label:        skill_data['skill_label'],
-          is_discovered:      false,
-          ai_level:           skill_data['level'].to_i.clamp(1, 5),
-          ai_confidence:      skill_data['confidence'],
-          evidence:           Array(skill_data['evidence']).first(3),
-          competency_summary: skill_data['competency_summary']
-        )
+      validate_response!(data)
+      portfolio.with_lock do
+        portfolio.portfolio_skills.destroy_all
+        [['configured_skills', false], ['discovered_skills', true]].each do |key, discovered|
+          data.fetch(key).each do |row|
+            portfolio.portfolio_skills.create!(
+              skill_id: discovered ? nil : row['skill_id'], skill_label: row['skill_label'],
+              is_discovered: discovered, ai_level: row['level'], ai_confidence: row['confidence'],
+              evidence: row['evidence'], competency_summary: row['competency_summary'])
+          end
+        end
       end
+    end
 
-      (data['discovered_skills'] || []).each do |skill_data|
-        portfolio.portfolio_skills.create!(
-          skill_id:           nil,
-          skill_label:        skill_data['skill_label'],
-          is_discovered:      true,
-          ai_level:           skill_data['level'].to_i.clamp(1, 5),
-          ai_confidence:      skill_data['confidence'],
-          evidence:           Array(skill_data['evidence']).first(3),
-          competency_summary: skill_data['competency_summary']
-        )
+    def validate_response!(data)
+      raise ArgumentError, 'Expected both skill arrays' unless data.is_a?(Hash) &&
+        %w[configured_skills discovered_skills].all? { |k| data[k].is_a?(Array) }
+      configured = @session.assessment.assessment_skills.to_a
+      actual = data['configured_skills']
+      identity = ->(skill) { [skill.skill_id, skill.skill_label] }
+      supplied = actual.map { |row| row.is_a?(Hash) ? [row['skill_id'], row['skill_label']] : nil }
+      raise ArgumentError, 'Configured skills do not match assessment' unless
+        supplied.sort_by(&:to_s) == configured.map(&identity).sort_by(&:to_s)
+      candidate_turns = @session.transcript_turns.where(speaker: 'candidate').pluck(:text)
+      normalize = ->(text) { text.gsub(/\s+/, ' ').strip }
+      candidate_text = candidate_turns.map(&normalize)
+      rows = actual + data['discovered_skills']
+      labels = rows.map { |row| row.is_a?(Hash) ? row['skill_label'] : nil }
+      raise ArgumentError, 'Duplicate or missing skill labels' unless labels.all?(&:present?) && labels.uniq.size == labels.size
+      discovered_labels = @session.coverage_maps.where(is_discovered: true).pluck(:skill_label)
+      raise ArgumentError, 'Unknown discovered skill' unless data['discovered_skills'].all? { |row| discovered_labels.include?(row['skill_label']) }
+      rows.each do |row|
+        raise ArgumentError, 'Invalid rating' unless row['level'].is_a?(Integer) && (1..5).cover?(row['level'])
+        raise ArgumentError, 'Invalid confidence' unless PortfolioSkill::CONFIDENCE_LEVELS.include?(row['confidence'])
+        raise ArgumentError, 'Missing competency summary' unless row['competency_summary'].is_a?(String) && row['competency_summary'].present?
+        quotes = row['evidence']
+        raise ArgumentError, 'Evidence must contain 1-3 candidate quotes' unless quotes.is_a?(Array) && (1..3).cover?(quotes.size)
+        unless quotes.all? { |q| q.is_a?(String) && normalize.call(q).present? && candidate_text.any? { |t| t.include?(normalize.call(q)) } }
+          raise ArgumentError, 'Evidence quote not found in candidate transcript'
+        end
+        map = @session.coverage_maps.find_by(skill_label: row['skill_label'])
+        if row['confidence'] == 'high' && !(map && map.state == 'covered' && map.probe_count >= 3)
+          raise ArgumentError, 'High confidence is unsupported by coverage'
+        end
       end
     end
   end

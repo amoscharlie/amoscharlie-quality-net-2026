@@ -1,0 +1,52 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 26275
+
+Lifecycle competing callers
+2026-10-10T16:48:46.054Z pid=10973 tid=9l INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  A10 old disconnect timer cannot end a reconnected interview (FAILED - 1)
+  A10 a stale session object cannot queue termination twice (FAILED - 2)
+  A10 preserves distinct turns arriving with the same connection-local counter (FAILED - 3)
+
+Failures:
+
+  1) Lifecycle competing callers A10 old disconnect timer cannot end a reconnected interview
+     Failure/Error: expect(session.reload.status).to eq('active')
+
+       expected: "active"
+            got: "ended"
+
+       (compared using ==)
+     # ./spec/services/lifecycle_races_spec.rb:31:in `block (2 levels) in <top (required)>'
+
+  2) Lifecycle competing callers A10 a stale session object cannot queue termination twice
+     Failure/Error: expect(PortfolioGeneratorWorker.jobs.size).to eq(1)
+
+       expected: 1
+            got: 2
+
+       (compared using ==)
+     # ./spec/services/lifecycle_races_spec.rb:9:in `block (2 levels) in <top (required)>'
+
+  3) Lifecycle competing callers A10 preserves distinct turns arriving with the same connection-local counter
+     Failure/Error: expect(session.transcript_turns.ordered.pluck(:text)).to eq(['First answer','Follow up question'])
+
+       expected: ["First answer", "Follow up question"]
+            got: ["First answer"]
+
+       (compared using ==)
+     # ./spec/services/lifecycle_races_spec.rb:15:in `block (2 levels) in <top (required)>'
+
+Finished in 0.23153 seconds (files took 0.72709 seconds to load)
+3 examples, 3 failures
+
+Failed examples:
+
+rspec ./spec/services/lifecycle_races_spec.rb:18 # Lifecycle competing callers A10 old disconnect timer cannot end a reconnected interview
+rspec ./spec/services/lifecycle_races_spec.rb:4 # Lifecycle competing callers A10 a stale session object cannot queue termination twice
+rspec ./spec/services/lifecycle_races_spec.rb:11 # Lifecycle competing callers A10 preserves distinct turns arriving with the same connection-local counter
+
+Randomized with seed 26275
+

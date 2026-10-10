@@ -56,6 +56,8 @@ class AudioWebSocketMiddleware
     end
 
     state.session = session
+    state.connection_id = SecureRandom.uuid
+    session.with_lock { session.update!(audio_connection_id: state.connection_id) }
     connect_to_gemini(browser_ws, state)
   rescue StandardError => e
     Rails.logger.error("[AudioWS] Exception in on:open: #{e.class}: #{e.message}\n#{e.backtrace.first(5).join("\n")}")
@@ -183,8 +185,8 @@ class AudioWebSocketMiddleware
       # Push DB writes off the EM thread so audio forwarding doesn't stall.
       Thread.new do
         ActiveRecord::Base.connection_pool.with_connection do
-          save_transcript_turn(session, turn_number, 'candidate', text)
-          CoverageAnalyzerWorker.perform_async(session.id, turn_number)
+          persisted = save_transcript_turn(session, turn_number, 'candidate', text)
+          CoverageAnalyzerWorker.perform_async(session.id, persisted.turn_number)
           refresh_coverage_cache(session, state)
         end
       rescue StandardError => e
@@ -384,7 +386,7 @@ class AudioWebSocketMiddleware
       schedule_gemini_reconnect(browser_ws, state, code)
     else
       Rails.logger.error("[AudioWS] Gemini reconnection failed after #{MAX_RECONNECT_ATTEMPTS} attempts")
-      Sessions::EndHandler.new(state.session).call(reason: 'error')
+      Sessions::EndHandler.new(state.session).call(reason: 'error', connection_id: state.connection_id)
       send_json(browser_ws, type: 'session_ended', reason: 'error',
                             message: 'The session encountered a problem. Please contact the interviewer.')
       browser_ws.close
@@ -431,7 +433,7 @@ class AudioWebSocketMiddleware
       state.graceful_end_timer&.cancel
       state.time_ceiling_timer&.cancel
       state.coverage_end_timer&.cancel
-      Sessions::EndHandler.new(state.session).call(reason: 'manual_candidate')
+      Sessions::EndHandler.new(state.session).call(reason: 'manual_candidate', connection_id: state.connection_id)
       send_json(browser_ws, type: 'session_ended', reason: 'manual_candidate')
       state.gemini_client&.close
       browser_ws.close
@@ -505,9 +507,10 @@ class AudioWebSocketMiddleware
       Thread.new do
         ActiveRecord::Base.connection_pool.with_connection do
           next if state.session.reload.ended?
+          next unless state.session.audio_connection_id == state.connection_id
 
           Rails.logger.info("[AudioWS] Grace period expired — ending session #{state.session.id}")
-          Sessions::EndHandler.new(state.session).call(reason: 'error')
+          Sessions::EndHandler.new(state.session).call(reason: 'error', connection_id: state.connection_id)
           EM.schedule { state.gemini_client&.close }
         end
       rescue StandardError => e
@@ -646,16 +649,13 @@ class AudioWebSocketMiddleware
     Rails.logger.error("[AudioWS] Coverage cache refresh failed: #{e.message}")
   end
 
-  def save_transcript_turn(session, turn_number, speaker, text)
-    session.transcript_turns.create!(
-      turn_number: turn_number,
-      speaker: speaker,
-      text: text
-    )
-  rescue ActiveRecord::RecordNotUnique
-    # Duplicate turn — skip silently (idempotent)
-  rescue StandardError => e
-    Rails.logger.error("[AudioWS] Failed to save transcript turn: #{e.message}")
+  def save_transcript_turn(session, _connection_turn_number, speaker, text)
+    # Allocate persistent ordering under the shared session row lock.
+    # Connection-local counters cannot provide unique numbers after refresh.
+    session.with_lock do
+      session.transcript_turns.create!(turn_number: session.transcript_turns.maximum(:turn_number).to_i + 1,
+                                      speaker: speaker, text: text)
+    end
   end
 
   def check_time_ceiling(session, state, browser_ws)
@@ -689,7 +689,7 @@ class AudioWebSocketMiddleware
         ActiveRecord::Base.connection_pool.with_connection do
           next if session.reload.ended?
 
-          Sessions::EndHandler.new(session).call(reason: 'time_ceiling')
+          Sessions::EndHandler.new(session).call(reason: 'time_ceiling', connection_id: state.connection_id)
           close_session_after_end(browser_ws, state, reason: 'time_ceiling')
         end
       rescue StandardError => e
@@ -770,7 +770,7 @@ class AudioWebSocketMiddleware
 
   # Per-connection state shared across callbacks.
   class ConnectionState
-    attr_accessor :session, :gemini_client, :turn_counter,
+    attr_accessor :session, :gemini_client, :turn_counter, :connection_id,
                   :reconnect_attempts, :browser_disconnected_at,
                   :proactive_reconnect_timer,
                   :latest_resumption_token,

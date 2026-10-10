@@ -32,6 +32,7 @@ import type { AssessmentFormValues } from "./AssessmentNewPage";
 export default function AssessmentEditPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [removedIds, setRemovedIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
@@ -77,7 +78,7 @@ export default function AssessmentEditPage() {
       await assessmentsApi.update(Number(id), {
         name: data.name,
         time_limit_min: data.time_limit_min,
-        assessment_skills_attributes: data.skills.map((s, i) => ({ ...s, display_order: i })),
+        assessment_skills_attributes: [...data.skills.map((s, i) => ({ ...s, display_order: i })), ...removedIds.map((id) => ({ id, _destroy: true }))],
       });
       navigate(`/assessments/${id}/invite`);
     } catch (e: any) {
@@ -143,7 +144,7 @@ export default function AssessmentEditPage() {
               <SortableContext items={fields.map((f) => f.id)} strategy={verticalListSortingStrategy}>
                 <div className="space-y-2">
                   {fields.map((field, index) => (
-                    <SkillCard key={field.id} id={field.id} index={index} form={form} onRemove={() => remove(index)} />
+                    <SkillCard key={field.id} id={field.id} index={index} form={form} onRemove={() => { const id = form.getValues(`skills.${index}.id`); if (id) setRemovedIds((ids) => [...ids, id]); remove(index); }} />
                   ))}
                 </div>
               </SortableContext>

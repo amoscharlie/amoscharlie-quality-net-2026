@@ -11,35 +11,21 @@ module Sessions
       @session = session
     end
 
-    def call(reason: 'manual_assessor')
-      # Allow upgrading end_reason from 'error' to a manual reason (candidate/assessor ended cleanly)
-      if @session.ended?
-        manual = %w[manual_candidate manual_assessor]
-        if manual.include?(reason.to_s) && @session.end_reason == 'error'
-          @session.update_column(:end_reason, reason.to_s)
-        end
-        return @session
-      end
-
+    def call(reason: 'manual_assessor', connection_id: nil)
       reason = 'manual_assessor' unless VALID_REASONS.include?(reason.to_s)
-
-      ActiveRecord::Base.transaction do
-        duration = @session.started_at ? (Time.current - @session.started_at).to_i : nil
-
-        @session.update!(
-          status:           'ended',
-          end_reason:       reason.to_s,
-          ended_at:         Time.current,
-          duration_seconds: duration
-        )
-
+      @session.with_lock do
+        return @session if @session.ended?
+        return @session if connection_id && @session.audio_connection_id != connection_id
+        if reason.to_s == 'all_covered' && !(@session.active? && Coverage::MapInjector.new(@session).all_covered?)
+          raise ArgumentError, 'Verified active coverage required'
+        end
+        duration = @session.started_at ? [(Time.current - @session.started_at).to_i, 0].max : nil
+        @session.update!(status: 'ended', end_reason: reason.to_s,
+                         ended_at: Time.current, duration_seconds: duration)
         create_portfolio
       end
-
       enqueue_portfolio_generation
       publish_status_update
-      Rails.logger.info("[N9/EndHandler] Session #{@session.id} ended (reason=#{reason})")
-
       @session
     end
 

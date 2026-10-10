@@ -23,11 +23,13 @@ interface VacancyFormValues {
 export default function VacancyEditPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [removedIds, setRemovedIds] = useState<number[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
 
-  const { register, handleSubmit, control, setValue, watch, reset } = useForm<VacancyFormValues>({
+  const { register, handleSubmit, control, setValue, watch, reset, getValues } = useForm<VacancyFormValues>({
     defaultValues: { role_title: "", culture_dimensions: "", competency_expectations: "", skills: [] },
   });
   const { fields, append, remove } = useFieldArray({ control, name: "skills" });
@@ -46,9 +48,11 @@ export default function VacancyEditPage() {
         role_title: data.role_title,
         culture_dimensions: data.culture_dimensions,
         competency_expectations: data.competency_expectations,
-        vacancy_skills_attributes: data.skills,
+        vacancy_skills_attributes: [...data.skills, ...removedIds.map((id) => ({ id, _destroy: true }))],
       });
       navigate("/vacancies");
+    } catch {
+      setError("Failed to save vacancy. Please retry.");
     } finally {
       setSubmitting(false);
     }
@@ -75,7 +79,7 @@ export default function VacancyEditPage() {
             <div key={field.id} className="border rounded-lg p-3 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium">{watch(`skills.${index}.skill_label`)}</span>
-                <button type="button" onClick={() => remove(index)} className="text-muted-foreground hover:text-destructive"><X className="h-4 w-4" /></button>
+                <button type="button" aria-label={`Remove ${watch(`skills.${index}.skill_label`)}`} onClick={() => { const id = getValues(`skills.${index}.id`); if (id) setRemovedIds((ids) => [...ids, id]); remove(index); }} className="text-muted-foreground hover:text-destructive"><X className="h-4 w-4" /></button>
               </div>
               <LevelRadio value={watch(`skills.${index}.expected_level`) ?? 3} onChange={(v) => setValue(`skills.${index}.expected_level`, v)} />
             </div>
@@ -93,6 +97,7 @@ export default function VacancyEditPage() {
           <Label>Competency expectations</Label>
           <Textarea rows={3} {...register("competency_expectations")} />
         </div>
+        {error && <p role="alert">{error}</p>}
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={() => navigate("/vacancies")}>Cancel</Button>
           <Button type="submit" disabled={submitting}>{submitting && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}Save Changes</Button>
