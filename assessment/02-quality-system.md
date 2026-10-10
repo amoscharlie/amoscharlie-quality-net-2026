@@ -42,7 +42,7 @@ A file reference and changed-test check cannot determine whether a specification
 - Additional login/delivery RED: [CI 38069559731](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069559731).
 - Login/delivery fixes GREEN: [CI 38069792683](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38069792683).
 - Reload failure RED: [CI 38070106333](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070106333).
-- Final recovery behavior and release-candidate CI: links recorded below after actual runs finish.
+- Final recovery behavior and patched tooling GREEN: [CI 38070450860](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070450860).
 
 Evidence files under `assessment/evidence` capture specific runs; they are not claims that a saved log certifies a later commit. GitHub checks and tag commits are the authority for version-bound results. Initial failures are intentionally retained.
 
@@ -51,3 +51,12 @@ Evidence files under `assessment/evidence` capture specific runs; they are not c
 A pending portfolio is a durable DB delivery intent. Dispatcher locks its row, enqueues, then marks generating with a dispatch timestamp. A Redis failure rolls back the marker, leaving recoverable pending work. The Sidekiq server polls independently every 30 seconds, including after startup; stale generating work is retried after 15 minutes. An enqueue/DB-commit crash may deliver twice. Worker locking and a complete-result guard make that at-least-once delivery safe for already completed results.
 
 The worker holds a portfolio lock across provider generation, trading per-result serialization for possible connection occupancy. Provider timeout is bounded; production sizing and failure/load behavior require further measurement. Controlled race checks do not certify distributed throughput. Candidate quote existence does not establish scoring accuracy. No real voice/provider E2E or browser audio timing test has passed, so production release remains blocked by the separate acceptance gate.
+
+
+## Reviewable PR demonstrations
+
+[PR #1](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/1) intentionally changes a production-path source comment without required spec/acceptance/design/test inputs or changed regression evidence. Its PR-event inputs job fails and GitHub reports mergeStateStatus BLOCKED; it remains open for review and must not merge. The branch push job alone is not sufficient to authorize merging the PR. See [blocked PR CI](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070500619).
+
+[PR #2](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/2) supplies all inputs and two meaningful coverage-rule checks: a single probe cannot cover a skill, and regressive/unknown model updates cannot erase coverage. It also makes PR-body edits rerun the gate and requires changed regression evidence for quality infrastructure. Required checks must pass before merge; the final GitHub state is authoritative.
+
+Main protection requires inputs/api/web, strict up-to-date checks, linear history and enforcement for administrators; force push and branch deletion are disabled. The release gate runs after the same quality jobs on tags. Candidate rc.1 may therefore have green quality jobs and an intentionally failed release decision. Inspect [tag workflow runs](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions?query=branch%3Av1.0.0-rc.1) and `03-release-decision.md` together.

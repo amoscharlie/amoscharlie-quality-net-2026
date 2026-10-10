@@ -1,0 +1,24 @@
+✔ complete inputs pass (2.005042ms)
+✔ missing Spec blocks (0.200834ms)
+✔ missing Acceptance blocks (0.159375ms)
+✔ missing Design blocks (0.169291ms)
+✔ missing Tests blocks (0.202417ms)
+✔ nonexistent evidence blocks (0.161083ms)
+✔ production change without regression blocks (0.433792ms)
+✔ production change with regression passes (0.147083ms)
+✔ documentation change may use existing net (0.083709ms)
+✔ quality infrastructure change requires regression evidence (0.156166ms)
+✔ quality infrastructure may provide gate regression evidence (0.067833ms)
+✔ verified fixed release passes (0.558375ms)
+✔ open P1 blocks (0.079125ms)
+✔ unverified critical acceptance blocks even green tests (0.681375ms)
+✔ owner acceptance needs evidence (0.099791ms)
+✔ documented owner acceptance may pass (0.075584ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.351667
