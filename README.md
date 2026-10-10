@@ -11,5 +11,6 @@ Assessment deliverables:
 - [Version-bound release decision](assessment/03-release-decision.md)
 - [Release candidate notes](assessment/releases/v1.0.0-rc.1.md)
 - [Defense learning guide](assessment/04-defense-guide.md)
+- [Final submission review](assessment/05-submission-review.md)
 
 Production release is BLOCKED until real provider/voice acceptance is verified. Deterministic checks deliberately run offline and do not claim model suitability or audio timing.
