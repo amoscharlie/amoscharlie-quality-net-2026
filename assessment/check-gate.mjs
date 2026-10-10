@@ -10,7 +10,7 @@ export function checkInputs(body) {
  }
 }
 if(process.argv[1]?.endsWith('check-gate.mjs')) {
- const event=JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH||'assessment/change-inputs.json','utf8'));
+ const event=JSON.parse(fs.readFileSync(process.env.QUALITY_EVENT_PATH||'assessment/change-inputs.json','utf8'));
  checkInputs(event.pull_request?.body ?? event.body);
  console.log('PASS: spec, acceptance, design and runnable tests are present');
 }

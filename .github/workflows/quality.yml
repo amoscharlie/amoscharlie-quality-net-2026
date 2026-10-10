@@ -16,7 +16,7 @@ jobs:
       - run: node --test assessment/check-gate.test.mjs
       - run: node assessment/check-gate.mjs
         env:
-          GITHUB_EVENT_PATH: ${{ github.event_name == 'pull_request' && github.event_path || 'assessment/change-inputs.json' }}
+          QUALITY_EVENT_PATH: ${{ github.event_name == 'pull_request' && github.event_path || 'assessment/change-inputs.json' }}
   api:
     needs: inputs
     runs-on: ubuntu-latest
