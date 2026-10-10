@@ -1,0 +1,106 @@
+{
+  "risks": [
+    {
+      "id": "A01",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A02",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A03",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A04",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A05",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A06",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A07",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A08",
+      "severity": "P2",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A09",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A10",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A11",
+      "severity": "P2",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A12",
+      "severity": "P2",
+      "status": "deferred",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A13",
+      "severity": "P2",
+      "status": "deferred",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A14",
+      "severity": "P2",
+      "status": "deferred",
+      "owner": "Amos Charlie"
+    },
+    {
+      "id": "A15",
+      "severity": "P1",
+      "status": "fixed",
+      "owner": "Amos Charlie"
+    }
+  ],
+  "requiredChecks": [
+    {
+      "id": "deterministic_quality_net",
+      "status": "passed",
+      "evidence": "assessment/evidence/api-green.txt and web-green.txt; CI linked in quality-system"
+    },
+    {
+      "id": "live_provider_interview",
+      "status": "pending",
+      "evidence": "No configured provider credential or real voice interview evidence; no assumption of success"
+    }
+  ]
+}

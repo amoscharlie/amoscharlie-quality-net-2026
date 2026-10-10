@@ -1,0 +1,16 @@
+
+> skill-review-web@0.0.0 build
+> tsc && vite build
+
+vite v6.4.4 building for production...
+transforming...
+✓ 1842 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                         0.63 kB │ gzip:  0.33 kB
+dist/assets/index-CMW-YnDq.css         31.15 kB │ gzip:  6.41 kB
+dist/assets/vendor-ui-BV5EBrUx.js     102.44 kB │ gzip: 34.72 kB
+dist/assets/vendor-misc-CPcKQuwK.js   112.25 kB │ gzip: 39.56 kB
+dist/assets/vendor-react-D3w9ihCe.js  181.45 kB │ gzip: 59.75 kB
+dist/assets/index-DtA6oW4j.js         182.76 kB │ gzip: 52.10 kB
+✓ built in 1.74s

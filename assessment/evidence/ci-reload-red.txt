@@ -1,0 +1,136 @@
+api	Run bundle exec rspec --format documentation	﻿2026-10-10T17:03:04.4451814Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4452521Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4521533Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4521839Z env:
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4522066Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4522288Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4522522Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4522750Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4523061Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4523458Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4524072Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4524390Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:04.4524680Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.7955369Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.7955926Z Randomized with seed 15419
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.7957231Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.7957476Z Candidate completion boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.8823202Z   A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9018163Z   A07 candidate recovery info preserves the persisted failure reason (FAILED - 1)
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9254330Z   A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9562851Z 2026-10-10T17:03:06.955Z pid=3007 tid=6lr INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9657046Z   ends covered sessions once, preserving duration and a single portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9657701Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9657892Z Result ownership boundary
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:06.9976512Z   allows owner export and preserves the stored level
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.0128562Z   A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.0332626Z   A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.0532635Z   A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.0796526Z   A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.0797046Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.1168308Z Persisted evidence boundaries
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.1168908Z   A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.1471030Z   A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.1700758Z   A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.1950074Z   A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.2199611Z   A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.2462649Z   publishes a valid grounded rating without changing its level or evidence
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.2463444Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.2463930Z Lifecycle competing callers
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.2852470Z   A10 duplicate delivery does not regenerate an already complete result
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3052728Z   A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3240979Z   recovers persisted pending work without another candidate request
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3426091Z   A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3677490Z   A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3910746Z   A10 retries a durable pending portfolio after queue delivery fails
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3911409Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.3911626Z Login organization authority
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4129710Z   rejects even a bound admin when the requested organization differs
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4235854Z   A15 cannot mint an organization credential from a client supplied scheme without membership
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4340002Z   allows bound admin login using only the server-owned organization
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4439679Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4440411Z Failures:
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4440677Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4441311Z   1) Candidate completion boundary A07 candidate recovery info preserves the persisted failure reason
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4442470Z      Failure/Error: expect(JSON.parse(response.body).fetch('end_reason')).to eq('error')
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4443981Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4444140Z      KeyError:
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4444526Z        key not found: "end_reason"
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4445114Z      # ./spec/requests/session_completion_spec.rb:33:in `fetch'
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4445974Z      # ./spec/requests/session_completion_spec.rb:33:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4446728Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4447016Z Finished in 0.63997 seconds (files took 2.04 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4447653Z 24 examples, 1 failure
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4447893Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4448056Z Failed examples:
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4448284Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4448911Z rspec ./spec/requests/session_completion_spec.rb:28 # Candidate completion boundary A07 candidate recovery info preserves the persisted failure reason
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4449653Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4449772Z Randomized with seed 15419
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4449959Z 
+api	Run bundle exec rspec --format documentation	2026-10-10T17:03:07.4720478Z ##[error]Process completed with exit code 1.
+web	Run npm test	﻿2026-10-10T17:02:50.1778070Z ##[group]Run npm test
+web	Run npm test	2026-10-10T17:02:50.1778545Z ^[[36;1mnpm test^[[0m
+web	Run npm test	2026-10-10T17:02:50.1862151Z shell: /usr/bin/bash -e {0}
+web	Run npm test	2026-10-10T17:02:50.1862457Z ##[endgroup]
+web	Run npm test	2026-10-10T17:02:50.3002886Z 
+web	Run npm test	2026-10-10T17:02:50.3003945Z > skill-review-web@0.0.0 test
+web	Run npm test	2026-10-10T17:02:50.3004711Z > vitest run
+web	Run npm test	2026-10-10T17:02:50.3004982Z 
+web	Run npm test	2026-10-10T17:02:50.6825550Z 
+web	Run npm test	2026-10-10T17:02:50.6828056Z ^[[1m^[[46m RUN ^[[49m^[[22m ^[[36mv3.2.7 ^[[39m^[[90m/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/web^[[39m
+web	Run npm test	2026-10-10T17:02:50.6829504Z 
+web	Run npm test	2026-10-10T17:02:52.4436906Z  ^[[32m✓^[[39m src/test/audio-outcome.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 42^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4111213Z  ^[[31m❯^[[39m src/test/risk-paths.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m | ^[[22m^[[31m1 failed^[[39m^[[2m)^[[22m^[[33m 482^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4113184Z    ^[[32m✓^[[39m A04 preserves canonical taxonomy identity and excluded scope^[[32m 233^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4115270Z    ^[[32m✓^[[39m A03 sends an assessment deletion and retains the other database identity^[[32m 143^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4116145Z    ^[[32m✓^[[39m A03 sends a vacancy deletion to the API^[[32m 66^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4116861Z    ^[[32m✓^[[39m A07 does not claim an invalid invite has a recorded interview^[[32m 12^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4117605Z    ^[[32m✓^[[39m A08 shows the API expected level in the Required column^[[32m 15^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4118487Z ^[[31m   ^[[31m×^[[31m A07 reloaded failed termination does not claim successful recording^[[39m^[[32m 11^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4119279Z ^[[31m     → ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T17:02:53.4119590Z 
+web	Run npm test	2026-10-10T17:02:53.4119867Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T17:02:53.4120237Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T17:02:53.4120501Z >
+web	Run npm test	2026-10-10T17:02:53.4120711Z   Interview Complete
+web	Run npm test	2026-10-10T17:02:53.4120986Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4302843Z 
+web	Run npm test	2026-10-10T17:02:53.4304055Z ^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Failed Tests 1 ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m
+web	Run npm test	2026-10-10T17:02:53.4304585Z 
+web	Run npm test	2026-10-10T17:02:53.4306542Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/risk-paths.test.tsx^[[2m > ^[[22mA07 reloaded failed termination does not claim successful recording
+web	Run npm test	2026-10-10T17:02:53.4325016Z ^[[31m^[[1mError^[[22m: ^[[2mexpect(^[[22m^[[31melement^[[31m^[[2m).not.toBeInTheDocument()^[[22m
+web	Run npm test	2026-10-10T17:02:53.4325758Z 
+web	Run npm test	2026-10-10T17:02:53.4326291Z ^[[31mexpected document not to contain element, found <h2
+web	Run npm test	2026-10-10T17:02:53.4326913Z   class="text-xl font-semibold"
+web	Run npm test	2026-10-10T17:02:53.4327224Z >
+web	Run npm test	2026-10-10T17:02:53.4327430Z   Interview Complete
+web	Run npm test	2026-10-10T17:02:53.4327735Z </h2> instead^[[31m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4328266Z ^[[36m ^[[2m❯^[[22m src/test/risk-paths.test.tsx:^[[2m56:55^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4378996Z     ^[[90m 54| ^[[39m ^[[34mpage^[[39m(^[[33m<^[[39m^[[33mInterviewPage^[[39m^[[33m/^[[39m^[[33m>^[[39m^[[33m,^[[39m^[[32m'/interview/failed-session'^[[39m)^[[33m;^[[39m
+web	Run npm test	2026-10-10T17:02:53.4380286Z     ^[[90m 55| ^[[39m await waitFor(()=>expect(screen.queryByText('Hardware')).not.toBeInTh…
+web	Run npm test	2026-10-10T17:02:53.4381264Z     ^[[90m 56| ^[[39m expect(screen.queryByText('Interview Complete')).not.toBeInTheDocumen…
+web	Run npm test	2026-10-10T17:02:53.4382227Z     ^[[90m   | ^[[39m                                                      ^[[31m^^[[39m
+web	Run npm test	2026-10-10T17:02:53.4383462Z     ^[[90m 57| ^[[39m ^[[34mexpect^[[39m(screen^[[33m.^[[39m^[[34mgetByRole^[[39m(^[[32m'alert'^[[39m))^[[33m.^[[39m^[[34mtoBeInTheDocument^[[39m()^[[33m;^[[39m
+web	Run npm test	2026-10-10T17:02:53.4384272Z     ^[[90m 58| ^[[39m})^[[33m;^[[39m
+web	Run npm test	2026-10-10T17:02:53.4384606Z 
+web	Run npm test	2026-10-10T17:02:53.4384894Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯^[[22m^[[39m
+web	Run npm test	2026-10-10T17:02:53.4385122Z 
+web	Run npm test	2026-10-10T17:02:53.4385161Z 
+web	Run npm test	2026-10-10T17:02:53.4387800Z ^[[2m Test Files ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m1 passed^[[39m^[[22m^[[90m (2)^[[39m
+web	Run npm test	2026-10-10T17:02:53.4389396Z ^[[2m      Tests ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m9 passed^[[39m^[[22m^[[90m (10)^[[39m
+web	Run npm test	2026-10-10T17:02:53.4390923Z ^[[2m   Start at ^[[22m 17:02:50
+web	Run npm test	2026-10-10T17:02:53.4392607Z ^[[2m   Duration ^[[22m 2.75s^[[2m (transform 287ms, setup 351ms, collect 624ms, tests 524ms, environment 1.84s, prepare 555ms)^[[22m
+web	Run npm test	2026-10-10T17:02:53.4393511Z 
+web	Run npm test	2026-10-10T17:02:53.4405209Z 
+web	Run npm test	2026-10-10T17:02:53.4430766Z ##[error]Error: expect(element).not.toBeInTheDocument()
+web	Run npm test	
+web	Run npm test	expected document not to contain element, found <h2
+web	Run npm test	  class="text-xl font-semibold"
+web	Run npm test	>
+web	Run npm test	  Interview Complete
+web	Run npm test	</h2> instead
+web	Run npm test	 ❯ src/test/risk-paths.test.tsx:56:55
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-10T17:02:53.5642976Z ##[error]Process completed with exit code 1.

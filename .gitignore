@@ -17,3 +17,6 @@ web/.vite/
 
 # OS
 .DS_Store
+
+# Local account provisioning
+.local-credentials.json

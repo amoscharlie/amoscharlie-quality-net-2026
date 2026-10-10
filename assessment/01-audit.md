@@ -52,10 +52,31 @@ Severity is applied top to bottom: P0 objective impossible, no workaround; P1 da
 
 ## Reproduction and limits
 
-Baseline frontend `npm run build`: PASS. PostgreSQL and Redis: reachable. Ruby 3.3.2 installation is in progress; baseline runtime checks follow before fixes. Live AI audio has not been verified because the local key is a placeholder. No test will claim provider behavior merely because a deterministic fake passes.
+Baseline frontend `npm run build`: PASS. PostgreSQL and Redis: reachable. Ruby 3.3.2, PostgreSQL and Redis are installed and the local API/web/worker run. Owner login and authenticated assessment listing have been verified over HTTP. Live AI audio has not been verified because the local key is a placeholder. No test will claim provider behavior merely because a deterministic fake passes.
 
 The initial review inspected API, web, models, all migrations/schema, package and environment configuration, deployment manifests, READMEs and external PRDs. Inventory: no local notes/tickets/docs folders, test suites, `.github` workflows or pre-existing assessment folder. No feature defect was patched before this audit.
 
 ## Ship line and residual ownership
 
 Release is blocked until reproducible checks cover A01-A07 and A09 and identified P1 defects are corrected. A10 must be reproduced or explicitly retained as a release-blocking integrity uncertainty, rather than silently marked fixed. Runtime/CI evidence, visible blocked/pass PRs, tag-bound checks and confidentiality review are required before claiming the assessment submission complete. Amos Charlie owns all remaining risks and verification work. P2/P3 may be deferred with a stated impact and mitigation. Unknown provider behavior remains an explicit release limit.
+
+
+## Final disposition (2026-10-11)
+
+| Findings | Disposition | Reproducible evidence |
+|---|---|---|
+| A01 / A09 | Fixed: HTTP child lookups join the session tenant; coverage subscription checks the assessor role. | `api/spec/requests/result_isolation_spec.rb` |
+| A02 | Fixed: both the HTTP boundary and locked end transition require active, verified coverage. | `api/spec/requests/session_completion_spec.rb` |
+| A03 / A04 | Fixed: persisted deletion tombstones, retained IDs and canonical taxonomy scope. | `web/src/test/risk-paths.test.tsx` |
+| A05 / A06 | Fixed: validate complete response before atomic replacement; no count-only coverage promotion. | `api/spec/services/evidence_integrity_spec.rb` |
+| A07 / A08 | Fixed: invalid invites, fatal WS errors, exhausted retries and reloaded error endings remain failures; expected level renders from API contract. | frontend risk-path and audio-outcome checks; candidate-info request check |
+| A10 | Fixed for reproduced cases: session row locks, durable pending delivery, independent recovery polling, serialized worker and complete-result idempotency; new browser lease supersedes old disconnect termination. | `api/spec/services/lifecycle_races_spec.rb` |
+| A15 | Fixed: local login binds server-owned user organization; legacy unbound accounts are quarantined. | `api/spec/requests/login_membership_spec.rb` |
+| A11 | Fixed: mandatory input/changed-test gate, every-change CI, protected main, visible blocked/pass examples, version-bound release gate. | workflow, gate tests, PR links in quality-system document |
+| A12 | Deferred P2: expiry/revocation, external token membership/revocation, live load and full timeout policy remain specified incompletely. | release limits and risk register |
+| A13 | Local setup corrected and verified; deployment configurations remain inherited examples requiring environment-specific review. | `assessment/setup-local.md` |
+| A14 | Deferred P2: seven build-tool advisories remain. Newly added test tooling was upgraded to remove its critical advisories. No untrusted build pattern input is accepted in this workflow. | lockfile / npm audit; release notes |
+
+The lifecycle checks reproduce controlled competing/stale callers and queued-delivery failure. They do not establish multi-process load capacity or audio latency. Exact candidate-quote grounding does not prove that a model's level or skill attribution is semantically correct. Real provider/voice acceptance is still pending and independently blocks production release.
+
+RED history is retained in independent Git commits, local evidence files and real CI runs. See `02-quality-system.md` for exact links; failed boot/setup runs are labeled separately from behavioral RED runs. No failed regression assertion was weakened to obtain GREEN.

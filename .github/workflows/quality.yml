@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --test assessment/check-gate.test.mjs
+      - run: node --test assessment/check-gate.test.mjs assessment/check-release.test.mjs
       - run: node assessment/check-gate.mjs
         env:
           QUALITY_EVENT_PATH: ${{ github.event_name == 'pull_request' && github.event_path || 'assessment/change-inputs.json' }}
@@ -72,3 +72,13 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [inputs, api, web]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node assessment/check-release.mjs
