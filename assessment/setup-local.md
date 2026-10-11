@@ -54,4 +54,10 @@ node assessment/check-release.mjs
 
 The last command deliberately returns a failure while any critical acceptance check is pending. It is a release decision, not a broken regression suite.
 
-Voice interview requires a real GEMINI_API_KEY and available live/analysis/pro models. Inherited model names must be checked against the provider account. Deterministic CI does not call the paid provider. The authenticated REST/UI smoke is verified; real mic-to-provider-to-portfolio behavior is still unverified.
+Voice interview requires a real GEMINI_API_KEY and available live/analysis/pro models. Inherited model names must be checked against the provider account. Deterministic CI does not call the paid provider. Authenticated REST/UI smoke, Live handshake/transcript and one portfolio regenerate were observed. The full coverage/termination/review/comparison/export acceptance flow remains unverified.
+
+## Explicit provider model decision (2026-10-11)
+
+Inherited local analysis `gemini-2.5-flash` and portfolio `gemini-2.5-pro` returned HTTP 404 for this account. Model listing alone did not establish generateContent access. Ignored local configuration uses the exact model identifier `gemini-3.8-flash` for GEMINI_FLASH_MODEL and GEMINI_PRO_MODEL: an earlier actual generateContent probe succeeded and portfolio regeneration completed. This is an account-specific observed configuration, not a universal recommended model or a committed default. A subsequent verification probe returned HTTP 503; present provider availability is therefore unverified. Keep runtime errors visible and retain transcript for retry.
+
+This compatibility issue is documented under A13 as a setup/runtime dependency decision, separate from R01 (the P1 failure to terminate safely when analysis fails). Do not mark live acceptance passed from model listing, one regeneration, or deterministic CI. Check the exact configured model with a minimal authenticated generateContent request, without logging keys, before a live demo. For defense: 404 establishes an unavailable model/configuration for the tested account; 503 is a later service failure, not evidence that the identifier changed.

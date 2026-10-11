@@ -16,7 +16,7 @@ Critical flow: configure skills -> create invite -> start interview -> persist t
 
 The assessment brief supplies severity, workflow and release requirements. Two supplied external PRDs describe behavioral probing and an end-to-end reference simulation. Those sources have been read privately; identifiable source links and scenario names are deliberately excluded from the public copy.
 
-A change-specific acceptance contract and design note will be recorded in `assessment/specs/quality-contract.md`. The supplied PRDs are real inputs, so this audit does not claim that the entire product has no specification.
+A change-specific acceptance contract and design note will be recorded in `assessment/specs/quality-contract.md`. The external PRDs are referenced inputs, not repository-local files. No local PRD/notes/tickets are present; missing local input and traceability are recorded under A12. This does not imply that the entire product has no specification.
 
 Assumptions: a signed assessor credential authorizes only its own organization; invite possession permits only the associated candidate session; `all_covered` must describe verified coverage, not a client assertion; persisted skill IDs are canonical taxonomy strings; generated ratings require a complete, valid response and supporting candidate evidence; removing a persisted skill must survive save/reload. These assumptions are engineering decisions requiring explicit traceability, not invented claims that every rule was stated verbatim in the PRDs.
 
@@ -33,13 +33,13 @@ Severity is applied top to bottom: P0 objective impossible, no workaround; P1 da
 | A05 | P1 | Built wrong / AI boundary | Generator defaults absent arrays to empty, clamps invalid levels into 1..5, and deletes/replaces skills outside one transaction. Malformed output can become a complete or partial portfolio. | Static confirmed; runtime pending |
 | A06 | P1 | Built wrong / evidence requirement | Coverage worker promotes partial rows with >=4 probes when absent from the latest updates, without proving evidence sufficiency or actual context expiry. Coverage can be falsely completed. | Static confirmed; runtime pending |
 | A07 | P1 | Built wrong / outcome reporting | Candidate info failures, nonrecoverable WS errors and retry exhaustion render Interview Complete with a recording claim. Candidate may believe an interview was recorded when it never ran. | Static confirmed; browser pending |
-| A08 | P2 | Built wrong / API contract | API comparisons expose `expected_level`; frontend reads `required_level`. Required level disappears although backend delta remains correct. Escalate if observed to corrupt decisions or stored outcomes. | Static confirmed; browser pending |
 | A09 | P1 | Built wrong / authorization assumption | Coverage WebSocket validates JWT and organization but never checks assessor/admin role. A same-tenant ordinary-user token can subscribe to assessment coverage. | Static confirmed; runtime pending |
 | A10 | P1 | Systemic risk / concurrency | Multiple browser connections have separate turn counters and independent disconnect timers. Uniqueness errors are swallowed; an old connection's grace timer may end a refreshed interview. EndHandler has a read-before-write race and DB-to-queue failure window. | Hypothesis; controlled reproduction required |
+| A15 | P1 | Built wrong / credential minting | Local admin login accepts a client-selected X-Tenant-Scheme without membership. Valid passwords can mint another organization credential. Runtime: login returns 200 where unauthorized is required. | RED reproduced |
+| A08 | P2 | Built wrong / API contract | API comparisons expose `expected_level`; frontend reads `required_level`. Required level disappears although backend delta remains correct. Escalate if observed to corrupt decisions or stored outcomes. | Static confirmed; browser pending |
 | A11 | P2 | Missing workflow inputs/enforcement | No CI, runnable test suites, change-input gate, release gate or repository-local traceability. RSpec dependencies alone do not form a quality net. Inputs must become enforceable at PR and release boundaries. | Inventory confirmed |
 | A12 | P2 | Missing/ambiguous specification | Invite expiry/revocation, tenant membership, active-assessment editing, reconnect ownership, deadline enforcement while silent, and failed-job recovery lack a complete acceptance/design contract. | Remaining; document assumptions/owners |
 | A13 | P2 | Setup/reproducibility | README/sample ports differ, invite base targets backend, local seed has no admin, database names are hardcoded, frontend has no initial lockfile, console helper queries a missing column. | Confirmed; local workarounds documented |
-| A15 | P1 | Built wrong / credential minting | Local admin login accepts a client-selected X-Tenant-Scheme without membership. Valid passwords can mint another organization credential. Runtime: login returns 200 where unauthorized is required. | RED reproduced |
 | A14 | P2 | Dependency/operational risk | Initial npm resolution reports 7 advisories in build tooling (5 high, 2 moderate); no public untrusted-pattern build input is established. Production configuration has placeholder/inherited hosting settings and no demonstrated provider credential. | Remaining; assess exposure before upgrade |
 
 ## Systemic patterns
@@ -81,12 +81,18 @@ The lifecycle checks reproduce controlled competing/stale callers and queued-del
 
 RED history is retained in independent Git commits, local evidence files and real CI runs. See `02-quality-system.md` for exact links; failed boot/setup runs are labeled separately from behavioral RED runs. No failed regression assertion was weakened to obtain GREEN.
 
-## Post-tag runtime finding: R01 (P1, open)
+## Post-tag runtime finding: R01 (historical P1 reproduction; subsequently fixed)
 
 The earlier final disposition describes controlled cases, not complete live acceptance. Real voice testing exposed premature natural-close orchestration: AI closing words trigger all_covered while coverage analysis is failing, so the verified completion boundary rejects the transition and the candidate remains stuck. Manual termination is required. This is built wrong, P1 (objective requires manual workaround), owner Amos Charlie. See `evidence/runtime-provider-review.md` for repro, impact, sanitized evidence and recovery limits.
 
-Provider model compatibility also failed: list availability did not establish generateContent access. Local configuration now uses a model verified by an actual call; one existing portfolio regenerated successfully. R01 is still open and full acceptance remains pending. No source fix or regression RED for R01 is claimed. A08 remains P2 because the expected-level display was missing while persisted requirements and backend delta were correct.
+Provider model compatibility also failed: list availability did not establish generateContent access. Local configuration now uses a model verified by an actual call; one existing portfolio regenerated successfully. At that reproduction point R01 was open and had no new regression/fix; the subsequent corrective disposition below supersedes that historical status. Full acceptance remains pending. A08 remains P2 because the expected-level display was missing while persisted requirements and backend delta were correct.
 
 ## R01 corrective disposition
 
 R01 is fixed for reproduced failure/timeout paths. Verified preparation is shared by natural closing, injected wrap-up and phrase fallback. Unverified closure persists error and emits a failed terminal outcome; verified coverage still drains and acknowledges. Timeout preserves actual persisted reason and checks connection ownership. Browser completion rejection has bounded retries and terminal cleanup stops capture/playback plus pending work. Five API checks and three page checks were RED before the respective fixes; assertions are retained unchanged. Full net now has 31 API examples and 13 UI checks. See PR #5 and quality-system evidence; real full-provider acceptance still pending.
+
+## Final input review and classification
+
+See `non-code-review.md` for the exact non-code file inventory and scoped confidentiality checks. Built-wrong findings concern implemented behavior violating recorded contracts (A01-A09, A15 and R01); A10 is a systemic integrity risk reproduced under controlled conditions. Missing/ambiguous inputs are A11/A12; A11 workflow enforcement is corrected, while repository-local PRDs/tickets and product-policy inputs remain incomplete. A13 includes model compatibility: 404 is an account/configuration observation; the conscious local recovery and subsequent 503 are documented in `setup-local.md`.
+
+R means runtime finding discovered after the first tag and recorded in the risk register. R01 is P1 because the objective required manual termination. Documentation corrections after the tag are on main; candidate source is unchanged. No original-source history review is claimed.
