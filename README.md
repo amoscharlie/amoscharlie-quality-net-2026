@@ -13,4 +13,4 @@ Assessment deliverables:
 - [Defense learning guide](assessment/04-defense-guide.md)
 - [Final submission review](assessment/05-submission-review.md)
 
-Production release is BLOCKED until real provider/voice acceptance is verified. Deterministic checks deliberately run offline and do not claim model suitability or audio timing.
+Production release is BLOCKED by open P1 R01 (automatic termination stalls) and incomplete real provider/voice acceptance. Deterministic checks deliberately run offline and do not claim model suitability or audio timing.

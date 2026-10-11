@@ -29,3 +29,7 @@ Practice live defense using 04-defense-guide.md. Be ready to explain one tenant-
 - [Passed and merged PR](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/2)
 - [Immutable candidate](https://github.com/amoscharlie/amoscharlie-quality-net-2026/tree/v1.0.0-rc.1)
 - [Candidate CI and enforced release decision](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070843981)
+
+## Post-tag correction
+
+Live local testing found R01 P1 open (unverified natural closing stalls). Local voice/transcript and one portfolio regenerate were observed after ignored model configuration changes, but full acceptance remains pending. Audit and risk register now disclose R01; initial deterministic counts remain historical. PDF files stay local and are uploaded separately to the submission platform. No submission is claimed. See `evidence/runtime-provider-review.md`.
