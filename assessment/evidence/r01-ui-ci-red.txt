@@ -1,0 +1,730 @@
+api	Run bundle exec rspec --format documentation	﻿2026-10-11T13:15:22.6928570Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6928822Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6979847Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6979983Z env:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980085Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980199Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980318Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980433Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980601Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980806Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6980975Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6981136Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:22.6981278Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9274068Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9274729Z Randomized with seed 23366
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9275042Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9275215Z Result ownership boundary
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9820606Z   A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:23.9926702Z   allows owner export and preserves the stored level
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0022759Z   A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0149338Z   A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0210861Z   A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0211136Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0211258Z Login organization authority
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0341676Z   allows bound admin login using only the server-owned organization
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0394260Z   A15 cannot mint an organization credential from a client supplied scheme without membership
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0448297Z   rejects even a bound admin when the requested organization differs
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0448703Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0448874Z Lifecycle competing callers
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0503166Z 2026-10-11T13:15:24.050Z pid=2783 tid=6bz INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0526414Z   recovers persisted pending work without another candidate request
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0648224Z   A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0754758Z   A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0868574Z   A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.0947101Z   A10 duplicate delivery does not regenerate an already complete result
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1052867Z   A10 retries a durable pending portfolio after queue delivery fails
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1053136Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1053236Z R01 interview termination outcomes
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1134034Z   ends with error rather than crashing on timeout with unverified coverage (FAILED - 1)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1177549Z   fails truthfully when AI closes with unverified coverage instead of entering draining (FAILED - 2)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1464855Z   ends verified coverage once on server timeout if acknowledgment is missing
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1631737Z   preserves the persisted error reason when a delayed poll sees an ended session (FAILED - 3)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1689156Z   waits for audio acknowledgment when coverage is verified
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1689408Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1689502Z Persisted evidence boundaries
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1799457Z   A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.1902984Z   A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2021316Z   publishes a valid grounded rating without changing its level or evidence
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2112677Z   A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2205222Z   A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2297607Z   A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2297850Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2302722Z Coverage::StateEngine
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2306424Z   requires two probes before a proposed covered skill can advance past initiated
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2310958Z   cannot erase persisted coverage with a regressive or unknown model update
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2311217Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2311328Z Candidate completion boundary
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2392118Z   A07 candidate recovery info preserves the persisted failure reason
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2449436Z   A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2520294Z   A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2648994Z   ends covered sessions once, preserving duration and a single portfolio
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2716696Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2716775Z Failures:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2716872Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2717122Z   1) R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2717581Z      Failure/Error: expect(session.reload.end_reason).to eq('error')
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2717802Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2717882Z        expected: "error"
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2718081Z             got: nil
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2718186Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2718274Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2718569Z      # ./spec/services/interview_termination_spec.rb:36:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2718826Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2719109Z   2) R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2719595Z      Failure/Error: expect(session.reload.end_reason).to eq('error')
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2719805Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2719875Z        expected: "error"
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2720058Z             got: nil
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2720158Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2720233Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2720524Z      # ./spec/services/interview_termination_spec.rb:21:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2720773Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2721033Z   3) R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2721486Z      Failure/Error: expect(events).to include(hash_including(type:'session_ended',reason:'error'))
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2721848Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2722046Z        expected [{:reason => "all_covered", :type => "session_ended"}] to include hash_including(:type => "session_ended", :reason => "error")
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2722328Z        Diff:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2722469Z        @@ -1 +1 @@
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2722624Z        -[hash_including(:type=>"session_ended", :reason=>"error")]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2722826Z        +[{:reason=>"all_covered", :type=>"session_ended"}]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723060Z      # ./spec/services/interview_termination_spec.rb:43:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723236Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723322Z Finished in 0.3381 seconds (files took 1.08 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723501Z 31 examples, 3 failures
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723577Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723624Z Failed examples:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723692Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2723948Z rspec ./spec/services/interview_termination_spec.rb:33 # R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2724515Z rspec ./spec/services/interview_termination_spec.rb:19 # R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2725081Z rspec ./spec/services/interview_termination_spec.rb:39 # R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2725382Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2725436Z Randomized with seed 23366
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2725655Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:15:24.2930080Z ##[error]Process completed with exit code 1.
+web	Run npm test	﻿2026-10-11T13:15:06.8201220Z ##[group]Run npm test
+web	Run npm test	2026-10-11T13:15:06.8201559Z ^[[36;1mnpm test^[[0m
+web	Run npm test	2026-10-11T13:15:06.8272101Z shell: /usr/bin/bash -e {0}
+web	Run npm test	2026-10-11T13:15:06.8272451Z ##[endgroup]
+web	Run npm test	2026-10-11T13:15:06.9438599Z 
+web	Run npm test	2026-10-11T13:15:06.9439384Z > skill-review-web@0.0.0 test
+web	Run npm test	2026-10-11T13:15:06.9440066Z > vitest run
+web	Run npm test	2026-10-11T13:15:06.9440323Z 
+web	Run npm test	2026-10-11T13:15:07.2777073Z 
+web	Run npm test	2026-10-11T13:15:07.2813176Z ^[[1m^[[30m^[[46m RUN ^[[49m^[[39m^[[22m ^[[36mv5.0.3 ^[[39m^[[90m/home/runner/work/amoscharlie-quality-net-2026/amoscharlie-quality-net-2026/web^[[39m
+web	Run npm test	2026-10-11T13:15:07.2822304Z 
+web	Run npm test	2026-10-11T13:15:09.2723566Z  ^[[32m✓^[[39m src/test/audio-outcome.test.tsx ^[[2m(^[[22m^[[2m4 tests^[[22m^[[2m)^[[22m^[[32m 54^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:09.9715530Z  ^[[31m❯^[[39m src/test/completion-ack.test.tsx ^[[2m(^[[22m^[[2m3 tests^[[22m^[[2m | ^[[22m^[[31m3 failed^[[39m^[[2m)^[[22m^[[33m 369^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:09.9717847Z ^[[31m   ^[[31m×^[[31m R01 permanent completion rejection becomes failed and stops recording without retries^[[39m^[[32m 238^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:09.9720174Z ^[[31m   ^[[31m×^[[31m R01 transient completion failures stop after a bounded retry budget^[[39m^[[32m 107^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:09.9722504Z ^[[31m   ^[[31m×^[[31m R01 server error cancels outstanding acknowledgment work and stops the microphone^[[39m^[[32m 21^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5747811Z  ^[[32m✓^[[39m src/test/risk-paths.test.tsx ^[[2m(^[[22m^[[2m6 tests^[[22m^[[2m)^[[22m^[[33m 516^[[2mms^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5785069Z 
+web	Run npm test	2026-10-11T13:15:10.5786120Z ^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m^[[1m^[[41m Failed Tests 3 ^[[49m^[[22m^[[31m⎯⎯⎯⎯⎯⎯⎯^[[39m
+web	Run npm test	2026-10-11T13:15:10.5786668Z 
+web	Run npm test	2026-10-11T13:15:10.5790614Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/completion-ack.test.tsx^[[2m > ^[[22mR01 permanent completion rejection becomes failed and stops recording without retries
+web	Run npm test	2026-10-11T13:15:10.5799378Z ^[[31m^[[1mTestingLibraryElementError^[[22m^[[39m: Unable to find an accessible element with the role "alert"
+web	Run npm test	2026-10-11T13:15:10.5800996Z 
+web	Run npm test	2026-10-11T13:15:10.5801697Z Here are the accessible roles:
+web	Run npm test	2026-10-11T13:15:10.5802124Z 
+web	Run npm test	2026-10-11T13:15:10.5802319Z   paragraph:
+web	Run npm test	2026-10-11T13:15:10.5802571Z 
+web	Run npm test	2026-10-11T13:15:10.5802726Z   Name "":
+web	Run npm test	2026-10-11T13:15:10.5803241Z   ^[[36m<p^[[39m
+web	Run npm test	2026-10-11T13:15:10.5803938Z     ^[[33mclass^[[39m=^[[32m"text-xs text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5804650Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5804881Z 
+web	Run npm test	2026-10-11T13:15:10.5805189Z   --------------------------------------------------
+web	Run npm test	2026-10-11T13:15:10.5805729Z   button:
+web	Run npm test	2026-10-11T13:15:10.5805925Z 
+web	Run npm test	2026-10-11T13:15:10.5806083Z   Name "Mic On":
+web	Run npm test	2026-10-11T13:15:10.5806542Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5810353Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5814065Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5814336Z 
+web	Run npm test	2026-10-11T13:15:10.5814528Z   Name "End Interview":
+web	Run npm test	2026-10-11T13:15:10.5815037Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5815650Z     ^[[33maria-expanded^[[39m=^[[32m"false"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5816396Z     ^[[33maria-haspopup^[[39m=^[[32m"dialog"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5820489Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5824311Z     ^[[33mdata-state^[[39m=^[[32m"closed"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5825041Z     ^[[33mtype^[[39m=^[[32m"button"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5825674Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5825905Z 
+web	Run npm test	2026-10-11T13:15:10.5826609Z   Name "⚡ Force reconnect":
+web	Run npm test	2026-10-11T13:15:10.5827155Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5831704Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5834940Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5835193Z 
+web	Run npm test	2026-10-11T13:15:10.5835490Z   --------------------------------------------------
+web	Run npm test	2026-10-11T13:15:10.5835888Z 
+web	Run npm test	2026-10-11T13:15:10.5836210Z Ignored nodes: comments, script, style
+web	Run npm test	2026-10-11T13:15:10.5836781Z ^[[36m<body>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5837201Z   ^[[36m<div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5837628Z     ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5838416Z       ^[[33mclass^[[39m=^[[32m"max-w-xl mx-auto px-4 flex flex-col h-full"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5839174Z     ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5839601Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5840676Z         ^[[33mclass^[[39m=^[[32m"flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5841923Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5842362Z         ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.5843068Z           ^[[33mclass^[[39m=^[[32m"text-sm font-medium"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5843688Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5844191Z           ^[[0mSkill Review^[[0m
+web	Run npm test	2026-10-11T13:15:10.5844718Z         ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5845191Z         ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.5846277Z           ^[[33mclass^[[39m=^[[32m"font-mono text-sm font-medium tabular-nums text-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5847220Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5847701Z           ^[[0m⏱ ^[[0m
+web	Run npm test	2026-10-11T13:15:10.5848159Z           ^[[0m10:00^[[0m
+web	Run npm test	2026-10-11T13:15:10.5848663Z         ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5849231Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5849691Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5850664Z         ^[[33mclass^[[39m=^[[32m"flex-1 flex flex-col items-center justify-center gap-6 py-8"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5852040Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5852506Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5853354Z           ^[[33mclass^[[39m=^[[32m"flex flex-col items-center gap-2 text-center"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5854110Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5854595Z           ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5855391Z             ^[[33mclass^[[39m=^[[32m"flex flex-col items-center gap-3"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5856143Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5856619Z             ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5857361Z               ^[[33mclass^[[39m=^[[32m"flex items-end gap-1 h-10"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5858077Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5858591Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5859710Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5861640Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0s; animation-duration: 0.6s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5862569Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5863167Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5864265Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5865658Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.1s; animation-duration: 0.8s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5866540Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5867067Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5868156Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5869524Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.2s; animation-duration: 1s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5870372Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5871198Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5872814Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5874553Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5875475Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5876001Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5877051Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5878398Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.4s; animation-duration: 0.8s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5879210Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5879704Z             ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5880217Z             ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.5881299Z               ^[[33mclass^[[39m=^[[32m"text-sm text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5882078Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5882646Z               ^[[0mAI speaking^[[0m
+web	Run npm test	2026-10-11T13:15:10.5883244Z             ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5883783Z           ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5884280Z           ^[[36m<p^[[39m
+web	Run npm test	2026-10-11T13:15:10.5885029Z             ^[[33mclass^[[39m=^[[32m"text-xs text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5885759Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5886298Z             ^[[0mWrapping up...^[[0m
+web	Run npm test	2026-10-11T13:15:10.5886826Z           ^[[36m</p>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5887336Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5887801Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5888255Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5889369Z         ^[[33mclass^[[39m=^[[32m"border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5890392Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5891127Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5892072Z           ^[[33mclass^[[39m=^[[32m"flex items-center gap-1.5 text-xs text-green-600"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5892936Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5893453Z           ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.5894290Z             ^[[33mclass^[[39m=^[[32m"h-1.5 w-1.5 rounded-full bg-green-500"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5895098Z           ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5895620Z           ^[[0mConnected^[[0m
+web	Run npm test	2026-10-11T13:15:10.5896143Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5896584Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.5897198Z           ^[[33mclass^[[39m=^[[32m"flex items-center gap-3"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5897844Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5898280Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5902457Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5905592Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5906092Z             ^[[36m<svg^[[39m
+web	Run npm test	2026-10-11T13:15:10.5906723Z               ^[[33maria-hidden^[[39m=^[[32m"true"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5907660Z               ^[[33mclass^[[39m=^[[32m"lucide lucide-mic h-3.5 w-3.5 mr-1.5"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5908479Z               ^[[33mfill^[[39m=^[[32m"none"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5909140Z               ^[[33mheight^[[39m=^[[32m"24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5909832Z               ^[[33mstroke^[[39m=^[[32m"currentColor"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5910578Z               ^[[33mstroke-linecap^[[39m=^[[32m"round"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5911607Z               ^[[33mstroke-linejoin^[[39m=^[[32m"round"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5912684Z               ^[[33mstroke-width^[[39m=^[[32m"2"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5913446Z               ^[[33mviewBox^[[39m=^[[32m"0 0 24 24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5914104Z               ^[[33mwidth^[[39m=^[[32m"24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5914906Z               ^[[33mxmlns^[[39m=^[[32m"http://www.w3.org/2000/svg"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5915858Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5916520Z               ^[[36m<path^[[39m
+web	Run npm test	2026-10-11T13:15:10.5917356Z                 ^[[33md^[[39m=^[[32m"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5918094Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5918578Z               ^[[36m<path^[[39m
+web	Run npm test	2026-10-11T13:15:10.5919254Z                 ^[[33md^[[39m=^[[32m"M19 10v2a7 7 0 0 1-14 0v-2"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5919845Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5920306Z               ^[[36m<line^[[39m
+web	Run npm test	2026-10-11T13:15:10.5921169Z                 ^[[33mx1^[[39m=^[[32m"12"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5921799Z                 ^[[33mx2^[[39m=^[[32m"12"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5922425Z                 ^[[33my1^[[39m=^[[32m"19"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5923130Z                 ^[[33my2^[[39m=^[[32m"22"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5923667Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5924148Z             ^[[36m</svg>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5924629Z             ^[[0m Mic On^[[0m
+web	Run npm test	2026-10-11T13:15:10.5925124Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5925609Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5926201Z             ^[[33maria-expanded^[[39m=^[[32m"false"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5926931Z             ^[[33maria-haspopup^[[39m=^[[32m"dialog"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5930981Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5934307Z             ^[[33mdata-state^[[39m=^[[32m"closed"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5935088Z             ^[[33mtype^[[39m=^[[32m"button"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5935706Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5936258Z             ^[[0mEnd Interview^[[0m
+web	Run npm test	2026-10-11T13:15:10.5936824Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5937326Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5941671Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5944814Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5945395Z             ^[[0m⚡ Force reconnect^[[0m
+web	Run npm test	2026-10-11T13:15:10.5946067Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5946561Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5946990Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5947396Z     ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5947784Z   ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5948188Z ^[[36m</body>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5949338Z ^[[90m ^[[2m❯^[[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:^[[2m37:19^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5951096Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m76:38^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5952565Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m52:17^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5953964Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m95:19^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5955186Z ^[[36m ^[[2m❯^[[22m src/test/completion-ack.test.tsx:^[[2m17:16^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5956681Z     ^[[90m 15|^[[39m  m.audioComplete.mockRejectedValue({response:{status:422}});await setu…
+web	Run npm test	2026-10-11T13:15:10.5957761Z     ^[[90m 16|^[[39m  await act(async()=>m.state('draining_audio'));
+web	Run npm test	2026-10-11T13:15:10.5958729Z     ^[[90m 17|^[[39m  expect(screen.getByRole('alert')).toBeInTheDocument();
+web	Run npm test	2026-10-11T13:15:10.5959561Z     ^[[90m   |^[[39m                ^[[31m^^[[39m
+web	Run npm test	2026-10-11T13:15:10.5960580Z     ^[[90m 18|^[[39m  expect(m.stop).toHaveBeenCalled();expect(m.playStop).toHaveBeenCalled…
+web	Run npm test	2026-10-11T13:15:10.5962614Z     ^[[90m 19|^[[39m  await act(async()=>vi.advanceTimersByTimeAsync(60000));expect(m.audio…
+web	Run npm test	2026-10-11T13:15:10.5963166Z 
+web	Run npm test	2026-10-11T13:15:10.5963596Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.5963981Z 
+web	Run npm test	2026-10-11T13:15:10.5965148Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/completion-ack.test.tsx^[[2m > ^[[22mR01 transient completion failures stop after a bounded retry budget
+web	Run npm test	2026-10-11T13:15:10.5966907Z ^[[31m^[[1mTestingLibraryElementError^[[22m^[[39m: Unable to find an accessible element with the role "alert"
+web	Run npm test	2026-10-11T13:15:10.5967668Z 
+web	Run npm test	2026-10-11T13:15:10.5967938Z Here are the accessible roles:
+web	Run npm test	2026-10-11T13:15:10.5968246Z 
+web	Run npm test	2026-10-11T13:15:10.5968403Z   paragraph:
+web	Run npm test	2026-10-11T13:15:10.5968618Z 
+web	Run npm test	2026-10-11T13:15:10.5968762Z   Name "":
+web	Run npm test	2026-10-11T13:15:10.5969155Z   ^[[36m<p^[[39m
+web	Run npm test	2026-10-11T13:15:10.5969809Z     ^[[33mclass^[[39m=^[[32m"text-xs text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5970487Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5970692Z 
+web	Run npm test	2026-10-11T13:15:10.5971420Z   --------------------------------------------------
+web	Run npm test	2026-10-11T13:15:10.5971955Z   button:
+web	Run npm test	2026-10-11T13:15:10.5972157Z 
+web	Run npm test	2026-10-11T13:15:10.5972316Z   Name "Mic On":
+web	Run npm test	2026-10-11T13:15:10.5972761Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5976449Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5979323Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5979557Z 
+web	Run npm test	2026-10-11T13:15:10.5979731Z   Name "End Interview":
+web	Run npm test	2026-10-11T13:15:10.5980216Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5981022Z     ^[[33maria-expanded^[[39m=^[[32m"false"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5981792Z     ^[[33maria-haspopup^[[39m=^[[32m"dialog"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5985667Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5989270Z     ^[[33mdata-state^[[39m=^[[32m"closed"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5990059Z     ^[[33mtype^[[39m=^[[32m"button"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5990598Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5991027Z 
+web	Run npm test	2026-10-11T13:15:10.5991289Z   Name "⚡ Force reconnect":
+web	Run npm test	2026-10-11T13:15:10.5991785Z   ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.5995642Z     ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"^[[39m
+web	Run npm test	2026-10-11T13:15:10.5998789Z   ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.5999023Z 
+web	Run npm test	2026-10-11T13:15:10.5999301Z   --------------------------------------------------
+web	Run npm test	2026-10-11T13:15:10.5999689Z 
+web	Run npm test	2026-10-11T13:15:10.5999988Z Ignored nodes: comments, script, style
+web	Run npm test	2026-10-11T13:15:10.6000547Z ^[[36m<body>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6001243Z   ^[[36m<div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6001709Z     ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6002495Z       ^[[33mclass^[[39m=^[[32m"max-w-xl mx-auto px-4 flex flex-col h-full"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6003205Z     ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6003628Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6004694Z         ^[[33mclass^[[39m=^[[32m"flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6005908Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6006342Z         ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.6007161Z           ^[[33mclass^[[39m=^[[32m"text-sm font-medium"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6007745Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6008205Z           ^[[0mSkill Review^[[0m
+web	Run npm test	2026-10-11T13:15:10.6008669Z         ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6009171Z         ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.6010029Z           ^[[33mclass^[[39m=^[[32m"font-mono text-sm font-medium tabular-nums text-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6011091Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6011576Z           ^[[0m⏱ ^[[0m
+web	Run npm test	2026-10-11T13:15:10.6012050Z           ^[[0m10:00^[[0m
+web	Run npm test	2026-10-11T13:15:10.6012563Z         ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6013051Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6013514Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6014446Z         ^[[33mclass^[[39m=^[[32m"flex-1 flex flex-col items-center justify-center gap-6 py-8"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6015307Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6015787Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6016657Z           ^[[33mclass^[[39m=^[[32m"flex flex-col items-center gap-2 text-center"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6017533Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6017979Z           ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6018743Z             ^[[33mclass^[[39m=^[[32m"flex flex-col items-center gap-3"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6019421Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6019863Z             ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6020550Z               ^[[33mclass^[[39m=^[[32m"flex items-end gap-1 h-10"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6021510Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6021984Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6023002Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6024316Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0s; animation-duration: 0.6s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6025120Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6025617Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6026689Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6028132Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.1s; animation-duration: 0.8s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6028920Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6029458Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6030574Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6032311Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.2s; animation-duration: 1s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6033212Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6033756Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6034789Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6036286Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6037312Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6037837Z               ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6038888Z                 ^[[33mclass^[[39m=^[[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6040338Z                 ^[[33mstyle^[[39m=^[[32m"animation-delay: 0.4s; animation-duration: 0.8s;"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6041496Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6042038Z             ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6042620Z             ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.6043432Z               ^[[33mclass^[[39m=^[[32m"text-sm text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6044230Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6044803Z               ^[[0mAI speaking^[[0m
+web	Run npm test	2026-10-11T13:15:10.6045362Z             ^[[36m</span>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6045879Z           ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6046437Z           ^[[36m<p^[[39m
+web	Run npm test	2026-10-11T13:15:10.6047169Z             ^[[33mclass^[[39m=^[[32m"text-xs text-muted-foreground"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6048240Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6049102Z             ^[[0mWrapping up...^[[0m
+web	Run npm test	2026-10-11T13:15:10.6049684Z           ^[[36m</p>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6050192Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6050678Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6051434Z       ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6052591Z         ^[[33mclass^[[39m=^[[32m"border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6053636Z       ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6054092Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6054976Z           ^[[33mclass^[[39m=^[[32m"flex items-center gap-1.5 text-xs text-green-600"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6055786Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6056248Z           ^[[36m<span^[[39m
+web	Run npm test	2026-10-11T13:15:10.6057072Z             ^[[33mclass^[[39m=^[[32m"h-1.5 w-1.5 rounded-full bg-green-500"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6057813Z           ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6058294Z           ^[[0mConnected^[[0m
+web	Run npm test	2026-10-11T13:15:10.6058805Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6059284Z         ^[[36m<div^[[39m
+web	Run npm test	2026-10-11T13:15:10.6059977Z           ^[[33mclass^[[39m=^[[32m"flex items-center gap-3"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6061528Z         ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6062066Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.6065861Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6069059Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6069550Z             ^[[36m<svg^[[39m
+web	Run npm test	2026-10-11T13:15:10.6070196Z               ^[[33maria-hidden^[[39m=^[[32m"true"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6071430Z               ^[[33mclass^[[39m=^[[32m"lucide lucide-mic h-3.5 w-3.5 mr-1.5"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6072393Z               ^[[33mfill^[[39m=^[[32m"none"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6073140Z               ^[[33mheight^[[39m=^[[32m"24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6073923Z               ^[[33mstroke^[[39m=^[[32m"currentColor"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6074726Z               ^[[33mstroke-linecap^[[39m=^[[32m"round"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6075570Z               ^[[33mstroke-linejoin^[[39m=^[[32m"round"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6076402Z               ^[[33mstroke-width^[[39m=^[[32m"2"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6077179Z               ^[[33mviewBox^[[39m=^[[32m"0 0 24 24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6077910Z               ^[[33mwidth^[[39m=^[[32m"24"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6078780Z               ^[[33mxmlns^[[39m=^[[32m"http://www.w3.org/2000/svg"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6079483Z             ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6079977Z               ^[[36m<path^[[39m
+web	Run npm test	2026-10-11T13:15:10.6081176Z                 ^[[33md^[[39m=^[[32m"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6082054Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6082645Z               ^[[36m<path^[[39m
+web	Run npm test	2026-10-11T13:15:10.6083441Z                 ^[[33md^[[39m=^[[32m"M19 10v2a7 7 0 0 1-14 0v-2"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6084133Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6084664Z               ^[[36m<line^[[39m
+web	Run npm test	2026-10-11T13:15:10.6085273Z                 ^[[33mx1^[[39m=^[[32m"12"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6085942Z                 ^[[33mx2^[[39m=^[[32m"12"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6086587Z                 ^[[33my1^[[39m=^[[32m"19"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6088121Z                 ^[[33my2^[[39m=^[[32m"22"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6088861Z               ^[[36m/>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6089496Z             ^[[36m</svg>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6090127Z             ^[[0m Mic On^[[0m
+web	Run npm test	2026-10-11T13:15:10.6090693Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6091577Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.6092245Z             ^[[33maria-expanded^[[39m=^[[32m"false"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6093073Z             ^[[33maria-haspopup^[[39m=^[[32m"dialog"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6097424Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6101158Z             ^[[33mdata-state^[[39m=^[[32m"closed"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6101968Z             ^[[33mtype^[[39m=^[[32m"button"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6125439Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6126146Z             ^[[0mEnd Interview^[[0m
+web	Run npm test	2026-10-11T13:15:10.6126855Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6127465Z           ^[[36m<button^[[39m
+web	Run npm test	2026-10-11T13:15:10.6132101Z             ^[[33mclass^[[39m=^[[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"^[[39m
+web	Run npm test	2026-10-11T13:15:10.6135701Z           ^[[36m>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6136376Z             ^[[0m⚡ Force reconnect^[[0m
+web	Run npm test	2026-10-11T13:15:10.6137038Z           ^[[36m</button>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6137642Z         ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6138185Z       ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6138737Z     ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6139241Z   ^[[36m</div>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6139926Z ^[[36m</body>^[[39m
+web	Run npm test	2026-10-11T13:15:10.6141629Z ^[[90m ^[[2m❯^[[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:^[[2m37:19^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6143611Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m76:38^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6145369Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m52:17^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6147169Z ^[[90m ^[[2m❯^[[22m node_modules/@testing-library/dom/dist/query-helpers.js:^[[2m95:19^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6148714Z ^[[36m ^[[2m❯^[[22m src/test/completion-ack.test.tsx:^[[2m25:16^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6149861Z     ^[[90m 23|^[[39m  await act(async()=>m.state('draining_audio'));
+web	Run npm test	2026-10-11T13:15:10.6151292Z     ^[[90m 24|^[[39m  await act(async()=>vi.advanceTimersByTimeAsync(60000));
+web	Run npm test	2026-10-11T13:15:10.6152757Z     ^[[90m 25|^[[39m  expect(screen.getByRole('alert')).toBeInTheDocument();expect(m.audioC…
+web	Run npm test	2026-10-11T13:15:10.6153922Z     ^[[90m   |^[[39m                ^[[31m^^[[39m
+web	Run npm test	2026-10-11T13:15:10.6154576Z     ^[[90m 26|^[[39m });
+web	Run npm test	2026-10-11T13:15:10.6155631Z     ^[[90m 27|^[[39m it('R01 server error cancels outstanding acknowledgment work and stops…
+web	Run npm test	2026-10-11T13:15:10.6156323Z 
+web	Run npm test	2026-10-11T13:15:10.6156873Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6157353Z 
+web	Run npm test	2026-10-11T13:15:10.6158940Z ^[[41m^[[1m FAIL ^[[22m^[[49m src/test/completion-ack.test.tsx^[[2m > ^[[22mR01 server error cancels outstanding acknowledgment work and stops the microphone
+web	Run npm test	2026-10-11T13:15:10.6161344Z ^[[31m^[[1mAssertionError^[[22m: expected "vi.fn()" to be called 1 times, but got 9 times^[[39m
+web	Run npm test	2026-10-11T13:15:10.6162790Z ^[[36m ^[[2m❯^[[22m src/test/completion-ack.test.tsx:^[[2m31:26^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6164093Z     ^[[90m 29|^[[39m  await act(async()=>m.state('draining_audio'));await act(async()=>m.st…
+web	Run npm test	2026-10-11T13:15:10.6165427Z     ^[[90m 30|^[[39m  await act(async()=>vi.advanceTimersByTimeAsync(60000));
+web	Run npm test	2026-10-11T13:15:10.6166867Z     ^[[90m 31|^[[39m  expect(m.audioComplete).toHaveBeenCalledTimes(1);expect(m.stop).toHav…
+web	Run npm test	2026-10-11T13:15:10.6168101Z     ^[[90m   |^[[39m                          ^[[31m^^[[39m
+web	Run npm test	2026-10-11T13:15:10.6168787Z     ^[[90m 32|^[[39m });
+web	Run npm test	2026-10-11T13:15:10.6169381Z     ^[[90m 33|^[[39m
+web	Run npm test	2026-10-11T13:15:10.6169664Z 
+web	Run npm test	2026-10-11T13:15:10.6170208Z ^[[31m^[[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯^[[22m^[[39m
+web	Run npm test	2026-10-11T13:15:10.6171411Z 
+web	Run npm test	2026-10-11T13:15:10.6171821Z 
+web	Run npm test	2026-10-11T13:15:10.6172865Z ^[[2m Test Files ^[[22m ^[[1m^[[31m1 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m2 passed^[[39m^[[22m^[[90m (3)^[[39m
+web	Run npm test	2026-10-11T13:15:10.6174547Z ^[[2m      Tests ^[[22m ^[[1m^[[31m3 failed^[[39m^[[22m^[[2m | ^[[22m^[[1m^[[32m10 passed^[[39m^[[22m^[[90m (13)^[[39m
+web	Run npm test	2026-10-11T13:15:10.6175676Z ^[[2m   Start at ^[[22m 13:15:07
+web	Run npm test	2026-10-11T13:15:10.6177065Z ^[[2m   Duration ^[[22m 3.28s^[[2m (environment 52%, import 15%, tests 13%, setup 11%, transform 9%, worker 1%)^[[22m
+web	Run npm test	2026-10-11T13:15:10.6177933Z 
+web	Run npm test	2026-10-11T13:15:10.6177949Z 
+web	Run npm test	2026-10-11T13:15:10.6244496Z ##[error]TestingLibraryElementError: Unable to find an accessible element with the role "alert"
+web	Run npm test	
+web	Run npm test	Here are the accessible roles:
+web	Run npm test	
+web	Run npm test	  paragraph:
+web	Run npm test	
+web	Run npm test	  Name "":
+web	Run npm test	  <p
+web	Run npm test	    class="text-xs text-muted-foreground"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  --------------------------------------------------
+web	Run npm test	  button:
+web	Run npm test	
+web	Run npm test	  Name "Mic On":
+web	Run npm test	  <button
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  Name "End Interview":
+web	Run npm test	  <button
+web	Run npm test	    aria-expanded="false"
+web	Run npm test	    aria-haspopup="dialog"
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"
+web	Run npm test	    data-state="closed"
+web	Run npm test	    type="button"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  Name "⚡ Force reconnect":
+web	Run npm test	  <button
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  --------------------------------------------------
+web	Run npm test	
+web	Run npm test	Ignored nodes: comments, script, style
+web	Run npm test	<body>
+web	Run npm test	  <div>
+web	Run npm test	    <div
+web	Run npm test	      class="max-w-xl mx-auto px-4 flex flex-col h-full"
+web	Run npm test	    >
+web	Run npm test	      <div
+web	Run npm test	        class="flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"
+web	Run npm test	      >
+web	Run npm test	        <span
+web	Run npm test	          class="text-sm font-medium"
+web	Run npm test	        >
+web	Run npm test	          Skill Review
+web	Run npm test	        </span>
+web	Run npm test	        <span
+web	Run npm test	          class="font-mono text-sm font-medium tabular-nums text-foreground"
+web	Run npm test	        >
+web	Run npm test	          ⏱ 
+web	Run npm test	          10:00
+web	Run npm test	        </span>
+web	Run npm test	      </div>
+web	Run npm test	      <div
+web	Run npm test	        class="flex-1 flex flex-col items-center justify-center gap-6 py-8"
+web	Run npm test	      >
+web	Run npm test	        <div
+web	Run npm test	          class="flex flex-col items-center gap-2 text-center"
+web	Run npm test	        >
+web	Run npm test	          <div
+web	Run npm test	            class="flex flex-col items-center gap-3"
+web	Run npm test	          >
+web	Run npm test	            <div
+web	Run npm test	              class="flex items-end gap-1 h-10"
+web	Run npm test	            >
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0s; animation-duration: 0.6s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.1s; animation-duration: 0.8s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.2s; animation-duration: 1s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.4s; animation-duration: 0.8s;"
+web	Run npm test	              />
+web	Run npm test	            </div>
+web	Run npm test	            <span
+web	Run npm test	              class="text-sm text-muted-foreground"
+web	Run npm test	            >
+web	Run npm test	              AI speaking
+web	Run npm test	            </span>
+web	Run npm test	          </div>
+web	Run npm test	          <p
+web	Run npm test	            class="text-xs text-muted-foreground"
+web	Run npm test	          >
+web	Run npm test	            Wrapping up...
+web	Run npm test	          </p>
+web	Run npm test	        </div>
+web	Run npm test	      </div>
+web	Run npm test	      <div
+web	Run npm test	        class="border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"
+web	Run npm test	      >
+web	Run npm test	        <div
+web	Run npm test	          class="flex items-center gap-1.5 text-xs text-green-600"
+web	Run npm test	        >
+web	Run npm test	 
+web	Run npm test	2026-10-11T13:15:10.6266994Z 
+web	Run npm test	2026-10-11T13:15:10.6324169Z ##[error]TestingLibraryElementError: Unable to find an accessible element with the role "alert"
+web	Run npm test	
+web	Run npm test	Here are the accessible roles:
+web	Run npm test	
+web	Run npm test	  paragraph:
+web	Run npm test	
+web	Run npm test	  Name "":
+web	Run npm test	  <p
+web	Run npm test	    class="text-xs text-muted-foreground"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  --------------------------------------------------
+web	Run npm test	  button:
+web	Run npm test	
+web	Run npm test	  Name "Mic On":
+web	Run npm test	  <button
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  Name "End Interview":
+web	Run npm test	  <button
+web	Run npm test	    aria-expanded="false"
+web	Run npm test	    aria-haspopup="dialog"
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"
+web	Run npm test	    data-state="closed"
+web	Run npm test	    type="button"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  Name "⚡ Force reconnect":
+web	Run npm test	  <button
+web	Run npm test	    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"
+web	Run npm test	  />
+web	Run npm test	
+web	Run npm test	  --------------------------------------------------
+web	Run npm test	
+web	Run npm test	Ignored nodes: comments, script, style
+web	Run npm test	<body>
+web	Run npm test	  <div>
+web	Run npm test	    <div
+web	Run npm test	      class="max-w-xl mx-auto px-4 flex flex-col h-full"
+web	Run npm test	    >
+web	Run npm test	      <div
+web	Run npm test	        class="flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"
+web	Run npm test	      >
+web	Run npm test	        <span
+web	Run npm test	          class="text-sm font-medium"
+web	Run npm test	        >
+web	Run npm test	          Skill Review
+web	Run npm test	        </span>
+web	Run npm test	        <span
+web	Run npm test	          class="font-mono text-sm font-medium tabular-nums text-foreground"
+web	Run npm test	        >
+web	Run npm test	          ⏱ 
+web	Run npm test	          10:00
+web	Run npm test	        </span>
+web	Run npm test	      </div>
+web	Run npm test	      <div
+web	Run npm test	        class="flex-1 flex flex-col items-center justify-center gap-6 py-8"
+web	Run npm test	      >
+web	Run npm test	        <div
+web	Run npm test	          class="flex flex-col items-center gap-2 text-center"
+web	Run npm test	        >
+web	Run npm test	          <div
+web	Run npm test	            class="flex flex-col items-center gap-3"
+web	Run npm test	          >
+web	Run npm test	            <div
+web	Run npm test	              class="flex items-end gap-1 h-10"
+web	Run npm test	            >
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0s; animation-duration: 0.6s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.1s; animation-duration: 0.8s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.2s; animation-duration: 1s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"
+web	Run npm test	              />
+web	Run npm test	              <div
+web	Run npm test	                class="w-1.5 rounded-full transition-all bg-primary animate-voice-bar"
+web	Run npm test	                style="animation-delay: 0.4s; animation-duration: 0.8s;"
+web	Run npm test	              />
+web	Run npm test	            </div>
+web	Run npm test	            <span
+web	Run npm test	              class="text-sm text-muted-foreground"
+web	Run npm test	            >
+web	Run npm test	              AI speaking
+web	Run npm test	            </span>
+web	Run npm test	          </div>
+web	Run npm test	          <p
+web	Run npm test	            class="text-xs text-muted-foreground"
+web	Run npm test	          >
+web	Run npm test	            Wrapping up...
+web	Run npm test	          </p>
+web	Run npm test	        </div>
+web	Run npm test	      </div>
+web	Run npm test	      <div
+web	Run npm test	        class="border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"
+web	Run npm test	      >
+web	Run npm test	        <div
+web	Run npm test	          class="flex items-center gap-1.5 text-xs text-green-600"
+web	Run npm test	        >
+web	Run npm test	 
+web	Run npm test	2026-10-11T13:15:10.6347083Z 
+web	Run npm test	2026-10-11T13:15:10.6349578Z ##[error]AssertionError: expected "vi.fn()" to be called 1 times, but got 9 times
+web	Run npm test	 ❯ src/test/completion-ack.test.tsx:31:26
+web	Run npm test	
+web	Run npm test	
+web	Run npm test	2026-10-11T13:15:10.6363688Z ##[error]Process completed with exit code 1.

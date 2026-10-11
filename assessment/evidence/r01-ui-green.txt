@@ -1,0 +1,13 @@
+
+> skill-review-web@0.0.0 test
+> vitest run --run src/test/completion-ack.test.tsx
+
+
+ RUN  v5.0.3 <workspace>/web
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  20:14:40
+   Duration  1.46s (environment 44%, tests 22%, import 15%, transform 12%, setup 8%)
+
