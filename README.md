@@ -9,7 +9,7 @@ Assessment deliverables:
 - [Audit and final finding dispositions](assessment/01-audit.md)
 - [Quality system, checks and CI evidence](assessment/02-quality-system.md)
 - [Version-bound release decision](assessment/03-release-decision.md)
-- [Release candidate notes](assessment/releases/v1.0.0-rc.1.md)
+- [Release candidate notes](RELEASE_NOTES.md)
 - [Defense learning guide](assessment/04-defense-guide.md)
 - [Final submission review](assessment/05-submission-review.md)
 
