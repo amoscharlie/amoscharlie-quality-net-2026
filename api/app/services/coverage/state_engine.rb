@@ -52,3 +52,5 @@ module Coverage
     end
   end
 end
+
+# Gate demonstration: intentionally lacks mandatory change inputs and regression evidence.
