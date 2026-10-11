@@ -63,10 +63,16 @@ Main protection requires inputs/api/web, strict up-to-date checks, linear histor
 
 ## Post-tag gap found by real-provider testing
 
-Controlled checks did not cover a provider analysis failure combined with AI natural closing. R01 remains open: the verified completion guard rejects the false all-covered claim, but orchestration stalls. Local portfolio recovery succeeded after model configuration changes; no new regression or fix is claimed. Current release gate also blocks R01 via the updated risk register. See `evidence/runtime-provider-review.md`.
+Controlled checks did not cover a provider analysis failure combined with AI natural closing. At the initial runtime reproduction R01 was open: the verified completion guard rejects the false all-covered claim, but orchestration stalls. Local portfolio recovery succeeded after model configuration changes; no new regression or fix is claimed. That historical register blocked R01; the corrective update below fixes it, leaving full live acceptance pending. See `evidence/runtime-provider-review.md`.
 
 ## R01 RED-to-GREEN correction
 
 [PR #5](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/5) reproduces natural-close without coverage, unverified timeout and a delayed poll overwriting the visible error reason. [Initial CI RED](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142252746) has 31 examples / 3 failures. Separate frontend checks reproduce permanent rejection, retry exhaustion and terminal cleanup. Original assertions are unchanged by the application fixes. Targeted evidence: r01-red.txt, r01-ui-red.txt, r01-green.txt, r01-ui-green.txt. Full current net: 31 API examples, 13 UI checks, 16 Node checks and TypeScript/Vite build. Live acceptance remains separate.
 
 R01 final fix [CI GREEN](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142655884): inputs/API/web passed. Frontend [CI RED](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142399376) was captured before the fix. The corrective tag runs the same net and retains blocked pending live acceptance.
+
+## Final evidence cross-check
+
+R01 backend spec is byte-identical between regression commit f409a20 and fix 51f4f73; frontend completion spec is byte-identical between cc4cb77 and 51f4f73 (`git diff` for each spec is empty). This assertion-retention claim concerns those R01 checks, not a blanket claim that every test file throughout history stayed unchanged. Current candidate net is 31 API / 13 UI / 16 Node plus build. Final PR GREEN: [38142793005](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142793005); rc.2 tag: [38144026361](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38144026361), quality jobs pass and release BLOCKED.
+
+The release gate reads declared evidence/status; it cannot prevent a dishonest acceptance checkbox. Owner review of actual dated scenario evidence is required. A next release needs full live acceptance evidence in a reviewed change, resolved new P0/P1, a new immutable tag and green quality/release jobs. Changed-test detection can admit whitespace-only changes; gate metadata does not replace assertion review.
