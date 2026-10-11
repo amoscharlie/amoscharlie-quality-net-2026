@@ -64,3 +64,7 @@ Main protection requires inputs/api/web, strict up-to-date checks, linear histor
 ## Post-tag gap found by real-provider testing
 
 Controlled checks did not cover a provider analysis failure combined with AI natural closing. R01 remains open: the verified completion guard rejects the false all-covered claim, but orchestration stalls. Local portfolio recovery succeeded after model configuration changes; no new regression or fix is claimed. Current release gate also blocks R01 via the updated risk register. See `evidence/runtime-provider-review.md`.
+
+## R01 RED-to-GREEN correction
+
+[PR #5](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/5) reproduces natural-close without coverage, unverified timeout and a delayed poll overwriting the visible error reason. [Initial CI RED](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142252746) has 31 examples / 3 failures. Separate frontend checks reproduce permanent rejection, retry exhaustion and terminal cleanup. Original assertions are unchanged by the application fixes. Targeted evidence: r01-red.txt, r01-ui-red.txt, r01-green.txt, r01-ui-green.txt. Full current net: 31 API examples, 13 UI checks, 16 Node checks and TypeScript/Vite build. Live acceptance remains separate.

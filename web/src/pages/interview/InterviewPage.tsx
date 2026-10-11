@@ -56,6 +56,7 @@ export default function InterviewPage() {
   const unmuteRef = useRef<(() => void) | null>(null);
 
   const handleStateChange = useCallback((state: InterviewState) => {
+    if (state === "failed" || state === "complete") completionTerminalRef.current = true;
     setInterviewState(state);
 
     if (state === "draining_audio") {
@@ -97,6 +98,8 @@ export default function InterviewPage() {
 
   const { playChunk, stop: stopPlayback, scheduleAfterPlayback, waitForDrain, cancelDrain } = useAudioPlayback();
   const audioCompleteCalledRef = useRef(false);
+  const completionTerminalRef = useRef(false);
+  const completionRetryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const audioCompleteSafetyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const callAudioComplete = useCallback(async () => {
@@ -107,16 +110,23 @@ export default function InterviewPage() {
       clearTimeout(audioCompleteSafetyTimerRef.current);
       audioCompleteSafetyTimerRef.current = null;
     }
-    // Retry until success — endpoint now always returns ended:true or an error.
-    // ended:false is no longer a valid response; any success means the session ended.
-    const attempt = async (delay: number) => {
+    const attempt = async (number: number) => {
+      if (completionTerminalRef.current) return;
       try {
         await sessionsApi.audioComplete(token);
-      } catch {
-        setTimeout(() => attempt(Math.min(delay * 2, 8000)), delay);
+        // The socket or bounded server fallback confirms the actual end reason.
+      } catch (error) {
+        if (completionTerminalRef.current) return;
+        const status = (error as { response?: { status?: number } }).response?.status;
+        if ((status && status >= 400 && status < 500) || number >= 3) {
+          completionTerminalRef.current = true;
+          setInterviewState("failed");
+          return;
+        }
+        completionRetryTimerRef.current = setTimeout(() => attempt(number + 1), 2000 * number);
       }
     };
-    attempt(2000);
+    attempt(1);
   }, [token, cancelDrain]);
 
   const handleSpeakerChange = useCallback((newSpeaker: InterviewSpeaker) => {
@@ -144,6 +154,23 @@ export default function InterviewPage() {
   const { start: startCapture, stop: stopCapture, mute, unmute } = useAudioCapture({
     onFrame: send,
   });
+
+  useEffect(() => {
+    if (interviewState !== "failed" && interviewState !== "complete") return;
+    completionTerminalRef.current = true;
+    if (audioCompleteSafetyTimerRef.current) clearTimeout(audioCompleteSafetyTimerRef.current);
+    if (completionRetryTimerRef.current) clearTimeout(completionRetryTimerRef.current);
+    cancelDrain();
+    stopCapture();
+    stopPlayback();
+    disconnect();
+  }, [interviewState, cancelDrain, stopCapture, stopPlayback, disconnect]);
+
+  useEffect(() => () => {
+    completionTerminalRef.current = true;
+    if (audioCompleteSafetyTimerRef.current) clearTimeout(audioCompleteSafetyTimerRef.current);
+    if (completionRetryTimerRef.current) clearTimeout(completionRetryTimerRef.current);
+  }, []);
 
   muteRef.current = mute;
   unmuteRef.current = unmute;

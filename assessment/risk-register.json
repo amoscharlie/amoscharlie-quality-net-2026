@@ -93,10 +93,10 @@
     {
       "id": "R01",
       "severity": "P1",
-      "status": "open",
+      "status": "fixed",
       "owner": "Amos Charlie",
       "impact": "Natural AI closing triggers unverified all_covered; completion is rejected but session/UI stalls, requiring manual termination.",
-      "evidence": "assessment/evidence/runtime-provider-review.md"
+      "evidence": "api/spec/services/interview_termination_spec.rb and web/src/test/completion-ack.test.tsx; RED then unchanged assertions GREEN."
     }
   ],
   "requiredChecks": [
@@ -108,7 +108,7 @@
     {
       "id": "live_provider_interview",
       "status": "pending",
-      "evidence": "Local voice/transcript observed and portfolio regenerated successfully; coverage failure and R01 termination stall remain. Full acceptance pending. See assessment/evidence/runtime-provider-review.md."
+      "evidence": "Local voice/transcript and regenerated portfolio observed; R01 controlled regression fixed in PR #5. Full coverage/termination/review/comparison/export live acceptance pending."
     }
   ]
 }

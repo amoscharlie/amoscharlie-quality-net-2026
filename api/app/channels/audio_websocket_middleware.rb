@@ -259,9 +259,7 @@ class AudioWebSocketMiddleware
           EM.add_timer(15) do
             next if state.ending_scheduled
             Rails.logger.warn("[AudioWS] on_model_turn_complete delayed — finalizing via closing-phrase fallback (session=#{session.id})")
-            state.ending_scheduled = true
-            send_json(browser_ws, type: 'preparing_to_end', reason: 'all_covered')
-            poll_for_session_end(browser_ws, state, session, attempts: 0)
+            prepare_verified_coverage_end(browser_ws, state, session)
           end
         end
       end
@@ -563,10 +561,7 @@ class AudioWebSocketMiddleware
 
   def finalize_after_wrap_up(browser_ws, state, session)
     state.coverage_end_timer&.cancel
-    state.ending_scheduled = true
-    Rails.logger.info("[AudioWS] Wrap-up turn complete — finalizing session #{session.id}")
-    send_json(browser_ws, type: 'preparing_to_end', reason: 'all_covered')
-    poll_for_session_end(browser_ws, state, session, attempts: 0)
+    prepare_verified_coverage_end(browser_ws, state, session)
   end
 
   # Wait for candidate response before injecting wrap-up so silence pump doesn't fire premature close;
@@ -590,10 +585,38 @@ class AudioWebSocketMiddleware
 
   def finalize_natural_close(browser_ws, state, session)
     state.coverage_end_timer&.cancel
+    prepare_verified_coverage_end(browser_ws, state, session)
+  end
+
+  # Closing speech is not proof of coverage. Check persisted facts off the reactor
+  # before requesting an acknowledgment the HTTP boundary can actually accept.
+  def prepare_verified_coverage_end(browser_ws, state, session)
+    return if state.ending_scheduled
     state.ending_scheduled = true
-    Rails.logger.info("[AudioWS] AI closed naturally — finalizing session #{session.id}")
-    send_json(browser_ws, type: 'preparing_to_end', reason: 'all_covered')
-    poll_for_session_end(browser_ws, state, session, attempts: 0)
+    Thread.new do
+      ActiveRecord::Base.connection_pool.with_connection do
+        session.reload
+        next if state.connection_id && session.audio_connection_id != state.connection_id
+        if session.ended?
+          close_session_after_end(browser_ws, state, reason: session.end_reason)
+        elsif Coverage::MapInjector.new(session).all_covered?
+          EM.schedule do
+            send_json(browser_ws, type: 'preparing_to_end', reason: 'all_covered')
+            poll_for_session_end(browser_ws, state, session, attempts: 0)
+          end
+        else
+          Sessions::EndHandler.new(session).call(reason: 'error', connection_id: state.connection_id)
+          close_session_after_end(browser_ws, state, reason: session.reload.end_reason) if session.ended?
+        end
+      end
+    rescue StandardError => e
+      Rails.logger.error("[AudioWS] Coverage termination failed: #{e.class}")
+      EM.schedule do
+        send_json(browser_ws, type: 'error', message: 'Interview completion could not be verified.', recoverable: false)
+        state.gemini_client&.close
+        browser_ws.close
+      end
+    end
   end
 
   # Polls until the session is ended (via audio_complete API call) or max_attempts is reached.
@@ -603,13 +626,16 @@ class AudioWebSocketMiddleware
     EM.add_timer(1) do
       Thread.new do
         ActiveRecord::Base.connection_pool.with_connection do
-          if session.reload.ended?
+          session.reload
+          next if state.connection_id && session.audio_connection_id != state.connection_id
+          if session.ended?
             Rails.logger.info("[AudioWS] Session #{session.id} ended via audio_complete — closing WebSocket")
-            close_session_after_end(browser_ws, state, reason: 'all_covered')
+            close_session_after_end(browser_ws, state, reason: session.end_reason)
           elsif attempts >= max_attempts
             Rails.logger.warn("[AudioWS] audio_complete poll timed out — ending session #{session.id} directly")
-            Sessions::EndHandler.new(session).call(reason: 'all_covered')
-            close_session_after_end(browser_ws, state, reason: 'all_covered')
+            reason = Coverage::MapInjector.new(session).all_covered? ? 'all_covered' : 'error'
+            Sessions::EndHandler.new(session).call(reason: reason, connection_id: state.connection_id)
+            close_session_after_end(browser_ws, state, reason: session.reload.end_reason) if session.ended?
           else
             EM.schedule { poll_for_session_end(browser_ws, state, session, attempts: attempts + 1) }
           end

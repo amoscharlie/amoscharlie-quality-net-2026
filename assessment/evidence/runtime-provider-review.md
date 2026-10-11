@@ -21,3 +21,7 @@ Affected boundaries: `audio_websocket_middleware.rb` closing fallback/natural cl
 No new regression RED or code fix for R01 has been committed. Owner: Amos Charlie. Release BLOCKED. Next: regression for provider-analysis failure plus natural closing; repair terminal/error behavior without weakening coverage checks; rerun CI and full live acceptance.
 
 Successful local regenerate does not establish semantic scoring accuracy, complete coverage, review/override, comparison/export, load capacity or the tagged candidate's provider configuration. Immutable rc.1 remains unchanged.
+
+## Corrective update (PR #5)
+
+The open finding above records the original runtime reproduction. Five backend checks initially had three behavioral failures; three frontend checks all failed (unbounded retries and cleanup). The fix preserves all assertions and makes both checks GREEN. Natural/injected/phrase closing share persisted verification. Invalid coverage yields ended/error rather than false success or draining loop; verified coverage retains acknowledgment plus bounded server fallback. Delayed polls preserve stored reason and connection ownership. Browser permanent rejection fails immediately, transient errors stop at three attempts, terminal events cancel retries and recording. No full live acceptance claim follows from this controlled fix.

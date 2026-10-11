@@ -14,5 +14,8 @@
   "candidate_ci": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38070843981",
   "candidate_quality_jobs": "inputs/api/web passed",
   "candidate_release_job": "failed: live_provider_interview unverified",
-  "pass_pr_state": "MERGED"
+  "pass_pr_state": "MERGED",
+  "r01_api_red": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142252746",
+  "r01_ui_red": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142399376",
+  "r01_fix_pr": "https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/5"
 }
