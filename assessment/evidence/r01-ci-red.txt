@@ -1,0 +1,104 @@
+api	Run bundle exec rspec --format documentation	﻿2026-10-11T13:13:02.7304222Z ##[group]Run bundle exec rspec --format documentation
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7304691Z ^[[36;1mbundle exec rspec --format documentation^[[0m
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7362393Z shell: /usr/bin/bash -e {0}
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7362651Z env:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7362853Z   RAILS_ENV: test
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7363084Z   DB_USERNAME: postgres
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7363334Z   DB_PASSWORD: postgres
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7363565Z   DB_HOST: localhost
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7363876Z   SECRET_KEY_BASE: deterministic-ci-only-not-a-production-secret
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7364269Z   GEMINI_API_KEY: offline-test-provider
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7364585Z   ALLOWED_ORIGINS: http://localhost:5173
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7364894Z   REDIS_URL: redis://localhost:6379/1
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:02.7365168Z ##[endgroup]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.7602984Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.7603767Z Randomized with seed 15116
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.7605023Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.7605282Z Result ownership boundary
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.8483659Z   A01 denies cross-tenant mutation without changing stored override
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.8611047Z   A09 denies a non-assessor coverage subscriber
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.8815638Z   A01 denies cross-tenant fit/gap creation
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9008466Z   allows owner export and preserves the stored level
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9164635Z   A01 denies cross-tenant JSON export
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9165267Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9165683Z Persisted evidence boundaries
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9502052Z   publishes a valid grounded rating without changing its level or evidence
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9692651Z   A05 rejects out-of-range levels instead of silently clamping
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:04.9859285Z   A05 rejects an empty AI response instead of publishing an empty complete portfolio
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0029325Z   A05 rejects invented evidence quotes
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0234016Z 2026-10-11T13:13:05.023Z pid=3044 tid=6k4 INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0258928Z   A06 does not turn absent analysis into evidence of coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0446483Z   A05 preserves prior skills if a replacement response is invalid
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0447215Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0447405Z Login organization authority
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0658828Z   allows bound admin login using only the server-owned organization
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0751539Z   A15 cannot mint an organization credential from a client supplied scheme without membership
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0847786Z   rejects even a bound admin when the requested organization differs
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0848295Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.0848480Z R01 interview termination outcomes
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1281533Z   preserves the persisted error reason when a delayed poll sees an ended session (FAILED - 1)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1370341Z   fails truthfully when AI closes with unverified coverage instead of entering draining (FAILED - 2)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1479399Z   ends with error rather than crashing on timeout with unverified coverage (FAILED - 3)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1698936Z   ends verified coverage once on server timeout if acknowledgment is missing
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1797016Z   waits for audio acknowledgment when coverage is verified
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1797694Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1802590Z Coverage::StateEngine
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1809096Z   requires two probes before a proposed covered skill can advance past initiated
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1818537Z   cannot erase persisted coverage with a regressive or unknown model update
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1819108Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1819276Z Lifecycle competing callers
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.1959028Z   A10 preserves distinct turns arriving with the same connection-local counter
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2166118Z   A10 retries a durable pending portfolio after queue delivery fails
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2308926Z   recovers persisted pending work without another candidate request
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2509643Z   A10 a stale session object cannot queue termination twice
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2632683Z   A10 duplicate delivery does not regenerate an already complete result
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2751653Z   A10 old disconnect timer cannot end a reconnected interview
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2752137Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2752312Z Candidate completion boundary
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2857077Z   A02 rejects completion before the interview started
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.2974938Z   A07 candidate recovery info preserves the persisted failure reason
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3216127Z   ends covered sessions once, preserving duration and a single portfolio
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3331344Z   A02 rejects an active session with uncovered skills
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3447377Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3447692Z Failures:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3447904Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3448560Z   1) R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3449871Z      Failure/Error: expect(events).to include(hash_including(type:'session_ended',reason:'error'))
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3450531Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3451210Z        expected [{:reason => "all_covered", :type => "session_ended"}] to include hash_including(:type => "session_ended", :reason => "error")
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3452257Z        Diff:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3452500Z        @@ -1 +1 @@
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3452812Z        -[hash_including(:type=>"session_ended", :reason=>"error")]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3453344Z        +[{:reason=>"all_covered", :type=>"session_ended"}]
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3454139Z      # ./spec/services/interview_termination_spec.rb:43:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3454698Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3455308Z   2) R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3456466Z      Failure/Error: expect(session.reload.end_reason).to eq('error')
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3457220Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3457387Z        expected: "error"
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3457768Z             got: nil
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3457989Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3458139Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3459087Z      # ./spec/services/interview_termination_spec.rb:21:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3459678Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3460250Z   3) R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3461311Z      Failure/Error: expect(session.reload.end_reason).to eq('error')
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3461788Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3461941Z        expected: "error"
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3462316Z             got: nil
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3462527Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3462682Z        (compared using ==)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3463321Z      # ./spec/services/interview_termination_spec.rb:36:in `block (2 levels) in <main>'
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3463928Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3464202Z Finished in 0.57362 seconds (files took 1.75 seconds to load)
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3464758Z 31 examples, 3 failures
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3464998Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3465134Z Failed examples:
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3465351Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3466280Z rspec ./spec/services/interview_termination_spec.rb:39 # R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3468578Z rspec ./spec/services/interview_termination_spec.rb:19 # R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3470602Z rspec ./spec/services/interview_termination_spec.rb:33 # R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3471644Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3471803Z Randomized with seed 15116
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3472068Z 
+api	Run bundle exec rspec --format documentation	2026-10-11T13:13:05.3709214Z ##[error]Process completed with exit code 1.

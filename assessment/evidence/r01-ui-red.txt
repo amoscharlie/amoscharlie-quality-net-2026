@@ -1,0 +1,394 @@
+
+> skill-review-web@0.0.0 test
+> vitest run --run src/test/completion-ack.test.tsx
+
+
+ RUN  v5.0.3 <workspace>/web
+
+ ❯ src/test/completion-ack.test.tsx (3 tests | 3 failed) 138ms
+   × R01 permanent completion rejection becomes failed and stops recording without retries 112ms
+   × R01 transient completion failures stop after a bounded retry budget 18ms
+   × R01 server error cancels outstanding acknowledgment work and stops the microphone 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/completion-ack.test.tsx > R01 permanent completion rejection becomes failed and stops recording without retries
+TestingLibraryElementError: Unable to find an accessible element with the role "alert"
+
+Here are the accessible roles:
+
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"text-xs text-muted-foreground"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Mic On":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+  [36m/>[39m
+
+  Name "End Interview":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "⚡ Force reconnect":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"max-w-xl mx-auto px-4 flex flex-col h-full"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"text-sm font-medium"[39m
+        [36m>[39m
+          [0mSkill Review[0m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"font-mono text-sm font-medium tabular-nums text-foreground"[39m
+        [36m>[39m
+          [0m⏱ [0m
+          [0m10:00[0m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex-1 flex flex-col items-center justify-center gap-6 py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex flex-col items-center gap-2 text-center"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col items-center gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-end gap-1 h-10"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0s; animation-duration: 0.6s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.1s; animation-duration: 0.8s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.2s; animation-duration: 1s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.4s; animation-duration: 0.8s;"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"text-sm text-muted-foreground"[39m
+            [36m>[39m
+              [0mAI speaking[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<p[39m
+            [33mclass[39m=[32m"text-xs text-muted-foreground"[39m
+          [36m>[39m
+            [0mWrapping up...[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex items-center gap-1.5 text-xs text-green-600"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"h-1.5 w-1.5 rounded-full bg-green-500"[39m
+          [36m/>[39m
+          [0mConnected[0m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex items-center gap-3"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-mic h-3.5 w-3.5 mr-1.5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M19 10v2a7 7 0 0 1-14 0v-2"[39m
+              [36m/>[39m
+              [36m<line[39m
+                [33mx1[39m=[32m"12"[39m
+                [33mx2[39m=[32m"12"[39m
+                [33my1[39m=[32m"19"[39m
+                [33my2[39m=[32m"22"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m Mic On[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-expanded[39m=[32m"false"[39m
+            [33maria-haspopup[39m=[32m"dialog"[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+            [33mdata-state[39m=[32m"closed"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mEnd Interview[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"[39m
+          [36m>[39m
+            [0m⚡ Force reconnect[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/test/completion-ack.test.tsx:17:16
+     15|  m.audioComplete.mockRejectedValue({response:{status:422}});await setu…
+     16|  await act(async()=>m.state('draining_audio'));
+     17|  expect(screen.getByRole('alert')).toBeInTheDocument();
+       |                ^
+     18|  expect(m.stop).toHaveBeenCalled();expect(m.playStop).toHaveBeenCalled…
+     19|  await act(async()=>vi.advanceTimersByTimeAsync(60000));expect(m.audio…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/test/completion-ack.test.tsx > R01 transient completion failures stop after a bounded retry budget
+TestingLibraryElementError: Unable to find an accessible element with the role "alert"
+
+Here are the accessible roles:
+
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"text-xs text-muted-foreground"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Mic On":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+  [36m/>[39m
+
+  Name "End Interview":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "⚡ Force reconnect":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"max-w-xl mx-auto px-4 flex flex-col h-full"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex items-center justify-between py-3 border-b sticky top-12 bg-white z-10"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"text-sm font-medium"[39m
+        [36m>[39m
+          [0mSkill Review[0m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"font-mono text-sm font-medium tabular-nums text-foreground"[39m
+        [36m>[39m
+          [0m⏱ [0m
+          [0m10:00[0m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex-1 flex flex-col items-center justify-center gap-6 py-8"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex flex-col items-center gap-2 text-center"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col items-center gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-end gap-1 h-10"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0s; animation-duration: 0.6s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.1s; animation-duration: 0.8s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.2s; animation-duration: 1s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.30000000000000004s; animation-duration: 0.6s;"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"w-1.5 rounded-full transition-all bg-primary animate-voice-bar"[39m
+                [33mstyle[39m=[32m"animation-delay: 0.4s; animation-duration: 0.8s;"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"text-sm text-muted-foreground"[39m
+            [36m>[39m
+              [0mAI speaking[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<p[39m
+            [33mclass[39m=[32m"text-xs text-muted-foreground"[39m
+          [36m>[39m
+            [0mWrapping up...[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"border-t py-3 flex items-center justify-between gap-4 sticky bottom-0 bg-white"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex items-center gap-1.5 text-xs text-green-600"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"h-1.5 w-1.5 rounded-full bg-green-500"[39m
+          [36m/>[39m
+          [0mConnected[0m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex items-center gap-3"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-mic h-3.5 w-3.5 mr-1.5"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M19 10v2a7 7 0 0 1-14 0v-2"[39m
+              [36m/>[39m
+              [36m<line[39m
+                [33mx1[39m=[32m"12"[39m
+                [33mx2[39m=[32m"12"[39m
+                [33my1[39m=[32m"19"[39m
+                [33my2[39m=[32m"22"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m Mic On[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-expanded[39m=[32m"false"[39m
+            [33maria-haspopup[39m=[32m"dialog"[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs"[39m
+            [33mdata-state[39m=[32m"closed"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mEnd Interview[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-8 rounded-md px-3 text-xs opacity-50"[39m
+          [36m>[39m
+            [0m⚡ Force reconnect[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/test/completion-ack.test.tsx:25:16
+     23|  await act(async()=>m.state('draining_audio'));
+     24|  await act(async()=>vi.advanceTimersByTimeAsync(60000));
+     25|  expect(screen.getByRole('alert')).toBeInTheDocument();expect(m.audioC…
+       |                ^
+     26| });
+     27| it('R01 server error cancels outstanding acknowledgment work and stops…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/test/completion-ack.test.tsx > R01 server error cancels outstanding acknowledgment work and stops the microphone
+AssertionError: expected "vi.fn()" to be called 1 times, but got 9 times
+ ❯ src/test/completion-ack.test.tsx:31:26
+     29|  await act(async()=>m.state('draining_audio'));await act(async()=>m.st…
+     30|  await act(async()=>vi.advanceTimersByTimeAsync(60000));
+     31|  expect(m.audioComplete).toHaveBeenCalledTimes(1);expect(m.stop).toHav…
+       |                          ^
+     32| });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  20:14:10
+   Duration  1.34s (environment 54%, tests 14%, import 11%, transform 11%, setup 10%)
+
