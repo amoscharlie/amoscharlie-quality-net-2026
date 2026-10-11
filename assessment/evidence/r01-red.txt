@@ -1,0 +1,55 @@
+WARNING: Skipping key "SECRET_KEY_BASE". Already set in ENV.
+WARNING: Skipping key "GEMINI_API_KEY". Already set in ENV.
+WARNING: Skipping key "ALLOWED_ORIGINS". Already set in ENV.
+
+Randomized with seed 59934
+
+R01 interview termination outcomes
+  waits for audio acknowledgment when coverage is verified
+  fails truthfully when AI closes with unverified coverage instead of entering draining (FAILED - 1)
+2026-10-11T13:12:02.714Z pid=41411 tid=rbb INFO: Sidekiq 7.3.10 connecting to Redis with options {:size=>10, :pool_name=>"internal", :url=>"redis://localhost:6379/1"}
+  ends verified coverage once on server timeout if acknowledgment is missing
+  preserves the persisted error reason when a delayed poll sees an ended session (FAILED - 2)
+  ends with error rather than crashing on timeout with unverified coverage (FAILED - 3)
+
+Failures:
+
+  1) R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+     Failure/Error: expect(session.reload.end_reason).to eq('error')
+
+       expected: "error"
+            got: nil
+
+       (compared using ==)
+     # ./spec/services/interview_termination_spec.rb:21:in `block (2 levels) in <top (required)>'
+
+  2) R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+     Failure/Error: expect(events).to include(hash_including(type:'session_ended',reason:'error'))
+
+       expected [{:reason => "all_covered", :type => "session_ended"}] to include hash_including(:type => "session_ended", :reason => "error")
+       Diff:
+       @@ -1 +1 @@
+       -[hash_including(:type=>"session_ended", :reason=>"error")]
+       +[{:reason=>"all_covered", :type=>"session_ended"}]
+     # ./spec/services/interview_termination_spec.rb:43:in `block (2 levels) in <top (required)>'
+
+  3) R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+     Failure/Error: expect(session.reload.end_reason).to eq('error')
+
+       expected: "error"
+            got: nil
+
+       (compared using ==)
+     # ./spec/services/interview_termination_spec.rb:36:in `block (2 levels) in <top (required)>'
+
+Finished in 0.37915 seconds (files took 0.88513 seconds to load)
+5 examples, 3 failures
+
+Failed examples:
+
+rspec ./spec/services/interview_termination_spec.rb:19 # R01 interview termination outcomes fails truthfully when AI closes with unverified coverage instead of entering draining
+rspec ./spec/services/interview_termination_spec.rb:39 # R01 interview termination outcomes preserves the persisted error reason when a delayed poll sees an ended session
+rspec ./spec/services/interview_termination_spec.rb:33 # R01 interview termination outcomes ends with error rather than crashing on timeout with unverified coverage
+
+Randomized with seed 59934
+
