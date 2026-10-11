@@ -80,3 +80,9 @@ Release is blocked until reproducible checks cover A01-A07 and A09 and identifie
 The lifecycle checks reproduce controlled competing/stale callers and queued-delivery failure. They do not establish multi-process load capacity or audio latency. Exact candidate-quote grounding does not prove that a model's level or skill attribution is semantically correct. Real provider/voice acceptance is still pending and independently blocks production release.
 
 RED history is retained in independent Git commits, local evidence files and real CI runs. See `02-quality-system.md` for exact links; failed boot/setup runs are labeled separately from behavioral RED runs. No failed regression assertion was weakened to obtain GREEN.
+
+## Post-tag runtime finding: R01 (P1, open)
+
+The earlier final disposition describes controlled cases, not complete live acceptance. Real voice testing exposed premature natural-close orchestration: AI closing words trigger all_covered while coverage analysis is failing, so the verified completion boundary rejects the transition and the candidate remains stuck. Manual termination is required. This is built wrong, P1 (objective requires manual workaround), owner Amos Charlie. See `evidence/runtime-provider-review.md` for repro, impact, sanitized evidence and recovery limits.
+
+Provider model compatibility also failed: list availability did not establish generateContent access. Local configuration now uses a model verified by an actual call; one existing portfolio regenerated successfully. R01 is still open and full acceptance remains pending. No source fix or regression RED for R01 is claimed. A08 remains P2 because the expected-level display was missing while persisted requirements and backend delta were correct.

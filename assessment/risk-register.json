@@ -89,6 +89,14 @@
       "severity": "P1",
       "status": "fixed",
       "owner": "Amos Charlie"
+    },
+    {
+      "id": "R01",
+      "severity": "P1",
+      "status": "open",
+      "owner": "Amos Charlie",
+      "impact": "Natural AI closing triggers unverified all_covered; completion is rejected but session/UI stalls, requiring manual termination.",
+      "evidence": "assessment/evidence/runtime-provider-review.md"
     }
   ],
   "requiredChecks": [
@@ -100,7 +108,7 @@
     {
       "id": "live_provider_interview",
       "status": "pending",
-      "evidence": "No configured provider credential or real voice interview evidence; no assumption of success"
+      "evidence": "Local voice/transcript observed and portfolio regenerated successfully; coverage failure and R01 termination stall remain. Full acceptance pending. See assessment/evidence/runtime-provider-review.md."
     }
   ]
 }
