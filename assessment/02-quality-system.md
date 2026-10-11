@@ -68,3 +68,5 @@ Controlled checks did not cover a provider analysis failure combined with AI nat
 ## R01 RED-to-GREEN correction
 
 [PR #5](https://github.com/amoscharlie/amoscharlie-quality-net-2026/pull/5) reproduces natural-close without coverage, unverified timeout and a delayed poll overwriting the visible error reason. [Initial CI RED](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142252746) has 31 examples / 3 failures. Separate frontend checks reproduce permanent rejection, retry exhaustion and terminal cleanup. Original assertions are unchanged by the application fixes. Targeted evidence: r01-red.txt, r01-ui-red.txt, r01-green.txt, r01-ui-green.txt. Full current net: 31 API examples, 13 UI checks, 16 Node checks and TypeScript/Vite build. Live acceptance remains separate.
+
+R01 final fix [CI GREEN](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142655884): inputs/API/web passed. Frontend [CI RED](https://github.com/amoscharlie/amoscharlie-quality-net-2026/actions/runs/38142399376) was captured before the fix. The corrective tag runs the same net and retains blocked pending live acceptance.
